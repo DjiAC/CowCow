@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    public class Game
+    public class Jeu
     {
     }
 }
