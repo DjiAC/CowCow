@@ -1,0 +1,17 @@
+﻿<Window x:Class="Mow.NouvellePartie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NouvellePartie" Height="768" Width="1024">
+    <Grid Width="1024" Height="768">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="860*"/>
+            <ColumnDefinition Width="81*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="nouvelle_partie" Content="NOUVELLE PARTIE" HorizontalAlignment="Left" Margin="337,278,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" Height="60" FontSize="24"/>
+        <TextBlock x:Name="titre" Margin="320,54,0,0" TextWrapping="Wrap" Text="MOWJOW" Height="38" Width="247" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"/>
+        <Button x:Name="charger_partie" Content="CHARGER PARTIE" HorizontalAlignment="Left" Margin="337,448,0,0" VerticalAlignment="Top" Width="230" Grid.Column="1" Height="60" FontSize="24"/>
+        <Button x:Name="menu" Content="MENU" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
