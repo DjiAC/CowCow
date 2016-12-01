@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Mow
 {
     /// <summary>
-    /// Logique d'interaction pour OptionsPartie.xaml
+    /// Logique d'interaction pour Jeu.xaml
     /// </summary>
-    public partial class OptionsPartie : Window
+    public partial class Jeu : Window
     {
-        public OptionsPartie()
+        public Jeu()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

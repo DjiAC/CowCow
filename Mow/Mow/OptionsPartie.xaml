@@ -16,6 +16,12 @@
         <TextBox x:Name="nbjoueurs_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="75" Margin="595,319,0,0" TextWrapping="Wrap" Text="Nombre limite de mouches" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Button x:Name="lancement" Content="LANCER" Grid.Column="1" HorizontalAlignment="Center" Margin="595,616,101,61" VerticalAlignment="Center" Width="265" Height="60" FontSize="36" Cursor="Hand"/>
         <Button x:Name="menu" Content="MENU" Grid.Column="1" HorizontalAlignment="Left" Margin="36,10,0,0" VerticalAlignment="Top" Width="131" Cursor="Hand" Height="35" FontSize="16"/>
+        <TextBox x:Name="nbjoueurs_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="nbjoueurs_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="nbjoueurs_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="humains_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="314,436,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <ComboBox x:Name="humains_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="314,496,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <ComboBox x:Name="humains_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="314,560,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
 
     </Grid>
 </Window>
