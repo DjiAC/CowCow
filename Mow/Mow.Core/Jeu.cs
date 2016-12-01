@@ -8,6 +8,19 @@ namespace Mow.Core
 {
     public class Jeu
     {
+
     // test
+        /// <summary>
+        ///   The main entry point for the application
+        /// </summary>
+        public static void Main(){
+            Console.WriteLine("===== Le jeu commence =====");
+
+            Partie MaPartie = new Partie();
+
+
+            
+        }
+
     }
 }

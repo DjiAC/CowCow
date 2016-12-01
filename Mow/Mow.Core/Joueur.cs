@@ -8,5 +8,10 @@ namespace Mow.Core
 {
     class Joueur
     {
+        public Joueur(){
+            Console.WriteLine("===== Instanciation du joueur =====");
+        }
+        public string Nom {get; set;}
+        
     }
 }
