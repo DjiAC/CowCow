@@ -12,7 +12,7 @@ namespace Mow.Core
     /// </summary>
     class Carte 
     {
-        public enum TypeDeCarte { VacheNormale, VacheSpeciale}   // type de carte par C
+        public enum TypeDeCarte { VacheNormale, VacheAcrobate, VacheRetardataire, VacheSerreFile}   // type de carte par C
 
         public int NumeroDeCarte { get; set; }        // numéro de la carte par C
 

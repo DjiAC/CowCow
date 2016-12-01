@@ -45,7 +45,9 @@
     <Compile Include="CarteSpeciale.cs" />
     <Compile Include="Jeu.cs" />
     <Compile Include="Joueur.cs" />
+    <Compile Include="Manche.cs" />
     <Compile Include="Partie.cs" />
+    <Compile Include="Pioche.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Troupeau.cs" />
   </ItemGroup>

@@ -13,14 +13,19 @@ namespace Mow.Core
 
     class CarteSpeciale : Carte
     {
-        public enum TypeDeCarteSpecial {Acrobate, Retardataire, SerreFile  }   // type de carte spécial par C
 
         //TODO Méethodes des cartes spéciales
 
-        public void Acrobate()
-            {
+        public void Acrobate(TypeDeCarte Type)
+        {
 
-            }
+        }
+
+
+        public void Retardataire(TypeDeCarte Type)
+        {
+
+        }
 
     }
 }
