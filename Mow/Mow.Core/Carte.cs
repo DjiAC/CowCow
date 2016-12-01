@@ -14,16 +14,13 @@ namespace Mow.Core
     {
         // propriété des cartes par C
 
-        public enum TypeDeCarte { VacheNormale, VacheSpeciale}   // type de carte par C
+        public enum TypeDeCarte { VacheNormale, VacheAcrobate, VacheRetardataire, VacheSerreFile}   // type de carte par C
 
         public int NumeroDeCarte { get; set; }        // numéro de la carte par C
 
         public int NombreDeMouche { get; set; }      // nombre de mouche par C
 
-       
-
-     
-
+      
 
     }
 }
