@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    class Carte
-    {
-        public Carte(string n){
-            nom = n;
-        }
-        public string nom = "Generic";
 
-        public void getNom(){
-            Console.WriteLine(nom);
-        }
-        
+    /// <summary>
+    /// Une Carte est définie par un type, un numéro et un nombre de mouche.
+    /// </summary>
+    class Carte 
+    {
+        public enum TypeDeCarte { VacheNormale, VacheSpeciale}   // type de carte par C
+
+        public int NumeroDeCarte { get; set; }        // numéro de la carte par C
+
+        public int NombreDeMouche { get; set; }      // nombre de mouche par C
+
+       
+
+     
+
+
     }
 }

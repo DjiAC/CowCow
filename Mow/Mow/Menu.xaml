@@ -8,9 +8,9 @@
         Title="MainWindow" Height="768" Width="1024">
     <Grid Width="1024" Height="768">
         <Button x:Name="Jouer" Content="JOUER" HorizontalAlignment="Left" Margin="215,303,0,0" VerticalAlignment="Top" Width="226" Height="60" FontSize="24" Cursor="Hand"/>
-        <Button x:Name="statistiques" Content="STATS" HorizontalAlignment="Left" Margin="590,303,0,0" VerticalAlignment="Top" Width="226" Height="60" FontSize="24"/>
-        <Button x:Name="regles" Content="REGLES" HorizontalAlignment="Left" Margin="590,505,0,0" VerticalAlignment="Top" Width="226" Height="60" FontSize="24"/>
-        <Button x:Name="credits" Content="CREDITS" HorizontalAlignment="Left" Margin="216,505,0,0" VerticalAlignment="Top" Width="225" Height="60" FontSize="24"/>
+        <Button x:Name="statistiques" Content="STATS" HorizontalAlignment="Left" Margin="590,303,0,0" VerticalAlignment="Top" Width="226" Height="60" FontSize="24" Cursor="Hand"/>
+        <Button x:Name="regles" Content="REGLES" HorizontalAlignment="Left" Margin="590,505,0,0" VerticalAlignment="Top" Width="226" Height="60" FontSize="24" Cursor="Hand"/>
+        <Button x:Name="credits" Content="CREDITS" HorizontalAlignment="Left" Margin="216,505,0,0" VerticalAlignment="Top" Width="225" Height="60" FontSize="24" Cursor="Hand"/>
         <TextBlock x:Name="titre" Margin="401,54,0,0" TextWrapping="Wrap" Text="MOWJOW" Height="38" Width="247" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
         <TextBox x:Name="equipe" HorizontalAlignment="Left" Height="30" Margin="847,697,0,0" TextWrapping="Wrap" Text="CodingFarmers" VerticalAlignment="Top" Width="159" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontStyle="Italic"/>
 
