@@ -1,0 +1,10 @@
+version: 1.1.{build}
+max_jobs: 1
+configuration: Release
+before_build:
+- cmd: >-
+    nuget sources update -Name nuget.org -Source https://api.nuget.org/v3/index.json
+    
+    nuget restore Mow\Mow.sln -verbosity detailed
+build:
+  verbosity: minimal
