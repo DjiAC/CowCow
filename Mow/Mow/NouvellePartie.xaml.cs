@@ -23,5 +23,11 @@ namespace Mow
         {
             InitializeComponent();
         }
+
+        private void nouvelle_partie_Click(object sender, RoutedEventArgs e)
+        {
+            OptionsPartie nouvelEcran = new OptionsPartie();
+            nouvelEcran.Show();
+        }
     }
 }
