@@ -5,7 +5,8 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="804,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="178" Width="202" FontSize="20"><Run Text="Manches "/><Run Text="&#x9;"/><Run Text="#"/><LineBreak/><Run/><LineBreak/><Run Text="Joueur 1: "/><Run Text="&#x9;"/><Run Text="2"/><LineBreak/><Run Text="Joueur 2: "/><Run Text="&#x9;"/><Run Text="4"/><LineBreak/><Run Text="Joueur 3: "/><Run Text="&#x9;"/><Run Text="10"/></TextBlock>
         <Button Content="MENU" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="52" Height="50"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="290" Margin="229,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="480"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="350" Margin="189,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="550
+                   "/>
         <TextBlock HorizontalAlignment="Left" Margin="862,656,0,0" TextWrapping="Wrap" Text="ETABLE" VerticalAlignment="Top" Height="47" Width="82" FontSize="20"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="804,627,0,0" Stroke="Black" VerticalAlignment="Top" Width="202" Opacity="0.5"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="299,627,0,0" VerticalAlignment="Top" Width="60"/>
@@ -13,17 +14,17 @@
         <Image HorizontalAlignment="Left" Height="110" Margin="423,627,0,0" VerticalAlignment="Top" Width="60"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="483,627,0,0" VerticalAlignment="Top" Width="60"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="548,627,0,0" VerticalAlignment="Top" Width="60"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="229,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Margin="127,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="97"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="372,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="505,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="645,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="64"/>
-        <Image HorizontalAlignment="Left" Height="257" Margin="758,231,0,0" VerticalAlignment="Top" Width="186"/>
-        <TextBox HorizontalAlignment="Left" Height="47" Margin="758,334,0,0" TextWrapping="Wrap" Text="Sens" VerticalAlignment="Top" Width="186" FontSize="18" TextAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Height="31" Margin="299,656,0,0" TextWrapping="Wrap" Text="Nos cartes" VerticalAlignment="Top" Width="309" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="257" Margin="783,231,0,0" VerticalAlignment="Top" Width="186"/>
+        <TextBox HorizontalAlignment="Left" Height="47" Margin="783,334,0,0" TextWrapping="Wrap" Text="Sens" VerticalAlignment="Top" Width="186" FontSize="18" TextAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="148" Margin="229,589,0,0" TextWrapping="Wrap" Text="Nos cartes" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
         <TextBox HorizontalAlignment="Left" Height="49" Margin="10,439,0,0" TextWrapping="Wrap" Text="Manche #" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" FontSize="20"/>
         <TextBox HorizontalAlignment="Left" Height="49" Margin="10,678,0,0" TextWrapping="Wrap" Text="Joueur 1" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" FontSize="20"/>
-        <Image HorizontalAlignment="Left" Height="183" Margin="34,198,0,0" VerticalAlignment="Top" Width="96"/>
         <TextBox HorizontalAlignment="Left" Height="24" Margin="34,274,0,0" TextWrapping="Wrap" Text="Pioche" VerticalAlignment="Top" Width="96"/>
+        <Image HorizontalAlignment="Left" Height="183" Margin="34,198,0,0" VerticalAlignment="Top" Width="96" Opacity="0.5"/>
 
     </Grid>
 </Window>
