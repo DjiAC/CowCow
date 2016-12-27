@@ -9,6 +9,8 @@ namespace Mow.Core
 {
     class Partie
     {
+        public bool Sens { get; set; } // Sens du déroulement - True = horaire / False = anti-horaire
+
         Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
 
         public Partie(){
