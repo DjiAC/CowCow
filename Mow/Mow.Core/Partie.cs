@@ -9,35 +9,52 @@ namespace Mow.Core
 {
     class Partie
     {
+        Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
+
         public Partie(){
+
+            Pioche = new Stack<Carte>();
+
             Console.WriteLine("===== La partie commence =====");
             for (int i=0; i<3; i++) {
                 var MaManche = new Manche(i);
+
+
             }
         }
+        /// <summary>
+        /// Création de la pioche à l'aide d'un fichier Json
+        /// </summary>
+        public void CreerPioche()   // Fait par C
+        {
 
-        public void Json() { 
-        var json = System.IO.File.ReadAllText(@"C:\Users\Charles\Downloads\cartes.json"); // à modifier mettre la source
+            var Json = System.IO.File.ReadAllText(@"..\..\..\Ressources\cartes.json"); // On cherche les cartes 
 
-        var objects = JArray.Parse(json); // parse as array  
-            foreach (JObject root in objects)
+            var Objets = JArray.Parse(Json);                            // On parse le Json en Array
+            foreach (JObject root in Objets)                            // On parcourt chaque carte dans l'array
             {
-                foreach (KeyValuePair<String, JToken> app in root)
+                foreach (KeyValuePair<String, JToken> app in root)      // On parcourt les différentes propriétés d'une carte dans l'array
                 {
-                    var appName = app.Key;
-                    var type = (String)app.Value["Type"];
-                    var nombre = (String)app.Value["Nombre"];
-                    var mouche = (String)app.Value["Mouches"];
+                    
+                    var Type = (String)app.Value["Type"];               // On récupère le type de la carte dans l'array
+                    var Numero = (String)app.Value["Nombre"];           // On récupère le nuémro de la carte dans l'array
+                    var Mouche = (String)app.Value["Mouches"];          // On récupère le nombre de mouches de la carte dans l'array
 
-                    Console.WriteLine(appName);
-                    Console.WriteLine(type);
-                    Console.WriteLine(nombre);
-                    Console.WriteLine(mouche);
-                    Console.WriteLine("\n");
+
+                    Carte NouvelleCarte = new Carte();                  // On crée une nouvelle carte
+
+                    NouvelleCarte.TypeDeCarte = Type;                 //  On instancie son type
+
+                    if (Numero != "")                                   // Certaines cartes n'ont pas de numéro
+                        NouvelleCarte.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
+
+                    NouvelleCarte.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
+                    Pioche.Push(NouvelleCarte);                         // On ajoute la carte dans la pioche
 
                 }
             }
-}
+                Pioche.OrderBy(a => Guid.NewGuid()); // On mélange la pioche à la fin
+        }
 
 public List<Joueur> Joueurs = new List<Joueur>();
         
