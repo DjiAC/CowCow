@@ -11,7 +11,7 @@ namespace Mow.Core
     /// Une carte spéciale est défini par son type et les méthodes associé à son type.
     /// </summary>
 
-    class CarteSpeciale : Carte
+    class CarteSpeciale : Carte     // Fait par C
     {
 
         //TODO Méethodes des cartes spéciales
@@ -22,18 +22,24 @@ namespace Mow.Core
         /// Une vache acrobate se met par dessus d'une autre qui porte le même numéro.
         /// </summary>
         /// <param name="Type"></param>
-        public void Acrobate(TypeDeCarte Type)
+        public void Acrobate(String Type, ref Troupeau TroupeauDeVache, int Index,int Numero, Carte CarteActuelle) // un peu trop de paramètre je pense
         {
-
+            if (Type == "VacheAcrobate" && Numero == CarteActuelle.NumeroDeCarte)
+            {
+                TroupeauDeVache.TroupeauDeVache.Insert(Index, CarteActuelle);
+            }
         }
 
         /// <summary>
-        /// Une vache retardataire se met entre deux vaches dont l'écart des numéro est de 2 minimum.
+        /// Une vache retardataire se met entre deux vaches dont l'écart des numéros est de 2 minimum.
         /// </summary>
         /// <param name="Type"></param>
-        public void Retardataire(TypeDeCarte Type)
+        public void Retardataire(String Type, ref Troupeau TroupeauDeVache, int Index,Carte CarteActuelle) // de même
         {
-
+            if (Type == "VacheRetardataire")
+            {
+                TroupeauDeVache.TroupeauDeVache.Insert(Index, CarteActuelle);
+            }
         }
 
     }

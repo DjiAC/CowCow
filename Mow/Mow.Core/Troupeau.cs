@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    class Troupeau
+    public class Troupeau
     {
+    
+        public List<Carte> TroupeauDeVache { get; set; }
+
+      
+    
     }
 }

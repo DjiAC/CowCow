@@ -10,7 +10,7 @@ namespace Mow.Core
     /// <summary>
     /// Une Carte est définie par un type, un numéro et un nombre de mouche.
     /// </summary>
-    class Carte 
+    public class Carte 
     {
         public string TypeDeCarte;  // type de carte par C
 
