@@ -154,9 +154,6 @@
     <None Include="Resources\SensHoraire.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Home.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\VacheAcrobate-7-5.png" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +305,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Regles-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Game.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rules.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stats.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HomeButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Verso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

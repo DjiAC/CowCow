@@ -63,9 +63,9 @@ namespace Mow.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BG {
+        internal static System.Drawing.Bitmap Game {
             get {
-                object obj = ResourceManager.GetObject("BG", resourceCulture);
+                object obj = ResourceManager.GetObject("Game", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +76,16 @@ namespace Mow.Properties {
         internal static System.Drawing.Bitmap Home {
             get {
                 object obj = ResourceManager.GetObject("Home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home_Button {
+            get {
+                object obj = ResourceManager.GetObject("Home_Button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,6 +123,16 @@ namespace Mow.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Rules {
+            get {
+                object obj = ResourceManager.GetObject("Rules", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SensAntiHoraire {
             get {
                 object obj = ResourceManager.GetObject("SensAntiHoraire", resourceCulture);
@@ -126,6 +146,16 @@ namespace Mow.Properties {
         internal static System.Drawing.Bitmap SensHoraire {
             get {
                 object obj = ResourceManager.GetObject("SensHoraire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stats {
+            get {
+                object obj = ResourceManager.GetObject("Stats", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -606,6 +636,16 @@ namespace Mow.Properties {
         internal static System.Drawing.Bitmap VacheSerreFile_16_5 {
             get {
                 object obj = ResourceManager.GetObject("VacheSerreFile_16_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Verso {
+            get {
+                object obj = ResourceManager.GetObject("Verso", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
