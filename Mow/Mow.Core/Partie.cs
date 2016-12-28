@@ -12,12 +12,12 @@ namespace Mow.Core
         public bool Sens { get; set; } // Sens du déroulement - True = horaire / False = anti-horaire
 
         Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
-        Troupeau TroupeauDeVache { get; set; } 
+        List<Carte> TroupeauDeVache { get; set; }
 
         public Partie(){
 
             Pioche = new Stack<Carte>();
-            TroupeauDeVache = new Troupeau();
+            TroupeauDeVache = new List<Carte>();
 
             Console.WriteLine("===== La partie commence =====");
             for (int i=0; i<3; i++) {

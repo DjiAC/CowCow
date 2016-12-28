@@ -12,6 +12,10 @@ namespace Mow.Core
             Console.WriteLine("===== Instanciation du joueur =====");
         }
         public string Nom {get; set;}
-        
+
+        public string Prenom { get; set; }
+
+        public string Pseudo { get; set; }
+
     }
 }
