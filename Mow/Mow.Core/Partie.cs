@@ -19,7 +19,7 @@ namespace Mow.Core
 
             Console.WriteLine("===== La partie commence =====");
             for (int i=0; i<3; i++) {
-                var MaManche = new Manche(i);
+                // var MaManche = new Manche(i);
 
 
             }

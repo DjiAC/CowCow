@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    public class Statjoueur
+    /*public class Statjoueur
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
@@ -16,5 +16,5 @@ namespace Mow.Core
         [MaxLength(11)]
         public int Id { get; set; }
         [MaxLength(11)]
-    }
+    }*/
 }

@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    class sqlite
+    /*class sqlite
     {
             var db = new SQLiteConnection(new SQLitePlatformWin32(), "c://temp//mydb.sqlite");
-            db.CreateTable<Statscore>();
-            db.CreateTable<Statjoueur>();
+            db.CreateTable<Statscore>()
+            db.CreateTable<Statjoueur>()
     }
+    */
 }
