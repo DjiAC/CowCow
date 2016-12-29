@@ -4,24 +4,27 @@
         Title="OptionsPartie" Height="768" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="961*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="titre" Margin="346,54,0,0" TextWrapping="Wrap" Text="MOWJOW" Height="38" Width="247" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" TextAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="nbjoueurs" Grid.Column="1" HorizontalAlignment="Left" Height="50" Margin="272,197,0,0" TextWrapping="Wrap" Text="Nombre de Joueurs" VerticalAlignment="Top" Width="260" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="532,197,0,0" VerticalAlignment="Top" Width="98" Cursor="Hand" Height="50" SelectionChanged="ComboBox_SelectionChanged"/>
-        <ComboBox x:Name="humains" Grid.Column="1" HorizontalAlignment="Left" Margin="233,319,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="75" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
-        <TextBox x:Name="nbjoueurs_Copy" Grid.Column="1" HorizontalAlignment="Left" Height="75" Margin="41,319,0,0" TextWrapping="Wrap" Text="Nombre de Joueurs humains" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ComboBox x:Name="humains_Copy" Grid.Column="1" HorizontalAlignment="Left" Margin="787,319,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="75" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
-        <TextBox x:Name="nbjoueurs_Copy1" Grid.Column="1" HorizontalAlignment="Left" Height="75" Margin="595,319,0,0" TextWrapping="Wrap" Text="Nombre limite de mouches" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="lancement" Content="LANCER" Grid.Column="1" HorizontalAlignment="Center" Margin="595,616,101,61" VerticalAlignment="Center" Width="265" Height="60" FontSize="36" Cursor="Hand"/>
-        <Button x:Name="menu" Content="MENU" Grid.Column="1" HorizontalAlignment="Left" Margin="36,10,0,0" VerticalAlignment="Top" Width="131" Cursor="Hand" Height="35" FontSize="16"/>
-        <TextBox x:Name="nbjoueurs_Copy2" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="nbjoueurs_Copy3" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="nbjoueurs_Copy4" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="36,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ComboBox x:Name="humains_Copy1" Grid.Column="1" HorizontalAlignment="Left" Margin="314,436,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
-        <ComboBox x:Name="humains_Copy2" Grid.Column="1" HorizontalAlignment="Left" Margin="314,496,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
-        <ComboBox x:Name="humains_Copy3" Grid.Column="1" HorizontalAlignment="Left" Margin="314,560,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <TextBlock x:Name="titre" Margin="401,54,0,0" TextWrapping="Wrap" Text="MOWJOW" Height="38" Width="247" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBox x:Name="nbjoueurs" HorizontalAlignment="Left" Height="50" Margin="327,197,0,0" TextWrapping="Wrap" Text="Nombre de Joueurs" VerticalAlignment="Top" Width="260" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox HorizontalAlignment="Left" Margin="587,197,0,0" VerticalAlignment="Top" Width="98" Cursor="Hand" Height="50" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox x:Name="humains" HorizontalAlignment="Left" Margin="288,319,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="75" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <TextBox x:Name="nbjoueurs_Copy" HorizontalAlignment="Left" Height="75" Margin="96,319,0,0" TextWrapping="Wrap" Text="Nombre de Joueurs humains" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="humains_Copy" HorizontalAlignment="Left" Margin="842,319,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="75" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <TextBox x:Name="nbjoueurs_Copy1" HorizontalAlignment="Left" Height="75" Margin="650,319,0,0" TextWrapping="Wrap" Text="Nombre limite de mouches" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="lancement" Content="LANCER" HorizontalAlignment="Center" Margin="650,616,101,61" VerticalAlignment="Center" Width="265" Height="60" FontSize="36" Cursor="Hand"/>
+        <TextBox x:Name="nbjoueurs_Copy2" HorizontalAlignment="Left" Height="40" Margin="91,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="nbjoueurs_Copy3" HorizontalAlignment="Left" Height="40" Margin="91,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="nbjoueurs_Copy4" HorizontalAlignment="Left" Height="40" Margin="91,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Cursor="Hand" TextChanged="nbjoueurs_TextChanged" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="humains_Copy1" HorizontalAlignment="Left" Margin="369,436,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <ComboBox x:Name="humains_Copy2" HorizontalAlignment="Left" Margin="369,496,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <ComboBox x:Name="humains_Copy3" HorizontalAlignment="Left" Margin="369,560,0,0" VerticalAlignment="Top" Width="73" Cursor="Hand" Height="40" SelectionChanged="ComboBox_SelectionChanged" ToolTip=""/>
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Click="button_Click_1" Height="73" BorderThickness="0" Margin="25,46,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Home_Button.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

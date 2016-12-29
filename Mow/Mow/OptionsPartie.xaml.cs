@@ -28,5 +28,10 @@ namespace Mow
         {
 
         }
+
+        private void nbjoueurs_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

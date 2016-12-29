@@ -17,9 +17,9 @@ namespace Mow
     /// <summary>
     /// Logique d'interaction pour Jeu.xaml
     /// </summary>
-    public partial class Jeu : Window
+    public partial class JeuWindow : Window
     {
-        public Jeu()
+        public JeuWindow()
         {
             InitializeComponent();
         }
@@ -37,8 +37,11 @@ namespace Mow
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-        }        
+        }
 
-        
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

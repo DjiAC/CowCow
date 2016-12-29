@@ -18,11 +18,26 @@ namespace Mow
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomeWindow : Window
     {
-        public MainWindow()
+        public HomeWindow()
         {
             InitializeComponent();
+        }
+
+        private void statistiques_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void regles_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Jouer_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

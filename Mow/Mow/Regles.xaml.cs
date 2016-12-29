@@ -16,13 +16,43 @@ using System.Windows.Shapes;
 namespace Mow
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Regles.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ReglesWindow : Window
     {
-        public MainWindow()
+        public ReglesWindow()
         {
             InitializeComponent();
+        }
+
+        private void Regles1Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Regles1Popup.IsOpen = true;
+        }
+
+        private void Regles1Popup_ReClick(object sender, RoutedEventArgs e)
+        {
+            Regles1Popup.IsOpen = false;
+        }
+
+        private void Regles2Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Regles2Popup.IsOpen = true;
+        }
+
+        private void Regles2Popup_ReClick(object sender, RoutedEventArgs e)
+        {
+            Regles2Popup.IsOpen = false;
+        }
+
+        private void Regles3Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Regles3Popup.IsOpen = true;
+        }
+
+        private void Regles3Popup_ReClick(object sender, RoutedEventArgs e)
+        {
+            Regles3Popup.IsOpen = false;
         }
     }
 }
