@@ -6,39 +6,40 @@
         xmlns:local="clr-namespace:Mow"
         mc:Ignorable="d"
         Title="Mow Jow - Règles" Height="768" Width="1024">
-    <Grid Margin="0">
-        <Grid.Background>
-            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Rules.jpg"/>
-        </Grid.Background>
-        <Button x:Name="button" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="144" Click="button_Click_1" Height="138" BorderThickness="0" Margin="436,0,436,10">
-            <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Home_Button.png"/>
-            </Button.Background>
-        </Button>
+    <Window.Background>
+        <ImageBrush ImageSource="Images/Rules.jpg"/>
+    </Window.Background>
+    <Grid Margin="0">        
         <TextBlock x:Name="titre" Margin="287,100,287,0" TextWrapping="Wrap" Height="100" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="REGLES" Foreground="Black"/>
-        <Button x:Name="Regles1" Click="Regles1Popup_Click" HorizontalAlignment="Left" Height="374" Margin="79,205,0,0" VerticalAlignment="Top" Width="236">
+        <Button x:Name="Regles1" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles1Popup_Click" HorizontalAlignment="Left" Height="374" Margin="79,205,0,0" VerticalAlignment="Top" Width="236">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Regles-1.png"/>
+                <ImageBrush ImageSource="Images/Regles-1.png"/>
             </Button.Background>
             <Popup Name="Regles1Popup" IsOpen="False" Placement="Mouse">
                 <Button Name="Regles1OK" Click="Regles1Popup_ReClick"/>
             </Popup>
         </Button>
-        <Button x:Name="Regles2" HorizontalAlignment="Center" Height="374" Margin="0,204,0,159" VerticalAlignment="Center" Width="236" Click="Regles2_Click">
+        <Button x:Name="Regles2" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles2Popup_Click" HorizontalAlignment="Center" Height="374" Margin="0,204,0,159" VerticalAlignment="Center" Width="236">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Regles-2.png"/>
+                <ImageBrush ImageSource="Images/Regles-2.png"/>
             </Button.Background>
             <Popup Name="Regles2Popup" IsOpen="False" Placement="Mouse">
                 <Button Name="Regles2OK" Click="Regles2Popup_ReClick"/>
             </Popup>
         </Button>
-        <Button x:Name="Regles3" HorizontalAlignment="Right" Height="374" Margin="0,205,79,0" VerticalAlignment="Top" Width="236" Click="Regles3_Click">
+        <Button x:Name="Regles3" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles3Popup_Click" HorizontalAlignment="Right" Height="374" Margin="0,205,79,0" VerticalAlignment="Top" Width="236">
             <Button.Background>
-                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/Regles-3.png"/>
+                <ImageBrush ImageSource="Images/Regles-3.png"/>
             </Button.Background>
             <Popup Name="Regles3Popup" IsOpen="False" Placement="Mouse">
                 <Button Name="Regles3OK" Click="Regles3Popup_ReClick"/>
             </Popup>
+        </Button>
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="446,604,0,0">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/Home_Button.png"/>
+            </Button.Background>
+            <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
     </Grid>
 </Window>

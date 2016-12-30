@@ -18,9 +18,9 @@ namespace Mow
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class HomeWindow : Window
+    public partial class Menu : Window
     {
-        public HomeWindow()
+        public Menu()
         {
             InitializeComponent();
         }

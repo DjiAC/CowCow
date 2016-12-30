@@ -20,6 +20,8 @@ namespace Mow
     /// </summary>
     public partial class ReglesWindow : Window
     {
+        public object NavigationService { get; private set; }
+
         public ReglesWindow()
         {
             InitializeComponent();
@@ -53,6 +55,6 @@ namespace Mow
         private void Regles3Popup_ReClick(object sender, RoutedEventArgs e)
         {
             Regles3Popup.IsOpen = false;
-        }
+        }        
     }
 }

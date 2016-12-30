@@ -33,5 +33,10 @@ namespace Mow
         {
 
         }
+
+        private void HomeButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
