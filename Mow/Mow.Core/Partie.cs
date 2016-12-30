@@ -14,6 +14,12 @@ namespace Mow.Core
         Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
         List<Carte> TroupeauDeVache { get; set; }
 
+        public List<Joueur> Joueurs = new List<Joueur>();
+
+        public int Index = -1;
+        public string CarteIndex { get; set; }
+        public int LimiteDeMouche { get; set; }
+
         public Partie(){
 
             Pioche = new Stack<Carte>();
@@ -75,7 +81,172 @@ namespace Mow.Core
            
         }
 
-public List<Joueur> Joueurs = new List<Joueur>();
-        
+        public void JouerPartie()
+        {
+            while (VerifierMouche(LimiteDeMouche))
+            {
+                CreerPioche();
+
+                JouerManche();             
+
+                ViderCartes();
+
+            }
+        }
+
+        public void JouerManche()
+        {
+            DistribuerCarte();
+
+            while (Pioche.Count != 0 && CarteIndex != "A")
+            {
+                DeterminerJoueurActuelle();
+
+                if (Joueurs.ElementAt(Index).Type == "Humain")
+                {
+                    Console.WriteLine("Choississez la carte à jouer, (taper entre un chiffre entre 0 et 4 ou passer votre tour en tapent A)");
+                    foreach (Carte carte in Joueurs.ElementAt(Index).Main)
+                    {
+                        Console.WriteLine(carte.TypeDeCarte);
+                        Console.WriteLine(carte.NumeroDeCarte);
+                        Console.WriteLine(carte.NombreDeMouche);
+                    }
+                    CarteIndex = Console.ReadLine();
+                }
+                if (CarteIndex != "A")
+                {
+                    while (JouerCarte(Joueurs.ElementAt(Index), Joueurs.ElementAt(Index).Main.ElementAt(int.Parse(CarteIndex))) == false) ;
+                    if (Pioche.Count != 0)
+                    Joueurs.ElementAt(Index).Main.Add(Pioche.Pop());
+                }
+                else
+                {
+                    AjouterDansEtable(Joueurs.ElementAt(Index));
+                }
+
+                CompterMouches();
+            }
+        }
+
+        public bool JouerCarte(Joueur JoueurActuelle, Carte CarteJouee)
+        {
+            if (TroupeauDeVache.Count != 0)
+            {
+                TroupeauDeVache.Add(CarteJouee);
+                JoueurActuelle.Main.Remove(CarteJouee);
+            }
+
+            else if (CarteJouee.TypeDeCarte == "VacheNormale" || CarteJouee.TypeDeCarte == "VacheSerreFile")
+            {
+                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte;
+                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte;
+
+                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau)
+                {
+                    TroupeauDeVache.Insert(0, CarteJouee);
+                    JoueurActuelle.Main.Remove(CarteJouee);
+                }
+
+                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau)
+                {
+                    TroupeauDeVache.Add(CarteJouee);
+                    JoueurActuelle.Main.Remove(CarteJouee);
+                }
+                else
+                {
+                    Console.WriteLine("Erreur votre carte doit être placé en dehors de l'intervalle !");
+                    return false;
+                }
+
+         
+            }
+
+            else if (CarteJouee.TypeDeCarte == "VacheAcrobate")
+            {
+               //TODO
+
+            }
+
+            else if (CarteJouee.TypeDeCarte == "VacheRetardataire")
+            {
+                //TODO
+
+            }
+            return true;
+        }
+
+        public void DistribuerCarte()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                foreach (Joueur joueur in Joueurs)
+                {
+                    joueur.Main.Add(Pioche.Pop());
+                }
+            }
+        }
+
+        public void DeterminerJoueurActuelle()
+        {
+            if (Sens)
+            {
+                
+                Index++;
+                if (Index == Joueurs.Count)
+                    Index = 0;
+            }
+            
+            else
+            {
+                Index--;
+                if (Index == -1)
+                    Index = Joueurs.Count - 1;
+            } 
+        }
+
+        public void AjouterDansEtable(Joueur JoueurActuelle)
+        {
+            foreach (Carte carte in TroupeauDeVache)
+            {
+                JoueurActuelle.Etable.Add(carte);
+            }
+        }
+
+        public void CompterMouches()
+        {
+            foreach (Joueur joueur in Joueurs)
+            {
+                foreach (Carte carte in joueur.Main)
+                {
+                    joueur.NombreDeMouche += carte.NombreDeMouche;
+                }
+                foreach (Carte carte in joueur.Etable)
+                {
+                    joueur.NombreDeMouche += carte.NombreDeMouche;
+                }
+            }
+        }
+
+        public void ViderCartes()
+        {
+            TroupeauDeVache.Clear();
+
+            foreach (Joueur joueur in Joueurs)
+            {
+                joueur.Main.Clear();
+                joueur.Etable.Clear();
+
+            }
+        }
+
+        public bool VerifierMouche()
+        {
+            foreach (Joueur joueur in Joueurs)
+            {
+                if (joueur.NombreDeMouche >= LimiteDeMouche)
+                    return true;
+            }
+            return false;
+        }
     }
 }
