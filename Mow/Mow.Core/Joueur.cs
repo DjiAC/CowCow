@@ -12,19 +12,19 @@ namespace Mow.Core
             Console.WriteLine("===== Instanciation du joueur =====");
         }
 
-        public string Type { get; set; }
+        public string Type { get; set; } // Pour savoir si c'est un utilisateur ou IA par C
 
-        public string Nom {get; set;}
+        public string Nom {get; set;} 
 
-        public string Prenom { get; set; }
+        public string Prenom { get; set; } 
 
-        public string Pseudo { get; set; }
+        public string Pseudo { get; set; } 
 
-        public int NombreDeMouche { get; set; }
+        public int NombreDeMouche { get; set; } // Un joueur a un nombre de mouche qu'il accumule au fur de la partie
 
-        public List<Carte> Main { get; set; }
+        public List<Carte> Main { get; set; } // Main d'un joueur
 
-        public List<Carte> Etable { get; set; }
+        public List<Carte> Etable { get; set; } // Les cartes qu'il récupère lorqu'il ne joue pas de vache
 
     }
 }

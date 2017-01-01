@@ -17,9 +17,14 @@ namespace Mow.Core
             Console.WriteLine("===== Le jeu commence =====");
 
             Partie MaPartie = new Partie();
+            MaPartie.LimiteDeMouche = 30;
 
 
-            
+            MaPartie.JouerPartie();
+
+            Console.ReadLine();
+
+
         }
 
     }
