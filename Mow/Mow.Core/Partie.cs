@@ -105,9 +105,6 @@ namespace Mow.Core
 
         }
 
-        /// <summary>
-        /// C'est le déroulement d'une partie
-        /// </summary>
         public void JouerPartie()
         {
             while (VerifierMouche() != true) // Une partie s'arrête quand la limite de mouche est atteinte par un joueur
@@ -120,10 +117,6 @@ namespace Mow.Core
 
                 ViderCartes(); // On vide toutes les cartes présentes (dans les mains, étables et le troupeau)
             }
-
-
-
-            Console.WriteLine("Le gagnant de la partie est le joueur :" + /*Joueurs.ElementAt(DesignerGagnant()).Pseudo +*/  ".");
         }
 
         /// <summary>
