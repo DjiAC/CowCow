@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Credits.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Regles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +95,9 @@
     </Compile>
     <Compile Include="Jeu.xaml.cs">
       <DependentUpon>Jeu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Credits.xaml.cs">
+      <DependentUpon>Credits.xaml</DependentUpon>
     </Compile>
     <Compile Include="Regles.xaml.cs">
       <DependentUpon>Regles.xaml</DependentUpon>
@@ -198,6 +205,12 @@
     <Resource Include="Images\VacheSerreFile-0-5.png" />
     <Resource Include="Images\VacheSerreFile-16-5.png" />
     <Resource Include="Images\Verso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Adrien.jpg" />
+    <Resource Include="Images\Charles.jpg" />
+    <Resource Include="Images\Guillaume.jpeg" />
+    <Resource Include="Images\Nicolas.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
