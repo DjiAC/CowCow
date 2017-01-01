@@ -19,33 +19,14 @@ namespace Mow.Core
         public int IndexJoueur = 0; // Le premier joueur dans la liste commence la partie
         public int LimiteDeMouche { get; set; } // Détermine la condition d'arrêt d'une partie
 
+
         public Partie()
         {
             Pioche = new Stack<Carte>();
             TroupeauDeVache = new List<Carte>();
 
-
-
-            Joueur Seul = new Joueur();
-            Seul.Type = "Humain";
-            Seul.Main = new List<Carte>();
-            Seul.Etable = new List<Carte>();
-
-            Joueur Deux = new Joueur();
-            Deux.Type = "Humain";
-            Deux.Main = new List<Carte>();
-            Deux.Etable = new List<Carte>();
-
-            Joueur Trois = new Joueur();
-            Trois.Type = "Humain";
-            Trois.Main = new List<Carte>();
-            Trois.Etable = new List<Carte>();
-
             Sens = true; // On inialise le sens
 
-            Joueurs.Add(Seul);
-            Joueurs.Add(Deux);
-            Joueurs.Add(Trois);
 
 
             Console.WriteLine("===== La partie commence =====");
@@ -303,7 +284,7 @@ namespace Mow.Core
 
             }
 
-            else if (CarteJouee.TypeDeCarte == "VacheRetardataire")
+            else if (CarteJouee.TypeDeCarte == "VacheRetardataire") // Pour le cas de la vache retardataire
             {
                 if (TroupeauDeVache.Count >= 2) // Il faut qu'il y a ait 2 vaches au minimum
                 {
@@ -338,6 +319,12 @@ namespace Mow.Core
             return true;
         }
 
+        public void JouerOrdinateur()
+        {
+            //TODO
+        }
+
+
         /// <summary>
         /// Distribue les cartes à tous les joueurs présents dans la partie
         /// </summary>
@@ -353,7 +340,78 @@ namespace Mow.Core
             }
         }
 
-      
+
+
+        /// <summary>
+        /// Créer la liste de joueur qui vont jouer la partie
+        /// </summary>
+        /// <param name="option">On détermine le mode de jeu, en solo ou en multi</param>
+        /// <param name="nombreOrdinateur">Le nombre d'IA à mettre</param>
+        /// <param name="nombreUtilisateur">Le nombre d'utilisateur à mettre</param>
+        public void CreerListeDeJoueur(string option, int nombreOrdinateur, int nombreUtilisateur)
+        {
+            if (option == "solo") // Il y a un seul utilisateur
+            {
+
+                CreerProfile(); // On crée son profile puis on l'ajoute à la liste des joueurs
+
+
+                for (int i = 0; i < nombreOrdinateur; i++) 
+                    CreerProfileOrdinateur(i);  // On crée autant de joueurs artificielles que le nombre demandé
+
+
+            }
+            else if (option == "multi") // Il y a plusieurs utilisateurs
+            {
+                for (int i = 0; i < nombreUtilisateur; i++) 
+                    CreerProfile(); // On crée autant de profile que le nombre demandé
+
+                for (int i = 0; i < nombreOrdinateur; i++)
+                    CreerProfileOrdinateur(i); // On crée autant de joueurs artificielles que le nombre demandé
+
+
+            }
+
+        }
+
+
+        /// <summary>
+        /// Permet à un utilisateur de créer son profile
+        /// </summary>
+        public void CreerProfile()
+        {
+            Console.WriteLine("Entrer votre Pseudo :");
+            Joueur joueur = new Joueur(); // On initialise l'objet joueur
+            joueur.Etable = new List<Carte>(); // On initialise l'objet Etable du joueur
+            joueur.Main = new List<Carte>(); // On initialise l'objet Main du joueur
+
+            joueur.Pseudo = Console.ReadLine(); // L'utilisateur entre son pseudo
+            joueur.Type = "Humain"; // On définit le type de joueur
+            Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
+        }
+
+
+        /// <summary>
+        /// Crée un joueur arficielle
+        /// </summary>
+        /// <param name="i">Index pour la liste de nom</param>
+        public void CreerProfileOrdinateur(int i)
+        {
+
+
+            Joueur joueur = new Joueur(); // On initialise l'objet joueur
+            joueur.Etable = new List<Carte>(); // On initialise l'objet Etable du joueur
+            joueur.Main = new List<Carte>(); // On initialise l'objet Main du joueur
+
+            joueur.Pseudo = joueur.NomAleatoire.ElementAt(i); //  choisit un nom dans la liste proposé
+                                                              // TODO rendre ça aléatoire et éviter les doublons lors de l'aléatoire
+
+            joueur.Type = "Ordinateur"; // On définit le type
+            Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
+
+        }
+
+
         /// <summary>
         /// Détermine le joueur qui doit jouer selon le sens
         /// </summary>
@@ -437,10 +495,7 @@ namespace Mow.Core
             Console.WriteLine(Sens);
         }
 
-        public void JouerOrdinateur()
-        {
-            //TODO
-        }
+       
 
 
         /// <summary>

@@ -9,7 +9,15 @@ namespace Mow.Core
     class Joueur
     {
         public Joueur(){
-            Console.WriteLine("===== Instanciation du joueur =====");
+            NomAleatoire = new List<string>();
+            NomAleatoire.Add("Hubert");
+            NomAleatoire.Add("Abdel");
+            NomAleatoire.Add("Karim");
+            NomAleatoire.Add("Lee");
+            NomAleatoire.Add("Jean");
+            NomAleatoire.Add("Mamadou");
+            NomAleatoire.Add("Michel");
+            NomAleatoire.Add("Albert");
         }
 
         public string Type { get; set; } // Pour savoir si c'est un utilisateur ou IA par C
@@ -26,5 +34,6 @@ namespace Mow.Core
 
         public List<Carte> Etable { get; set; } // Les cartes qu'il récupère lorqu'il ne joue pas de vache
 
+        public List<String> NomAleatoire; // Liste de nom aléatoire pour les joueurs artificielles
     }
 }
