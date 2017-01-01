@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -24,6 +25,9 @@ namespace Mow
             InitializeComponent();
         }
 
+        public object NavigationService { get; private set; }
+
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -32,21 +36,13 @@ namespace Mow
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
-        }
+        }  
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MenuClick(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void HomeButtonClick(object sender, RoutedEventArgs e)
-        {
-
+            this.Hide();
+            MenuWindow Menu = new MenuWindow();
+            Menu.ShowDialog();
         }
     }
 }

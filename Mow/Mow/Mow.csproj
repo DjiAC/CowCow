@@ -99,22 +99,8 @@
       <DependentUpon>Menu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NouvellePartie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OptionsPartie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NouvellePartie.xaml.cs">
-      <DependentUpon>NouvellePartie.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OptionsPartie.xaml.cs">
-      <DependentUpon>OptionsPartie.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -149,196 +135,69 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\BackGround.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\BG.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Sens.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\SensAntiHoraire.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\SensHoraire.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheAcrobate-7-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheAcrobate-9-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-1-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-2-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-2-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-3-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-3-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-3-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-4-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-4-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-4-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-5-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-5-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-5-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-6-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-6-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-6-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-7-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-7-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-7-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-7-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-8-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-8-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-8-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-8-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-9-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-9-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-9-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-9-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-10-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-10-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-10-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-11-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-11-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-11-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-12-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-12-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-12-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-13-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-13-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-13-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-14-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-14-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheNormale-15-0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheRetardataire-#-5-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheRetardataire-#-5-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheSerreFile-0-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\VacheSerreFile-16-5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Regles-1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Regles-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Regles-3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Game.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Rules.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Stats.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Home.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\HomeButton.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Home_Button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\Verso.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="MowJow.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Game.jpg" />
+    <Resource Include="Images\Home.jpg" />
+    <Resource Include="Images\HomeButton.jpg" />
+    <Resource Include="Images\Home_Button.png" />
+    <Resource Include="Images\Regles-1.png" />
+    <Resource Include="Images\Regles-2.png" />
+    <Resource Include="Images\Regles-3.png" />
+    <Resource Include="Images\Rules.jpg" />
+    <Resource Include="Images\SensAntiHoraire.png" />
+    <Resource Include="Images\SensHoraire.png" />
+    <Resource Include="Images\Stats.jpg" />
+    <Resource Include="Images\VacheAcrobate-7-5.png" />
+    <Resource Include="Images\VacheAcrobate-9-5.png" />
+    <Resource Include="Images\VacheNormale-1-0.png" />
+    <Resource Include="Images\VacheNormale-10-0.png" />
+    <Resource Include="Images\VacheNormale-10-1.png" />
+    <Resource Include="Images\VacheNormale-10-2.png" />
+    <Resource Include="Images\VacheNormale-11-0.png" />
+    <Resource Include="Images\VacheNormale-11-1.png" />
+    <Resource Include="Images\VacheNormale-11-2.png" />
+    <Resource Include="Images\VacheNormale-12-0.png" />
+    <Resource Include="Images\VacheNormale-12-1.png" />
+    <Resource Include="Images\VacheNormale-12-2.png" />
+    <Resource Include="Images\VacheNormale-13-0.png" />
+    <Resource Include="Images\VacheNormale-13-1.png" />
+    <Resource Include="Images\VacheNormale-13-2.png" />
+    <Resource Include="Images\VacheNormale-14-0.png" />
+    <Resource Include="Images\VacheNormale-14-1.png" />
+    <Resource Include="Images\VacheNormale-15-0.png" />
+    <Resource Include="Images\VacheNormale-2-0.png" />
+    <Resource Include="Images\VacheNormale-2-1.png" />
+    <Resource Include="Images\VacheNormale-3-0.png" />
+    <Resource Include="Images\VacheNormale-3-1.png" />
+    <Resource Include="Images\VacheNormale-3-2.png" />
+    <Resource Include="Images\VacheNormale-4-0.png" />
+    <Resource Include="Images\VacheNormale-4-1.png" />
+    <Resource Include="Images\VacheNormale-4-2.png" />
+    <Resource Include="Images\VacheNormale-5-0.png" />
+    <Resource Include="Images\VacheNormale-5-1.png" />
+    <Resource Include="Images\VacheNormale-5-2.png" />
+    <Resource Include="Images\VacheNormale-6-0.png" />
+    <Resource Include="Images\VacheNormale-6-1.png" />
+    <Resource Include="Images\VacheNormale-6-2.png" />
+    <Resource Include="Images\VacheNormale-7-0.png" />
+    <Resource Include="Images\VacheNormale-7-1.png" />
+    <Resource Include="Images\VacheNormale-7-2.png" />
+    <Resource Include="Images\VacheNormale-7-3.png" />
+    <Resource Include="Images\VacheNormale-8-0.png" />
+    <Resource Include="Images\VacheNormale-8-1.png" />
+    <Resource Include="Images\VacheNormale-8-2.png" />
+    <Resource Include="Images\VacheNormale-8-3.png" />
+    <Resource Include="Images\VacheNormale-9-0.png" />
+    <Resource Include="Images\VacheNormale-9-1.png" />
+    <Resource Include="Images\VacheNormale-9-2.png" />
+    <Resource Include="Images\VacheNormale-9-3.png" />
+    <Resource Include="Images\VacheRetardataire-#-5-1.png" />
+    <Resource Include="Images\VacheRetardataire-#-5-2.png" />
+    <Resource Include="Images\VacheSerreFile-0-5.png" />
+    <Resource Include="Images\VacheSerreFile-16-5.png" />
+    <Resource Include="Images\Verso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

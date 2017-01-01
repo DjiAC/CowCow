@@ -19,13 +19,14 @@ namespace Mow
     /// Logique d'interaction pour Regles.xaml
     /// </summary>
     public partial class ReglesWindow : Window
-    {
-        public object NavigationService { get; private set; }
+    {      
 
         public ReglesWindow()
         {
             InitializeComponent();
         }
+
+        public object NavigationService { get; private set; }
 
         private void Regles1Popup_Click(object sender, RoutedEventArgs e)
         {
@@ -56,5 +57,12 @@ namespace Mow
         {
             Regles3Popup.IsOpen = false;
         }        
+
+        private void MenuClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            MenuWindow Menu = new MenuWindow();
+            Menu.ShowDialog();
+        }
     }
 }
