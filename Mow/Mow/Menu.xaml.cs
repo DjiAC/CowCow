@@ -46,6 +46,11 @@ namespace Mow
             Regles.ShowDialog();
         }
 
-        
+        private void CreditsClick(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            CreditsWindow Credits = new CreditsWindow();
+            Credits.ShowDialog();
+        }
     }
 }
