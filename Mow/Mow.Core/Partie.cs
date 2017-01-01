@@ -98,6 +98,7 @@ namespace Mow.Core
 
                 ViderCartes(); // On vide toutes les cartes présentes (dans les mains, étables et le troupeau)
             }
+            Console.WriteLine("Le gagnant de la partie est le joueur :" + Joueurs.ElementAt(DesignerGagnant()).Pseudo + ".");
         }
 
         /// <summary>
@@ -146,8 +147,8 @@ namespace Mow.Core
                     do
                     {
 
-                        JouerOrdinateur(); // L'IA choisit une carte ou de ne pas jouer
-                       
+                        choix = JouerOrdinateurFaible(Joueurs.ElementAt(IndexJoueur)); // L'IA choisit une carte ou de ne pas jouer
+
 
 
 
@@ -233,7 +234,10 @@ namespace Mow.Core
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
                     JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+                    if (JoueurActuelle.Type == "Humain")
+                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                    else Sens = !Sens;
                     return true;
                 }
 
@@ -242,7 +246,10 @@ namespace Mow.Core
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
                     JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+                    if (JoueurActuelle.Type == "Humain")
+                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                    else Sens = !Sens;
                     return true;
                 }
                 else
@@ -256,16 +263,24 @@ namespace Mow.Core
 
             else if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
             {
-
-                Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count -1) + ")");
-                IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache acrobate doit être posée
-
+                if (JoueurActuelle.Type == "Humain")
+                {
+                    Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 1) + ")");
+                    IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache acrobate doit être posée
+                }
+                else
+                {
+                    IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuelle, CarteJouee);
+                }
                 if (CarteJouee.NumeroDeCarte == TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte) // Si les numéros sont les même
                 {
                     TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On la pose par dessus
                     JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+                    if (JoueurActuelle.Type == "Humain")
+                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                    else Sens = !Sens;
                     return true;
 
                 }
@@ -281,15 +296,26 @@ namespace Mow.Core
             {
                 if (TroupeauDeVache.Count >= 2) // Il faut qu'il y a ait 2 vaches au minimum
                 {
-                    Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 1) + ")");
-                    IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache retardataire doit être posée
+                    if (JoueurActuelle.Type == "Humain")
+                    {
+                        Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 1) + ")");
+                        IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache retardataire doit être posée
+                    }
+                    else
+                    {
+                        IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuelle, CarteJouee);
+                    }
 
                     if (TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
                     {
                         TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On insère la carte entre les deux autres concernées
                         JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+                        if (JoueurActuelle.Type == "Humain")
+                            ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                        else Sens = !Sens;
+
                         return true;
                     }
 
@@ -312,9 +338,120 @@ namespace Mow.Core
             return true;
         }
 
-        public void JouerOrdinateur()
+        public string JouerOrdinateurFaible(Joueur JoueurActuelle)
         {
             //TODO
+            if (TroupeauDeVache.Count == 0)
+            {
+                foreach (Carte carte in JoueurActuelle.Main)
+                {
+                    if (carte.TypeDeCarte == "VacheNormale")
+                    {
+                        return JoueurActuelle.Main.IndexOf(carte).ToString();
+                    }
+
+                }
+
+                foreach (Carte carte in JoueurActuelle.Main)
+                {
+                    if (carte.TypeDeCarte == "VacheSerreFile")
+                    {
+                        return JoueurActuelle.Main.IndexOf(carte).ToString();
+                    }
+
+                }
+
+            }
+
+            else
+            {
+                foreach (Carte carte in JoueurActuelle.Main)
+                {
+                    if (carte.TypeDeCarte == "VacheNormale")
+                    {
+                        int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
+                        int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
+
+                        if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                        {
+                            Console.WriteLine(JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte);
+
+
+                            return JoueurActuelle.Main.IndexOf(carte).ToString();
+                        }
+
+                        else if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                        {
+
+                            return JoueurActuelle.Main.IndexOf(carte).ToString();
+                        }
+                    }
+                }
+
+                foreach (Carte carte in JoueurActuelle.Main)
+                {
+                    if (carte.TypeDeCarte == "VacheSerrefile")
+                    {
+                        return JoueurActuelle.Main.IndexOf(carte).ToString();
+                    }
+                    else if (carte.TypeDeCarte == "VacheAcrobate")
+                    {
+                        foreach (Carte cartevache in TroupeauDeVache)
+                        {
+                            if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte == cartevache.NumeroDeCarte)
+                            {
+                                return JoueurActuelle.Main.IndexOf(carte).ToString();
+                            }
+                        }
+                    }
+                    else if (carte.TypeDeCarte == "VacheRetardataire")
+                    {
+                        foreach (Carte cartevache in TroupeauDeVache)
+                        {
+                            int limite = (TroupeauDeVache.Count - 2);
+                            if (TroupeauDeVache.IndexOf(carte) < limite)
+                            {
+                                if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte >= 2)
+                                {
+                                    return JoueurActuelle.Main.IndexOf(carte).ToString();
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            return "A";
+        }
+
+        public int JouerCarteSpecialeOrdinateurFaible(Joueur JoueuActuelle, Carte CarteJouee)
+        {
+            if (CarteJouee.TypeDeCarte == "VacheAcrobate")
+            {
+                foreach (Carte carte in TroupeauDeVache)
+                {
+                    if (CarteJouee.NumeroDeCarte == carte.NumeroDeCarte)
+                    {
+                        return TroupeauDeVache.IndexOf(carte);
+                    }
+                }
+            }
+            else
+            {
+                foreach (Carte carte in TroupeauDeVache)
+                {
+                    if (TroupeauDeVache.IndexOf(carte) < (TroupeauDeVache.Count - 1))
+                    {
+                        if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte >= 2)
+                        {
+                            return TroupeauDeVache.IndexOf(carte);
+                        }
+                    }
+                }
+            }
+
+            return 0;
         }
 
 
