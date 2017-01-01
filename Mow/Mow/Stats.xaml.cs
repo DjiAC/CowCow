@@ -18,13 +18,13 @@ namespace Mow
     /// <summary>
     /// Logique d'interaction pour Regles.xaml
     /// </summary>
-    public partial class CreditsWindow : Window
+    public partial class StatsWindow : Window
     {      
 
-        public CreditsWindow()
+        public StatsWindow()
         {
             InitializeComponent();
-        }                     
+        }
 
         private void MenuClick(object sender, RoutedEventArgs e)
         {

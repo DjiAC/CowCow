@@ -13,7 +13,7 @@
         <ImageBrush ImageSource="Images/Rules.jpg"/>
     </Window.Background>
     <Grid Margin="0">
-        <TextBlock x:Name="titre" Margin="284,77,284,0" TextWrapping="Wrap" Height="100" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="REGLES" Foreground="Black"/>
+        <TextBlock x:Name="titre" Margin="284,77,284,0" TextWrapping="Wrap" Height="56" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="REGLES" Foreground="Black"/>
         <Button x:Name="Regles1" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles1Popup_Click" HorizontalAlignment="Left" Height="476" Margin="30,213,0,0" VerticalAlignment="Top" Width="301">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Regles-1.png"/>

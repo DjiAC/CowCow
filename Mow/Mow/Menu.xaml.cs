@@ -35,8 +35,8 @@ namespace Mow
         private void StatsClick(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            ReglesWindow Regles = new ReglesWindow();
-            Regles.ShowDialog();
+            StatsWindow Stats = new StatsWindow();
+            Stats.ShowDialog();
         }
 
         private void ReglesClick(object sender, RoutedEventArgs e)
