@@ -81,7 +81,7 @@ namespace Mow.Core
            
         }
 
-        public void JouerPartie()
+        /*public void JouerPartie()
         {
             while (VerifierMouche(LimiteDeMouche))
             {
@@ -92,7 +92,7 @@ namespace Mow.Core
                 ViderCartes();
 
             }
-        }
+        }*/
 
         public void JouerManche()
         {
