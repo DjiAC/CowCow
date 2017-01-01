@@ -12,33 +12,93 @@
     <Window.Background>
         <ImageBrush ImageSource="Images/Rules.jpg"/>
     </Window.Background>
-    <Grid Margin="0">        
-        <TextBlock x:Name="titre" Margin="287,100,287,0" TextWrapping="Wrap" Height="100" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="REGLES" Foreground="Black"/>
-        <Button x:Name="Regles1" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles1Popup_Click" HorizontalAlignment="Left" Height="374" Margin="79,205,0,0" VerticalAlignment="Top" Width="236">
+    <Grid Margin="0">
+        <TextBlock x:Name="titre" Margin="284,77,284,0" TextWrapping="Wrap" Height="100" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="REGLES" Foreground="Black"/>
+        <Button x:Name="Regles1" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles1Popup_Click" HorizontalAlignment="Left" Height="476" Margin="30,213,0,0" VerticalAlignment="Top" Width="301">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Regles-1.png"/>
             </Button.Background>
-            <Popup Name="Regles1Popup" IsOpen="False" Placement="Mouse">
-                <Button Name="Regles1OK" Click="Regles1Popup_ReClick"/>
+            <Popup Name="Regles1Popup" IsOpen="False" StaysOpen="False" Placement="Right" Width="636" Height="300">
+                <StackPanel Margin="0,0,0,0">
+                    <TextBlock Background="LightBlue" Margin="0,0,0,0" >
+                    <Underline>Résumé :</Underline>  <LineBreak/>
+                    Les joueurs sont des fermiers.<LineBreak/>
+                    Ils vont chercher les vaches au champ et les rassemblent en troupeaux pour les rentrer dans leur étable.<LineBreak/>
+                    Mais certaines vaches sont entourées de mouches, et chacun essaie de les éviter…<LineBreak/> <LineBreak/>
+                       
+                    <Underline>But du jeu : </Underline> <LineBreak/>
+                    Avoir le moins de mouches dans son étable lorsque la partie prend fin. <LineBreak/> <LineBreak/>
+                        
+                    <Underline>Contenu : </Underline> <LineBreak/>
+                    * 15 vaches numérotées de 1 à 15 - sans aucune mouche<LineBreak/>
+                    * 13 vaches numérotées de 2 à 14 - avec 1 mouche<LineBreak/>
+                    * 11 vaches numérotées de 3 à 13 - avec 2 mouches<LineBreak/>
+                    * 3 vaches numérotées 7, 8 et 9 - avec 3 mouches<LineBreak/>
+                    * 6 vaches spéciales - avec 5 mouches et 1 super-pouvoir<LineBreak/>
+                    * 1 carte MOW - indiquant le sens de rotation du jeu.<LineBreak/> <LineBreak/>
+                        
+                    <Underline>Déroulement du jeu : </Underline> <LineBreak/>
+                    Une partie se déroule en plusieurs manches. <LineBreak/>
+                    Au début de chaque manche, mélangez les 48 cartes vaches et distribuez-en cinq à chaque fermier. <LineBreak/>
+                    Le fermier qui a cumulé le plus grand nombre de mooches commence la manqué (le plus jeune lors de la 1ere manche). <LineBreak/>
+                    Il place la carte MOW devant lui en la pointant vers son voisin de gauche (cette fleche indique le sens du tour de jeu). <LineBreak/>
+                    </TextBlock>
+                </StackPanel>
             </Popup>
         </Button>
-        <Button x:Name="Regles2" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles2Popup_Click" HorizontalAlignment="Center" Height="374" Margin="0,204,0,159" VerticalAlignment="Center" Width="236">
+        <Button x:Name="Regles2" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles2Popup_Click" HorizontalAlignment="Center" Height="476" Margin="360,213,358,50" VerticalAlignment="Center" Width="300">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Regles-2.png"/>
             </Button.Background>
-            <Popup Name="Regles2Popup" IsOpen="False" Placement="Mouse">
-                <Button Name="Regles2OK" Click="Regles2Popup_ReClick"/>
+            <Popup Name="Regles2Popup" IsOpen="False" StaysOpen="False" Placement="Center">
+                <StackPanel Margin="0,0,0,0">
+                    <TextBlock Background="LightBlue" Margin="0,0,0,0" >
+                    <Underline>Principe general :</Underline>  <LineBreak/> 
+                    Lors de son tour un joueur doit :<LineBreak/>
+                    * Ajouter une vache au troupeau<LineBreak/>
+                    * Jeter une carte <LineBreak/> <LineBreak/>
+                        
+                    <Bold>Ajouter une vache à un troupeau :</Bold>  <LineBreak/> 
+                    Chaque fermier, lors de son tour, DOIT ajouter une nouvelle vache au troupeau en cours, à la queue-leu-leu.<LineBreak/>
+                    Le fermier qui pose la première vache peut choisir n’importe quel numéro, mais ensuite, toute vache rejoingnant le troupeau doit : <LineBreak/>
+                        * Soit avoir un plus petit numéro <LineBreak/>
+                        * Soit avoir un plus grand numéro que toutes les vaches déjà présentes dans le troupeau <LineBreak/> <LineBreak/>
+                        
+                    <Underline>Exemple : </Underline> <LineBreak/>
+                     Ici, nous pourrons rajouter une vache : <LineBreak/>
+                        * 0, 1 ou 2 (gauche du troupeau) <LineBreak/>
+                        * 12, 13, 14, 15 ou 16 (droite du troupeau) <LineBreak/>
+                    </TextBlock>
+                </StackPanel>
             </Popup>
         </Button>
-        <Button x:Name="Regles3" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles3Popup_Click" HorizontalAlignment="Right" Height="374" Margin="0,205,79,0" VerticalAlignment="Top" Width="236">
+        <Button x:Name="Regles3" ToolTip="Cliquez pour avoir plus d'informations !" ToolTipService.ShowDuration="5000" Click="Regles3Popup_Click" HorizontalAlignment="Right" Height="476" Margin="0,213,30,0" VerticalAlignment="Top" Width="300">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Regles-3.png"/>
             </Button.Background>
-            <Popup Name="Regles3Popup" IsOpen="False" Placement="Mouse">
-                <Button Name="Regles3OK" Click="Regles3Popup_ReClick"/>
+            <Popup Name="Regles3Popup" IsOpen="False" StaysOpen="False" Placement="Left">
+                <StackPanel Margin="0,0,0,0">
+                    <TextBlock Background="LightBlue" Margin="0,0,0,0">
+                    <Underline>Cas particuliers - Certaines vaches sont spéciales : </Underline> <LineBreak/>
+                        * Serre file : Jouez cette vache pour bloquer une extrémité du troupeau. <LineBreak/>
+                        * Vache acrobate : Placez cette vache sur une vache de même numéro que celui indiqué, quelque soit sa position dans le jeu. <LineBreak/>
+                        Cette carte ne peut pas être jouée seule. Elle nécessite qu’une vache portant le numéro correspondant soit déjà présente dans le troupeau. <LineBreak/>
+                        * Retardataire : Insérez cette vache dans le troupeau, à la place d’un numéro manquant, entre deux numéros. <LineBreak/>
+                        Cette carte ne peut pas être jouée si aucun numéro ne manqué dans le troupeau. <LineBreak/> <LineBreak/>
+                    <Bold>Attention</Bold> <LineBreak/>
+                    Un fermier qui pose une vache à 5 mouches peut, s’il le souhaite, changer le sens du jeu !! <LineBreak/>
+                    Pour cela il lui suffit de tourner la carte MOW dans le sens de son choix en la placant devant lui. <LineBreak/>
+                    Le jeu continue dans le sens indiqué par la fleche. <LineBreak/> <LineBreak/>
+                    <Bold>Nouveau troupeau</Bold> <LineBreak/>
+                    Un fermier qui ne PEUT PAS ou ne VEUT PAS ajouter une vache au troupeau en cours, <LineBreak/>
+                    ramasse toutes les cartes de ce troupeau et les pose faces caches dans son étable devant lui…<LineBreak/>
+                    Puis il démarre un nouveau troupeau en posant une carte de son choix au milieu de la table.<LineBreak/>
+                    Chaque mouche présente sur les cartes ramassées rapporter 1 point de honte en fin de manche.<LineBreak/>
+                    </TextBlock>
+                </StackPanel>
             </Popup>
         </Button>
-        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="446,604,0,0" Click="MenuClick">
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>

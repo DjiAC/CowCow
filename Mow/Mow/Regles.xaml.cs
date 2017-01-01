@@ -31,32 +31,17 @@ namespace Mow
         private void Regles1Popup_Click(object sender, RoutedEventArgs e)
         {
             Regles1Popup.IsOpen = true;
-        }
-
-        private void Regles1Popup_ReClick(object sender, RoutedEventArgs e)
-        {
-            Regles1Popup.IsOpen = false;
-        }
+        }       
 
         private void Regles2Popup_Click(object sender, RoutedEventArgs e)
         {
             Regles2Popup.IsOpen = true;
-        }
-
-        private void Regles2Popup_ReClick(object sender, RoutedEventArgs e)
-        {
-            Regles2Popup.IsOpen = false;
-        }
+        }        
 
         private void Regles3Popup_Click(object sender, RoutedEventArgs e)
         {
             Regles3Popup.IsOpen = true;
-        }
-
-        private void Regles3Popup_ReClick(object sender, RoutedEventArgs e)
-        {
-            Regles3Popup.IsOpen = false;
-        }        
+        }               
 
         private void MenuClick(object sender, RoutedEventArgs e)
         {

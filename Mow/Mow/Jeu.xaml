@@ -35,7 +35,7 @@
         <TextBox HorizontalAlignment="Left" Height="49" Margin="824,198,0,0" TextWrapping="Wrap" Text="Manche #" VerticalAlignment="Top" Width="140" TextChanged="TextBox_TextChanged_1" FontSize="24" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm" Background="{x:Null}" TextAlignment="Center" BorderBrush="{x:Null}"/>
         <TextBox HorizontalAlignment="Left" Height="148" Margin="10,558,0,0" TextWrapping="Wrap" Text="Joueur 1" VerticalAlignment="Top" Width="140" TextChanged="TextBox_TextChanged_1" FontSize="20" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="214" Margin="10,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8" Grid.ColumnSpan="2"/>
-        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="120" BorderThickness="0" Margin="10,10,0,0" Grid.ColumnSpan="2" Click="MenuClick">
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Grid.ColumnSpan="2" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
