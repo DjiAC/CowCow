@@ -68,6 +68,18 @@
                      Ici, nous pourrons rajouter une vache : <LineBreak/>
                         * 0, 1 ou 2 (gauche du troupeau) <LineBreak/>
                         * 12, 13, 14, 15 ou 16 (droite du troupeau) <LineBreak/>
+                        
+                    <Bold>Piocher une carte :</Bold> <LineBreak/>
+                    Après que le fermier ait ajouté une carte au troupeau il pioche une nouvelle carte et l’ajoute à sa main.<LineBreak/> <LineBreak/>
+                    
+                    <Bold>Fin de manche :</Bold> <LineBreak/>
+                    Lorsque l’un des fermiers prend la dernière carte de la Pioche, la manche se poursuit jusqu’à ce que le troupeau en cours rejoigne l’étable de l’un des joueurs. <LineBreak/>
+                    Puis chaque fermier reçoit dans son étable toutes les cartes lui restante en main. <LineBreak/>
+                    Chacun fait alors le compte de mooches présentes sur l’ensemble des cartes de son étable et cumule le résultat obtenu avec celui des manches précédentes. <LineBreak/> <LineBreak/>
+                    
+                    <Bold>Fin de partie :</Bold> <LineBreak/>
+                    Dès qu’un fermier attaint ou dépasse un total de 100 mouches dans son étable à la fin d’une manche, la partie prend fin.<LineBreak/>
+                    Le fermier avec le plus petit nombre de mooches remporte la partie.<LineBreak/>
                     </TextBlock>
                 </StackPanel>
             </Popup>
