@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mow.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,8 @@ namespace Mow
         }
 
         private void PlayClick(object sender, RoutedEventArgs e)
-        {            
+        {
+            Partie partie = new Partie();  
             this.Hide();
             JeuWindow Jeu = new JeuWindow();
             Jeu.ShowDialog();

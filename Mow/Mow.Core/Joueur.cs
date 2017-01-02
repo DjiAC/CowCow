@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mow.Core
 {
-    class Joueur
+    public class Joueur
     {
         public Joueur(){
             NomAleatoire = new List<string>();

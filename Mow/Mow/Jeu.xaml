@@ -16,8 +16,10 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="804,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="202" FontSize="20" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"><Run Text="Joueur 1 "/><Run Text="&#x9;"/><Run Text="2"/><LineBreak/><Run Text="Joueur 2 "/><Run Text="&#x9;"/><Run Text="4"/><LineBreak/><Run Text="Joueur 3 "/><Run Text="&#x9;"/><Run Text="10"/><LineBreak/><Run Text="Joueur 4"/><Run Text="&#x9;"/><Run Text="54"/><LineBreak/><Run Text="Joueur 5"/><Run Text="&#x9;"/><Run Text="12"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="138" FontSize="26" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"><Run Text="Joueur 1 "/><LineBreak/><Run Text="Joueur 2 "/><LineBreak/><Run Text="Joueur 3 "/><LineBreak/><Run Text="Joueur 4"/><LineBreak/><Run Text="Joueur 5"/></TextBlock>
+        
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="350" Margin="180,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Opacity="0.5" Grid.ColumnSpan="2"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="862,656,0,0" TextWrapping="Wrap" Text="ETABLE" VerticalAlignment="Top" Height="46" Width="82" FontSize="20" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="148" Margin="824,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Opacity="0.5" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="299,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
@@ -31,6 +33,10 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="528,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="680,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8" Grid.ColumnSpan="2"/>
+        <WrapPanel>
+            <TextBlock Text="Votre main" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Width="150" />
+        </WrapPanel>
         <TextBox HorizontalAlignment="Left" Height="148" Margin="248,558,0,0" TextWrapping="Wrap" Text="Nos cartes" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="49" Margin="824,198,0,0" TextWrapping="Wrap" Text="Manche #" VerticalAlignment="Top" Width="140" TextChanged="TextBox_TextChanged_1" FontSize="24" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm" Background="{x:Null}" TextAlignment="Center" BorderBrush="{x:Null}"/>
         <TextBox HorizontalAlignment="Left" Height="148" Margin="10,558,0,0" TextWrapping="Wrap" Text="Joueur 1" VerticalAlignment="Top" Width="140" TextChanged="TextBox_TextChanged_1" FontSize="20" Grid.ColumnSpan="2"/>

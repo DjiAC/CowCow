@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Mow.Core
 {
-    class Partie // Tout fait par C
+    public class Partie // Tout fait par C
     {
         public bool Sens { get; set; } // Sens du déroulement - True = horaire / False = anti-horaire
 
