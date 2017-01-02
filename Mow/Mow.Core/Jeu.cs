@@ -37,6 +37,8 @@ namespace Mow.Core
         public static void nouvellePartie()
         {
             string action = "";
+            int nombreOrdinateur = 0; // C'est le nombre d'IA
+            int nombreUtilisateur = 0; // C'est le nombre d'utilisateur
             while (action != "quitter")
             {
                 Console.WriteLine("    solo");
@@ -45,56 +47,200 @@ namespace Mow.Core
                 action = Console.ReadLine();
                 if (action == "solo") // L'utilsateur est seul
                 {
+                    bool erreur = true; // Permet de voir si tout ce passe bien 
+                    bool erreur2 = true;
 
                     Partie MaPartie = new Partie(); // on commence la partie
+                    while (erreur == true)
+                    {
+                        try
+                        {
 
-                    Console.WriteLine("Combien de joueurs en plus ? (entre 1 à 4)");
+                            Console.WriteLine("Combien de joueurs en plus ? (entre 1 à 4)");
+                            nombreOrdinateur = int.Parse(Console.ReadLine()); // Le joueur entre le nombre d'IA avec qui il veut jouer
 
-                    int nombreOrdinateur = int.Parse(Console.ReadLine()); // Le joueur entre le nombre d'IA avec qui il veut jouer
-                    MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, 0); // On créer la liste de joueur participant
+                            if (nombreOrdinateur >= 1 && nombreOrdinateur <= 4)
+                            {
+                                erreur = false;
+                                MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, 0); // On créer la liste de joueur participant
+                            }
+                            else
+                            {
+                                Console.WriteLine("Le nombre de participants doit être en 1 et 4");
+                            }
+                        }
+                        catch (ArgumentNullException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Merci de ne pas mettre une chaine vide");
+                        }
+                        catch (FormatException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veillez entrer un nombre entre 1 et 4.");
+                        }
+                        catch (OverflowException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veuillez entrer un nombre possible.");
+                        }
+                    }
 
-                    Console.WriteLine("Combiens de mouches maximum  ?");
-                    MaPartie.LimiteDeMouche = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
+                    while (erreur2 == true)
+                    {
+                        try
+                        {
+                            Console.WriteLine("Combiens de mouches maximum  ?");
+                            MaPartie.LimiteDeMouche = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
+
+                            erreur2 = false;
+
+                        }
+                        catch (ArgumentNullException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Merci de ne pas mettre une chaine vide");
+                        }
+                        catch (ArgumentOutOfRangeException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Entrer un nombre qui est dans l'intervalle.");
+                        }
+                        catch (FormatException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veillez entrer un nombre.");
+                        }
+                        catch (OverflowException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veuillez entrer un nombre possible.");
+                        }
+                    }
+
+
+
                     MaPartie.JouerPartie(); // On lance le jeu
 
                     Console.ReadLine();
 
                     action = "quitter";
+
                 }
                 else if (action == "multi") // Il y a plusieurs utilisateurs
                 {
-                    string nbParticipantsHumain = "", nbMouches = "", nbParticipantsOrdinateurs = "";   // nombre de joueurs participants à la partie
-                                                                                                        // et limite de mouche d'une partie
-                    int nbP, nbM, nbO;
-                    while (!Int32.TryParse(nbParticipantsHumain, out nbP))
+
+                    bool erreur = true;
+                    Partie MaPartie = new Partie(); // on commence la partie
+                    while (erreur == true)
                     {
-                        Console.WriteLine("Combients de participants humains?");
-                        nbParticipantsHumain = Console.ReadLine(); // On demande le nombre de joueurs humains
-                    }
-                    if (nbP < 1) { nbP = 1; }
-                    Console.WriteLine("La partie comporteras " + nbP + " participants");
+                        try
+                        {
 
-                    while (!Int32.TryParse(nbParticipantsOrdinateurs, out nbO)) // 
+                            Console.WriteLine("Combien de joueurs en plus ? (entre 1 à 4)");
+                            nombreUtilisateur = int.Parse(Console.ReadLine()); // Le joueur entre le nombre d'IA avec qui il veut jouer
+
+                            if (nombreUtilisateur >= 1 && nombreUtilisateur <= 4)
+                            {
+                                erreur = false;
+                                MaPartie.CreerListeDeJoueur(action, nombreUtilisateur, 0); // On créer la liste de joueurs participant
+                            }
+                            else
+                            {
+                                Console.WriteLine("Le nombre de participants doit être en 1 et 4");
+                            }
+                        }
+                        catch (ArgumentNullException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Merci de ne pas mettre une chaine vide");
+                        }
+                        catch (FormatException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veillez entrer un nombre entre 1 et 4.");
+                        }
+                        catch (OverflowException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veuillez entrer un nombre possible.");
+                        }
+                    }
+
+                    erreur = true;
+
+                    while (erreur == true)
                     {
-                        Console.WriteLine("Combients de participants Ordinateurs?");
-                        nbParticipantsOrdinateurs = Console.ReadLine(); // On demande le nombre de joueurs artificielles
+                        try
+                        {
+
+                            Console.WriteLine("Combien de joueurs en plus ? (entre 1 à 4)");
+                            nombreOrdinateur = int.Parse(Console.ReadLine()); // Le joueur entre le nombre d'IA avec qui il veut jouer
+
+                            if (nombreOrdinateur >= 1 && nombreOrdinateur <= 4)
+                            {
+                                erreur = false;
+                                MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, 0); // On créer la liste de joueur participant
+                            }
+                            else
+                            {
+                                Console.WriteLine("Le nombre de participants doit être en 1 et 4");
+                            }
+                        }
+                        catch (ArgumentNullException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Merci de ne pas mettre une chaine vide");
+                        }
+                        catch (FormatException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veillez entrer un nombre entre 1 et 4.");
+                        }
+                        catch (OverflowException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veuillez entrer un nombre possible.");
+                        }
                     }
 
 
-                    Partie MaPartie = new Partie(); 
 
-
-                    while (!Int32.TryParse(nbMouches, out nbM))
+                    erreur = true;
+                    while (erreur == true)
                     {
-                        Console.WriteLine("Combients de mouches maximum  ?");
-                        nbMouches = Console.ReadLine(); // On demande le nombre limite de mouche
+                        try
+                        {
+                            Console.WriteLine("Combiens de mouches maximum  ?");
+                            MaPartie.LimiteDeMouche = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
+
+                            erreur = false;
+
+                        }
+                        catch (ArgumentNullException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Merci de ne pas mettre une chaine vide");
+                        }
+                        catch (ArgumentOutOfRangeException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Entrer un nombre qui est dans l'intervalle.");
+                        }
+                        catch (FormatException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veillez entrer un nombre.");
+                        }
+                        catch (OverflowException exception)
+                        {
+                            Console.WriteLine(exception.Message);
+                            Console.WriteLine("Veuillez entrer un nombre possible.");
+                        }
                     }
-                    if (nbM < 0) { nbM = 0; }
 
-                    Console.WriteLine("La partie comporteras " + nbM + " mouches au maximum");
-                    MaPartie.LimiteDeMouche = int.Parse(nbMouches); // On instancie la variable LimiteDeMouche
 
-                    MaPartie.CreerListeDeJoueur(action, nbO, nbP); // On créerla liste de joueurs participants
+                    MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, nombreUtilisateur); // On créer la liste de joueurs participants
                     MaPartie.JouerPartie(); // On lance le jeu
 
                     Console.ReadLine();
@@ -102,8 +248,8 @@ namespace Mow.Core
                     action = "quitter";
                 }
             }
-
         }
+
         public static void chargerPartie()
         {
             string savePath; // le chemin d'accès à la sauvgarde
