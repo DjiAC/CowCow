@@ -35,8 +35,6 @@ namespace Mow.Core
             NombreJoueurs = NbJoueurs;
             TypeDePartie = TypePartie;
 
-
-
             Console.WriteLine("===== La partie commence =====");
 
         }
