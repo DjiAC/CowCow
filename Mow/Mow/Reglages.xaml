@@ -13,29 +13,30 @@
         <ImageBrush ImageSource="Images/Reglages.jpg"/>
     </Window.Background>
     <Grid Margin="0,0,0,0">
-        <Rectangle Fill="#7FF4F4F5" HorizontalAlignment="Center" Height="385" Margin="264,213,263,141" Stroke="Black" VerticalAlignment="Center" Width="491"/>
-        <Rectangle Fill="#7F5AEABC" HorizontalAlignment="Center" Height="94" Margin="309,467,309,178" Stroke="#FF6FFBFB" VerticalAlignment="Center" Width="400"/>
-        <Rectangle Fill="#7F69F55B" HorizontalAlignment="Center" Height="100" Margin="309,349,309,290" Stroke="#FF5DD884" VerticalAlignment="Center" Width="400"/>
-        <Rectangle Fill="#7F5151F5" HorizontalAlignment="Center" Height="85" Margin="309,245,309,409" Stroke="#FF2C2CEA" VerticalAlignment="Center" Width="400"/>
+        <Rectangle Fill="#7FF4F4F5" HorizontalAlignment="Center" Height="430" Margin="211,175,206,134" Stroke="Black" VerticalAlignment="Center" Width="601"/>
+        <Rectangle Fill="#7F5AEABC" HorizontalAlignment="Center" Height="138" Margin="256,436,247,165" Stroke="#FF6FFBFB" VerticalAlignment="Center" Width="515"/>
+        <Rectangle Fill="#7F5151F5" HorizontalAlignment="Center" Height="205" Margin="256,207,247,327" Stroke="#FF2C2CEA" VerticalAlignment="Center" Width="515"/>
         <TextBlock x:Name="Titre" Margin="284,77,284,0" TextWrapping="Wrap" Text="REGLAGES" Height="56" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
         <Button x:Name="MenuButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
         </Button>
-        <TextBlock x:Name="TypePartie" Margin="316,272,499,0" TextWrapping="Wrap" Text="Type de partie" Height="32" Width="203" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <RadioButton x:Name="RadioTypeSolo" GroupName="TypePartie" IsChecked="True" Content="Solo" HorizontalAlignment="Left" Margin="610,272,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="RadioTypeMulti" GroupName="TypePartie" Content="Multi" HorizontalAlignment="Left" Margin="610,292,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="NbJoueurs" Margin="314,382,450,0" TextWrapping="Wrap" Height="30" Width="254" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Nombre de "/><Run Text="joueurs"/></TextBlock>
+        <TextBlock x:Name="TypePartie" Margin="264,236,551,0" TextWrapping="Wrap" Text="Type de partie" Height="32" Width="203" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <RadioButton x:Name="RadioTypeSolo" GroupName="TypePartie" IsChecked="True" Content="Solo" HorizontalAlignment="Left" Margin="336,272,0,0" VerticalAlignment="Top" Checked="RadioTypeSoloChecked"/>
+        <RadioButton x:Name="RadioTypeMulti" GroupName="TypePartie" Content="Multi" HorizontalAlignment="Left" Margin="336,292,0,0" VerticalAlignment="Top" Checked="RadioTypeMultiChecked"/>
+        <TextBlock x:Name="NbJoueurs" Margin="493,208,271,0" TextWrapping="Wrap" Height="30" Width="254" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Nombre de "/><Run Text="joueurs"/></TextBlock>
 
-        <TextBlock x:Name="NbMouches" Margin="314,498,466,0" TextWrapping="Wrap" Text="Nombre de mouches" Height="30" Width="238" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <TextBox x:Name="ChoixNbMouches" Text="100" Margin="568,489,353,202" FontSize="24" TextAlignment="Center"/>
+        <TextBlock x:Name="NbMouches" Margin="284,355,496,0" TextWrapping="Wrap" Text="Nombre de mouches" Height="30" Width="238" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <TextBox x:Name="ChoixNbMouches" Text="100" PreviewTextInput="OnlyNumber" Margin="583,354,338,337" FontSize="24" TextAlignment="Center"/>
         <Button x:Name="PlayButton" Click="PlayClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Height="56" BorderThickness="0" Margin="795,673,0,0" Background="#7FFFFFFF" Foreground="Black" BorderBrush="{x:Null}">
             <TextBlock FontFamily="KBTheFlowerFarm" FontSize="48" Width="153" Height="51" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"><Run Text="PLAY"/></TextBlock>
         </Button>
-        <RadioButton x:Name="radioButton" GroupName="NombreJoueurs" Content="2" HorizontalAlignment="Left" Margin="587,363,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButton1" GroupName="NombreJoueurs" Content="3" HorizontalAlignment="Left" Margin="587,383,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButton2" GroupName="NombreJoueurs" Content="4" HorizontalAlignment="Left" Margin="587,403,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButton3" GroupName="NombreJoueurs" Content="5" IsChecked="True" HorizontalAlignment="Left" Margin="587,423,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton" GroupName="NombreJoueurs" Content="2" HorizontalAlignment="Left" Margin="617,251,0,0" VerticalAlignment="Top" Checked="Nb2Checked"/>
+        <RadioButton x:Name="radioButton1" GroupName="NombreJoueurs" Content="3" HorizontalAlignment="Left" Margin="617,271,0,0" VerticalAlignment="Top" Checked="Nb3Checked"/>
+        <RadioButton x:Name="radioButton2" GroupName="NombreJoueurs" Content="4" HorizontalAlignment="Left" Margin="617,291,0,0" VerticalAlignment="Top" Checked="Nb4Checked"/>
+        <RadioButton x:Name="radioButton3" GroupName="NombreJoueurs" Content="5" IsChecked="True" HorizontalAlignment="Left" Margin="617,311,0,0" VerticalAlignment="Top" Checked="Nb5Checked"/>
+        <TextBlock x:Name="NomJoueur1" Margin="271,483,509,0" TextWrapping="Wrap" Text="Joueur 1" Height="30" Width="238" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <TextBox x:Name="Joueur1" Text="Nom" Margin="583,482,338,209" FontSize="24" TextAlignment="Center"/>
     </Grid>
 </Window>

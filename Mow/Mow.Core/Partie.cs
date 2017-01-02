@@ -27,8 +27,6 @@ namespace Mow.Core
 
             Sens = true; // On inialise le sens
 
-
-
             Console.WriteLine("===== La partie commence =====");
 
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,40 +34,46 @@ namespace Mow
         }
 
         private void PlayClick(object sender, RoutedEventArgs e)
-        {
+        {            
             this.Hide();
             JeuWindow Jeu = new JeuWindow();
             Jeu.ShowDialog();
-        }
+        }        
 
-        private void SoloClick(object sender, RoutedEventArgs e)
+        private void RadioTypeSoloChecked(object sender, RoutedEventArgs e)
         {
             string TypePartie = "solo";
         }
 
-        private void MultiClick(object sender, RoutedEventArgs e)
+        private void RadioTypeMultiChecked(object sender, RoutedEventArgs e)
         {
             string TypePartie = "multi";
         }
 
-        private void Nb2Click(object sender, RoutedEventArgs e)
+        private void Nb2Checked(object sender, RoutedEventArgs e)
         {
             int NbJoueurs = 2;
         }
 
-        private void Nb3Click(object sender, RoutedEventArgs e)
+        private void Nb3Checked(object sender, RoutedEventArgs e)
         {
             int NbJoueurs = 3;
         }
 
-        private void Nb4Click(object sender, RoutedEventArgs e)
+        private void Nb4Checked(object sender, RoutedEventArgs e)
         {
             int NbJoueurs = 4;
         }
 
-        private void Nb5Click(object sender, RoutedEventArgs e)
+        private void Nb5Checked(object sender, RoutedEventArgs e)
         {
             int NbJoueurs = 5;
+        }
+
+        private void OnlyNumber(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }
