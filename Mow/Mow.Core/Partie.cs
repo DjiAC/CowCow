@@ -19,13 +19,21 @@ namespace Mow.Core
         public int IndexJoueur = 0; // Le premier joueur dans la liste commence la partie
         public int LimiteDeMouche { get; set; } // Détermine la condition d'arrêt d'une partie
 
+        public string TypeDePartie { get; set; }
+        public string NomJoueur { get; set; }
+        public int NombreJoueurs { get; set; }
 
-        public Partie()
+
+        public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
             Pioche = new Stack<Carte>();
             TroupeauDeVache = new List<Carte>();
 
             Sens = true; // On inialise le sens
+            LimiteDeMouche = NbMouche;
+            NomJoueur = nomJoueur;
+            NombreJoueurs = NbJoueurs;
+            TypeDePartie = TypePartie;
 
             Console.WriteLine("===== La partie commence =====");
 
@@ -86,6 +94,8 @@ namespace Mow.Core
 
         public void JouerPartie()
         {
+            CreerListeDeJoueur(TypeDePartie, NombreJoueurs, 0); // On créer la liste de joueur participant
+
             while (VerifierMouche() != true) // Une partie s'arrête quand la limite de mouche est atteinte par un joueur
             {
                 CreerPioche(); // Création de la pioche
@@ -594,7 +604,7 @@ namespace Mow.Core
             if (typePartie == "solo") // Il y a un seul utilisateur
             {
 
-                CreerProfile(); // On crée son profile puis on l'ajoute à la liste des joueurs
+                CreerProfile(NomJoueur); // On crée son profile puis on l'ajoute à la liste des joueurs
 
 
                 for (int i = 0; i < nombreOrdinateur; i++) 
@@ -605,7 +615,7 @@ namespace Mow.Core
             else if (typePartie == "multi") // Il y a plusieurs utilisateurs
             {
                 for (int i = 0; i < nombreUtilisateur; i++) 
-                    CreerProfile(); // On crée autant de profile que le nombre demandé
+                    CreerProfile(NomJoueur); // On crée autant de profile que le nombre demandé
 
                 for (int i = 0; i < nombreOrdinateur; i++)
                     CreerProfileOrdinateur(i); // On crée autant de joueurs artificielles que le nombre demandé
@@ -619,14 +629,14 @@ namespace Mow.Core
         /// <summary>
         /// Permet à un utilisateur de créer son profile
         /// </summary>
-        public void CreerProfile()
+        public void CreerProfile(string NomJoueur)
         {
-            Console.WriteLine("Entrer votre Pseudo :");
+            
             Joueur joueur = new Joueur(); // On initialise l'objet joueur
             joueur.Etable = new List<Carte>(); // On initialise l'objet Etable du joueur
             joueur.Main = new List<Carte>(); // On initialise l'objet Main du joueur
 
-            joueur.Pseudo = Console.ReadLine(); // L'utilisateur entre son pseudo
+            joueur.Pseudo = NomJoueur; // L'utilisateur entre son pseudo
             joueur.Type = "Humain"; // On définit le type de joueur
             Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
         }
