@@ -21,13 +21,13 @@ namespace Mow
     /// </summary>
     public partial class JeuWindow : Window
     {
+        Partie partie;
+
         public JeuWindow()
         {
             InitializeComponent();
+            this.DataContext = partie;
         }
-
-        public object NavigationService { get; private set; }
-
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

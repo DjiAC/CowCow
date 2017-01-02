@@ -22,9 +22,9 @@
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
         </Button>
-        <TextBlock x:Name="TypePartie" Margin="264,236,551,0" TextWrapping="Wrap" Text="Type de partie" Height="32" Width="203" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <RadioButton x:Name="RadioTypeSolo" GroupName="TypePartie" IsChecked="True" Content="Solo" HorizontalAlignment="Left" Margin="336,272,0,0" VerticalAlignment="Top" Checked="RadioTypeSoloChecked"/>
-        <RadioButton x:Name="RadioTypeMulti" GroupName="TypePartie" Content="Multi" HorizontalAlignment="Left" Margin="336,292,0,0" VerticalAlignment="Top" Checked="RadioTypeMultiChecked"/>
+        <TextBlock x:Name="TypeP" Margin="264,236,551,0" TextWrapping="Wrap" Text="Type de partie" Height="32" Width="203" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
+        <RadioButton x:Name="RadioTypeSolo" GroupName="TypePartieGroup" IsChecked="True" Content="Solo" HorizontalAlignment="Left" Margin="336,272,0,0" VerticalAlignment="Top" Checked="RadioTypeSoloChecked"/>
+        <RadioButton x:Name="RadioTypeMulti" GroupName="TypePartieGroup" Content="Multi" HorizontalAlignment="Left" Margin="336,292,0,0" VerticalAlignment="Top" Checked="RadioTypeMultiChecked"/>
         <TextBlock x:Name="NbJoueurs" Margin="493,208,271,0" TextWrapping="Wrap" Height="30" Width="254" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Nombre de "/><Run Text="joueurs"/></TextBlock>
 
         <TextBlock x:Name="NbMouches" Margin="284,355,496,0" TextWrapping="Wrap" Text="Nombre de mouches" Height="30" Width="238" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>

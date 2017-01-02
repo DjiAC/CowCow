@@ -22,6 +22,10 @@ namespace Mow
     /// </summary>
     public partial class ReglagesWindow : Window
     {
+        public string TypePartie { get; set; }
+
+        public int NbJoueursPartie { get; set; }
+
         public ReglagesWindow()
         {
             InitializeComponent();
@@ -36,7 +40,7 @@ namespace Mow
 
         private void PlayClick(object sender, RoutedEventArgs e)
         {
-            Partie partie = new Partie();  
+            Partie partie = new Partie(TypePartie , NbJoueursPartie , (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
             this.Hide();
             JeuWindow Jeu = new JeuWindow();
             Jeu.ShowDialog();
@@ -54,22 +58,22 @@ namespace Mow
 
         private void Nb2Checked(object sender, RoutedEventArgs e)
         {
-            int NbJoueurs = 2;
+            int NbJoueursPartie = 2;
         }
 
         private void Nb3Checked(object sender, RoutedEventArgs e)
         {
-            int NbJoueurs = 3;
+            int NbJoueursPartie = 3;
         }
 
         private void Nb4Checked(object sender, RoutedEventArgs e)
         {
-            int NbJoueurs = 4;
+            int NbJoueursPartie = 4;
         }
 
         private void Nb5Checked(object sender, RoutedEventArgs e)
         {
-            int NbJoueurs = 5;
+            int NbJoueursPartie = 5;
         }
 
         private void OnlyNumber(object sender, TextCompositionEventArgs e)
