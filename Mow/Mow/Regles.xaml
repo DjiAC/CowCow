@@ -18,9 +18,9 @@
             <Button.Background>
                 <ImageBrush ImageSource="Images/Regles-1.png"/>
             </Button.Background>
-            <Popup Name="Regles1Popup" IsOpen="False" StaysOpen="False" Placement="Right" Width="636" Height="300">
-                <StackPanel Margin="0,0,0,0">
-                    <TextBlock Background="LightBlue" Margin="0,0,0,0" >
+            <Popup Name="Regles1Popup" IsOpen="False" StaysOpen="False" Placement="Right" Width="636" Height="400">
+                <StackPanel Margin="0,0,0,59">
+                    <TextBlock Background="LightBlue" Margin="0,0,0,0" Height="340" >
                     <Underline>Résumé :</Underline>  <LineBreak/>
                     Les joueurs sont des fermiers.<LineBreak/>
                     Ils vont chercher les vaches au champ et les rassemblent en troupeaux pour les rentrer dans leur étable.<LineBreak/>
@@ -110,11 +110,10 @@
                 </StackPanel>
             </Popup>
         </Button>
-        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
+        <Button x:Name="MenuButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
-            <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
     </Grid>
 </Window>

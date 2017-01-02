@@ -13,11 +13,11 @@
         <ImageBrush ImageSource="Images/Home.jpg"/>
     </Window.Background>
     <Grid Margin="0,0,0,0">
-        <Button x:Name="Jouer" Click="JouerClick" HorizontalAlignment="Left" Margin="175,303,0,0" VerticalAlignment="Top" Width="239" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FF2020DE" Content="Jouer"/>
-        <Button x:Name="Stats" Click="StatsClick" HorizontalAlignment="Right" Margin="0,303,174,0" VerticalAlignment="Top" Width="241" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FFB40000" Content="Stats"/>
-        <Button x:Name="Regles" Click="ReglesClick" HorizontalAlignment="Left" Margin="387,471,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FF15D126" Content="Regles"/>
+        <Button x:Name="JouerButton" Click="JouerClick" HorizontalAlignment="Left" Margin="175,303,0,0" VerticalAlignment="Top" Width="239" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FF2020DE" Content="Jouer"/>
+        <Button x:Name="StatsButton" Click="StatsClick" HorizontalAlignment="Right" Margin="0,303,174,0" VerticalAlignment="Top" Width="241" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FFB40000" Content="Stats"/>
+        <Button x:Name="ReglesButton" Click="ReglesClick" HorizontalAlignment="Left" Margin="387,471,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="48" Cursor="Hand" FontFamily="KBTheFlowerFarm" Background="#4CFFFFFF" BorderBrush="White" Foreground="#FF15D126" Content="Regles"/>
         <TextBlock x:Name="titre" Margin="284,100,284,0" TextWrapping="Wrap" Text="MOWJOW" Height="74" Width="450" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <Button x:Name="Credits" Content="CODING FARMERS" Click="CreditsClick" HorizontalAlignment="Right" Height="46" Margin="0,0,10,10" Background="{x:Null}" Foreground="White" FontFamily="KBTheFlowerFarm" Width="240" FontSize="24" FontStyle="Italic" VerticalAlignment="Bottom" BorderBrush="{x:Null}">
+        <Button x:Name="CreditsButton" Content="CODING FARMERS" Click="CreditsClick" HorizontalAlignment="Right" Height="46" Margin="0,0,10,10" Background="{x:Null}" Foreground="White" FontFamily="KBTheFlowerFarm" Width="240" FontSize="24" FontStyle="Italic" VerticalAlignment="Bottom" BorderBrush="{x:Null}">
         </Button>
     </Grid>
 </Window>

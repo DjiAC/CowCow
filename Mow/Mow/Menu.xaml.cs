@@ -28,8 +28,8 @@ namespace Mow
         private void JouerClick(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            JeuWindow Jeu = new JeuWindow();
-            Jeu.ShowDialog();            
+            ReglagesWindow Reglages = new ReglagesWindow();
+            Reglages.ShowDialog();            
         }
 
         private void StatsClick(object sender, RoutedEventArgs e)

@@ -14,7 +14,7 @@
     </Window.Background>
     <Grid Margin="0">
         <TextBlock x:Name="titre" Margin="212,77,212,0" TextWrapping="Wrap" Height="56" Width="594" HorizontalAlignment="Center" FontSize="72" TextAlignment="Center" FontFamily="Happy Cow" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}" Text="STATISTIQUES" Foreground="Black"/>
-        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
+        <Button x:Name="MenuButton" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>

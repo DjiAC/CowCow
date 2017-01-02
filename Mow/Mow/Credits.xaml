@@ -34,7 +34,7 @@
                 <ImageBrush ImageSource="Images/Guillaume.jpeg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="button" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="174" Height="164" BorderThickness="0" Margin="834,0,10,10" Click="MenuClick">
+        <Button x:Name="MenuButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="174" Height="164" BorderThickness="0" Margin="834,0,10,10" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
