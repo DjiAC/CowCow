@@ -31,6 +31,6 @@ namespace Mow.Core
 
         public List<Carte> Etable { get; set; } // Les cartes qu'il récupère lorqu'il ne joue pas de vache
 
-        public List<String> NomAleatoire; // Liste de nom aléatoire pour les joueurs artificielles
+        public List<String> NomAleatoire; // Liste de nom aléatoire pour les joueurs artificiels
     }
 }

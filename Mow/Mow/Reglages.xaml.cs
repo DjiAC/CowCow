@@ -41,8 +41,9 @@ namespace Mow
         private void PlayClick(object sender, RoutedEventArgs e)
         {
             Partie partie = new Partie(TypePartie , NbJoueursPartie , (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
+            partie.JouerPartie();
             this.Hide();
-            JeuWindow Jeu = new JeuWindow();
+            JeuWindow Jeu = new JeuWindow(partie);
             Jeu.ShowDialog();
         }        
 

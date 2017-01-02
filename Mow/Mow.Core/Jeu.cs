@@ -46,9 +46,9 @@ namespace Mow.Core
                 Console.WriteLine("    multi");
                 Console.WriteLine("    quitter");
                 action = Console.ReadLine();
-                if (action == "solo") // L'utilsateur est seul
+                if (action == "solo") // L'utilisateur est seul
                 {
-                    bool erreur = true; // Permet de voir si tout ce passe bien 
+                    bool erreur = true; // Permet de voir si tout se passe bien 
                     bool erreur2 = true;
 
 
@@ -78,7 +78,7 @@ namespace Mow.Core
                         catch (FormatException exception)
                         {
                             Console.WriteLine(exception.Message);
-                            Console.WriteLine("Veillez entrer un nombre entre 1 et 4.");
+                            Console.WriteLine("Veuillez entrer un nombre entre 1 et 4.");
                         }
                         catch (OverflowException exception)
                         {

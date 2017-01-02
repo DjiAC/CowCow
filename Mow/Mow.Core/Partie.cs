@@ -21,7 +21,7 @@ namespace Mow.Core
 
         public string TypeDePartie { get; set; }
         public string NomJoueur { get; set; }
-        public int NombreJoueurs { get; set; }
+        public int NbJoueursPartie { get; set; }
 
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
@@ -32,10 +32,10 @@ namespace Mow.Core
             Sens = true; // On inialise le sens
             LimiteDeMouche = NbMouche;
             NomJoueur = nomJoueur;
-            NombreJoueurs = NbJoueurs;
+            NbJoueursPartie = NbJoueurs;
             TypeDePartie = TypePartie;
 
-            Console.WriteLine("===== La partie commence =====");
+            // Console.WriteLine("===== La partie commence =====");
 
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Mow.Core
         public void CreerPioche()   // Fait par C
         {
 
-            var Json = System.IO.File.ReadAllText(@"..\..\..\Ressources\cartes.json"); // On cherche les cartes 
+            var Json = System.IO.File.ReadAllText(@"..\..\..\cartes.json"); // On cherche les cartes 
 
             var Objets = JArray.Parse(Json);                            // On parse le Json en Array
             foreach (JObject root in Objets)                            // On parcourt chaque carte dans l'array
@@ -94,7 +94,7 @@ namespace Mow.Core
 
         public void JouerPartie()
         {
-            CreerListeDeJoueur(TypeDePartie, NombreJoueurs, 0); // On créer la liste de joueur participant
+            CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
 
             while (VerifierMouche() != true) // Une partie s'arrête quand la limite de mouche est atteinte par un joueur
             {
@@ -114,16 +114,16 @@ namespace Mow.Core
         /// </summary>
         public void JouerManche()
         {
-
             DistribuerCarte(); // Au début d'une manche, on distribue les cartes
             string choix = ""; // Variable qui contient le choix d'un joueur
+            IndexJoueur = 0;
 
-            while (Pioche.Count != 0 || choix != "A") // Une manche s'arrête lorsque la pioche est vide et qu'un joueur ne plus jouer de vache
+            while (Pioche.Count != 0 || choix != "A") // Une manche s'arrête lorsque la pioche est vide et qu'un joueur ne peux plus jouer de vache
             {
                 if (TroupeauDeVache.Count != 0) 
-                    DeterminerJoueurActuelle(); // On détermine le joueur qui va jouer à chaque tour selon le sens 
+                    DeterminerJoueurActuel(); // On détermine le joueur qui va jouer à chaque tour selon le sens 
 
-                Console.WriteLine("C'est le Troupeau");
+                Console.WriteLine("Troupeau");
                 foreach (Carte carte in TroupeauDeVache)
                 {
 
@@ -131,6 +131,7 @@ namespace Mow.Core
 
                 }
 
+                Console.WriteLine(IndexJoueur);
                 if (Joueurs.ElementAt(IndexJoueur).Type == "Humain") // Pour le cas d'un joueur humain
                 {
 
@@ -183,19 +184,13 @@ namespace Mow.Core
                 {
                     do
                     {
-
                         choix = JouerOrdinateurFaible(Joueurs.ElementAt(IndexJoueur)); // L'IA choisit une carte ou de ne pas jouer
-
-
-
-
+                        
                     } while (choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
                 }
 
-
                     if (choix != "A") // Si le joueur a joué une carte
                 {
-
                     if (Pioche.Count != 0)
                         Joueurs.ElementAt(IndexJoueur).Main.Add(Pioche.Pop()); // Le joueur pioche une carte à la fin de son tour
                 }
@@ -585,7 +580,6 @@ namespace Mow.Core
             {
                 foreach (Joueur joueur in Joueurs) 
                 {
-
                     joueur.Main.Add(Pioche.Pop()); // Pour chaque joueur, on lui donne une carte dans samain
                 }
             }
@@ -599,26 +593,26 @@ namespace Mow.Core
         /// <param name="option">On détermine le mode de jeu, en solo ou en multi</param>
         /// <param name="nombreOrdinateur">Le nombre d'IA à mettre</param>
         /// <param name="nombreUtilisateur">Le nombre d'utilisateur à mettre</param>
-        public void CreerListeDeJoueur(string typePartie, int nombreOrdinateur, int nombreUtilisateur)
+        public void CreerListeDeJoueur(string typePartie, int nombreOrdinateur, int nombreUtilisateur) 
         {
             if (typePartie == "solo") // Il y a un seul utilisateur
             {
 
-                CreerProfile(NomJoueur); // On crée son profile puis on l'ajoute à la liste des joueurs
+                CreerProfil(NomJoueur); // On crée son profile puis on l'ajoute à la liste des joueurs
 
 
                 for (int i = 0; i < nombreOrdinateur; i++) 
-                    CreerProfileOrdinateur(i);  // On crée autant de joueurs artificielles que le nombre demandé
+                    CreerProfilOrdinateur(i);  // On crée autant de joueurs artificielles que le nombre demandé
 
 
             }
             else if (typePartie == "multi") // Il y a plusieurs utilisateurs
             {
                 for (int i = 0; i < nombreUtilisateur; i++) 
-                    CreerProfile(NomJoueur); // On crée autant de profile que le nombre demandé
+                    CreerProfil(NomJoueur); // On crée autant de profile que le nombre demandé
 
                 for (int i = 0; i < nombreOrdinateur; i++)
-                    CreerProfileOrdinateur(i); // On crée autant de joueurs artificielles que le nombre demandé
+                    CreerProfilOrdinateur(i); // On crée autant de joueurs artificielles que le nombre demandé
 
 
             }
@@ -629,7 +623,7 @@ namespace Mow.Core
         /// <summary>
         /// Permet à un utilisateur de créer son profile
         /// </summary>
-        public void CreerProfile(string NomJoueur)
+        public void CreerProfil(string NomJoueur)
         {
             
             Joueur joueur = new Joueur(); // On initialise l'objet joueur
@@ -646,7 +640,7 @@ namespace Mow.Core
         /// Crée un joueur arficielle
         /// </summary>
         /// <param name="i">Index pour la liste de nom</param>
-        public void CreerProfileOrdinateur(int i)
+        public void CreerProfilOrdinateur(int i)
         {
 
 
@@ -666,11 +660,10 @@ namespace Mow.Core
         /// <summary>
         /// Détermine le joueur qui doit jouer selon le sens
         /// </summary>
-        public void DeterminerJoueurActuelle()
+        public void DeterminerJoueurActuel()
         {
             if (Sens == true)
             {
-
                 IndexJoueur++;
                 if (IndexJoueur == Joueurs.Count)
                     IndexJoueur = 0;

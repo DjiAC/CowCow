@@ -23,9 +23,12 @@ namespace Mow
     {
         Partie partie;
 
-        public JeuWindow()
+        public JeuWindow(Partie partie)
         {
             InitializeComponent();
+
+            this.partie = partie;
+
             this.DataContext = partie;
         }
 
