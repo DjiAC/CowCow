@@ -38,6 +38,7 @@ namespace Mow.Core
         {
             string action = "";
             int nombreOrdinateur = 0; // C'est le nombre d'IA
+            int nombreDeMouches = 0; 
             int nombreUtilisateur = 0; // C'est le nombre d'utilisateur
             while (action != "quitter")
             {
@@ -50,7 +51,7 @@ namespace Mow.Core
                     bool erreur = true; // Permet de voir si tout ce passe bien 
                     bool erreur2 = true;
 
-                    Partie MaPartie = new Partie(); // on commence la partie
+
                     while (erreur == true)
                     {
                         try
@@ -62,7 +63,7 @@ namespace Mow.Core
                             if (nombreOrdinateur >= 1 && nombreOrdinateur <= 4)
                             {
                                 erreur = false;
-                                MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, 0); // On créer la liste de joueur participant
+
                             }
                             else
                             {
@@ -91,7 +92,7 @@ namespace Mow.Core
                         try
                         {
                             Console.WriteLine("Combiens de mouches maximum  ?");
-                            MaPartie.LimiteDeMouche = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
+                            nombreDeMouches = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
 
                             erreur2 = false;
 
@@ -118,7 +119,10 @@ namespace Mow.Core
                         }
                     }
 
+                    Console.WriteLine("Entrer votre pseudo");
+                    string NomJoueur = Console.ReadLine();
 
+                    Partie MaPartie = new Partie(action, nombreOrdinateur, NomJoueur, nombreDeMouches);
 
                     MaPartie.JouerPartie(); // On lance le jeu
 
@@ -127,11 +131,12 @@ namespace Mow.Core
                     action = "quitter";
 
                 }
+
                 else if (action == "multi") // Il y a plusieurs utilisateurs
                 {
 
                     bool erreur = true;
-                    Partie MaPartie = new Partie(); // on commence la partie
+
                     while (erreur == true)
                     {
                         try
@@ -143,7 +148,7 @@ namespace Mow.Core
                             if (nombreUtilisateur >= 1 && nombreUtilisateur <= 4)
                             {
                                 erreur = false;
-                                MaPartie.CreerListeDeJoueur(action, nombreUtilisateur, 0); // On créer la liste de joueurs participant
+
                             }
                             else
                             {
@@ -180,7 +185,7 @@ namespace Mow.Core
                             if (nombreOrdinateur >= 1 && nombreOrdinateur <= 4)
                             {
                                 erreur = false;
-                                MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, 0); // On créer la liste de joueur participant
+
                             }
                             else
                             {
@@ -212,7 +217,7 @@ namespace Mow.Core
                         try
                         {
                             Console.WriteLine("Combiens de mouches maximum  ?");
-                            MaPartie.LimiteDeMouche = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
+                            nombreDeMouches = int.Parse(Console.ReadLine()); // L'utilisateur détermine le nombre limite de mouche
 
                             erreur = false;
 
@@ -240,7 +245,11 @@ namespace Mow.Core
                     }
 
 
-                    MaPartie.CreerListeDeJoueur(action, nombreOrdinateur, nombreUtilisateur); // On créer la liste de joueurs participants
+                    Console.WriteLine("Entrer votre pseudo");
+                    string NomJoueur = Console.ReadLine();
+
+                    Partie MaPartie = new Partie(action, nombreOrdinateur, NomJoueur, nombreDeMouches);
+
                     MaPartie.JouerPartie(); // On lance le jeu
 
                     Console.ReadLine();
