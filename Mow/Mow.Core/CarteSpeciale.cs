@@ -14,7 +14,7 @@ namespace Mow.Core
     class CarteSpeciale : Carte     // Fait par C
     {
 
-        //TODO Méethodes des cartes spéciales
+        //TODO Méthodes des cartes spéciales
 
 
 

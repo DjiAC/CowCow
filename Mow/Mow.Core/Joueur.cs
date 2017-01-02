@@ -10,14 +10,11 @@ namespace Mow.Core
     {
         public Joueur(){
             NomAleatoire = new List<string>();
-            NomAleatoire.Add("Hubert");
-            NomAleatoire.Add("Abdel");
-            NomAleatoire.Add("Karim");
-            NomAleatoire.Add("Lee");
-            NomAleatoire.Add("Jean");
-            NomAleatoire.Add("Mamadou");
-            NomAleatoire.Add("Michel");
-            NomAleatoire.Add("Albert");
+            NomAleatoire.Add("Daenerys");
+            NomAleatoire.Add("Negan");
+            NomAleatoire.Add("Savitar");
+            NomAleatoire.Add("Robert");
+           
         }
 
         public string Type { get; set; } // Pour savoir si c'est un utilisateur ou IA par C
