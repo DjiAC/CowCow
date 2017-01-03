@@ -24,9 +24,9 @@
         </Button>
         <TextBlock x:Name="TypeP" Margin="264,236,551,0" TextWrapping="Wrap" Text="Type de partie" Height="32" Width="203" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
         <GroupBox x:Name="RadioButtonType" Margin="271,208,557,408" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="0" Foreground="{x:Null}" Width="190" Height="123">
-            <StackPanel Margin="0,16,-2,8">
-                <RadioButton x:Name="RadioButtonTypeSolo" Checked="RadioButtonTypeChecked"  GroupName="TypePartieGroup" IsChecked="True" Content="Solo" HorizontalAlignment="Center" Margin="46,51,50,0" VerticalAlignment="Center" BorderThickness="1"/>
-                <RadioButton x:Name="RadioButtonTypeMulti" Checked="RadioButtonTypeChecked" GroupName="TypePartieGroup" Content="Multi" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" />
+            <StackPanel>
+                <RadioButton x:Name="RadioButtonTypeSolo" Checked="RadioButtonTypeChecked" Content="solo" IsChecked="True" HorizontalAlignment="Center" Margin="0,67,0,0" VerticalAlignment="Top" />
+                <RadioButton x:Name="RadioButtonTypeMulti" Checked="RadioButtonTypeChecked" Content="multi" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" />
             </StackPanel>
         </GroupBox>
         <TextBlock x:Name="NbJoueurs" Margin="493,208,271,0" TextWrapping="Wrap" Height="30" Width="254" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Nombre de "/><Run Text="joueurs"/></TextBlock>

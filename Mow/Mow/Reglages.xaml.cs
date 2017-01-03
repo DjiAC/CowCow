@@ -22,9 +22,9 @@ namespace Mow
     /// </summary>
     public partial class ReglagesWindow : Window
     {
-        public string TypePartie { get; set; }
-
         public int NbJoueursPartie { get; set; }
+
+        public string TypePartie { get; set; }
 
         public ReglagesWindow()
         {
@@ -40,28 +40,27 @@ namespace Mow
 
         private void PlayClick(object sender, RoutedEventArgs e)
         {
-            Partie partie = new Partie("solo" , 5, (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
-            // Console.WriteLine(NbJoueursPartie);
+            Partie partie = new Partie(TypePartie, NbJoueursPartie, (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
+            Console.WriteLine(TypePartie);
+            Console.WriteLine(NbJoueursPartie);
             partie.JouerPartie();
             this.Hide();
             JeuWindow Jeu = new JeuWindow(partie);
             Jeu.ShowDialog();
-        }
+        }        
 
         private void RadioButtonTypeChecked(object sender, RoutedEventArgs e)
         {
             var RadioButtonType = sender as RadioButton;
-            if (RadioButtonType == null)
-                return;
-             // string TypePartie = RadioButtonType.Content.ToString();
+            TypePartie = RadioButtonType.Content.ToString();
+
         }
 
         private void RadioButtonNbChecked(object sender, RoutedEventArgs e)
         {
             var RadioButtonNb = sender as RadioButton;
-            if (RadioButtonNb == null)
-                return;
-            int NbJoueursPartie = int.Parse(RadioButtonNb.Content.ToString());
+            NbJoueursPartie = int.Parse(RadioButtonNb.Content.ToString());
+                        
         }      
 
         private void OnlyNumber(object sender, TextCompositionEventArgs e)
