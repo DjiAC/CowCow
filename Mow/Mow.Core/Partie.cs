@@ -116,7 +116,6 @@ namespace Mow.Core
         {
             DistribuerCarte(); // Au début d'une manche, on distribue les cartes
             string choix = ""; // Variable qui contient le choix d'un joueur
-            IndexJoueur = 0;
 
             while (Pioche.Count != 0 || choix != "A") // Une manche s'arrête lorsque la pioche est vide et qu'un joueur ne peux plus jouer de vache
             {
@@ -598,7 +597,7 @@ namespace Mow.Core
             if (typePartie == "solo") // Il y a un seul utilisateur
             {
 
-                CreerProfil(NomJoueur); // On crée son profile puis on l'ajoute à la liste des joueurs
+                CreerProfil(NomJoueur); // On crée son profil puis on l'ajoute à la liste des joueurs
 
 
                 for (int i = 0; i < nombreOrdinateur; i++) 
