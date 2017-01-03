@@ -23,6 +23,7 @@ namespace Mow.Core
         public string NomJoueur { get; set; }
         public int NbJoueursPartie { get; set; }
 
+        public int NbManche { get; set; }
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
@@ -96,6 +97,8 @@ namespace Mow.Core
         {
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
 
+            NbManche = 0;
+
             while (VerifierMouche() != true) // Une partie s'arrête quand la limite de mouche est atteinte par un joueur
             {
                 CreerPioche(); // Création de la pioche
@@ -114,6 +117,7 @@ namespace Mow.Core
         /// </summary>
         public void JouerManche()
         {
+            NbManche++;
             DistribuerCarte(); // Au début d'une manche, on distribue les cartes
             string choix = ""; // Variable qui contient le choix d'un joueur
             IndexJoueur = 0;
@@ -202,6 +206,7 @@ namespace Mow.Core
                 }
 
             }
+            
 
         }
 
