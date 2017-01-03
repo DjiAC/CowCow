@@ -40,42 +40,29 @@ namespace Mow
 
         private void PlayClick(object sender, RoutedEventArgs e)
         {
-            Partie partie = new Partie(TypePartie , NbJoueursPartie , (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
+            Partie partie = new Partie("solo" , 5, (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
+            // Console.WriteLine(NbJoueursPartie);
             partie.JouerPartie();
             this.Hide();
             JeuWindow Jeu = new JeuWindow(partie);
             Jeu.ShowDialog();
-        }        
-
-        private void RadioTypeSoloChecked(object sender, RoutedEventArgs e)
-        {
-            string TypePartie = "solo";
         }
 
-        private void RadioTypeMultiChecked(object sender, RoutedEventArgs e)
+        private void RadioButtonTypeChecked(object sender, RoutedEventArgs e)
         {
-            string TypePartie = "multi";
+            var RadioButtonType = sender as RadioButton;
+            if (RadioButtonType == null)
+                return;
+             // string TypePartie = RadioButtonType.Content.ToString();
         }
 
-        private void Nb2Checked(object sender, RoutedEventArgs e)
+        private void RadioButtonNbChecked(object sender, RoutedEventArgs e)
         {
-            int NbJoueursPartie = 2;
-        }
-
-        private void Nb3Checked(object sender, RoutedEventArgs e)
-        {
-            int NbJoueursPartie = 3;
-        }
-
-        private void Nb4Checked(object sender, RoutedEventArgs e)
-        {
-            int NbJoueursPartie = 4;
-        }
-
-        private void Nb5Checked(object sender, RoutedEventArgs e)
-        {
-            int NbJoueursPartie = 5;
-        }
+            var RadioButtonNb = sender as RadioButton;
+            if (RadioButtonNb == null)
+                return;
+            int NbJoueursPartie = int.Parse(RadioButtonNb.Content.ToString());
+        }      
 
         private void OnlyNumber(object sender, TextCompositionEventArgs e)
         {
