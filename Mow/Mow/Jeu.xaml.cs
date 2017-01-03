@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace Mow
 {
@@ -21,7 +22,7 @@ namespace Mow
     /// </summary>
     public partial class JeuWindow : Window
     {
-        Partie partie;
+        Partie partie;        
 
         public JeuWindow(Partie partie)
         {
@@ -47,6 +48,14 @@ namespace Mow
             this.Hide();
             MenuWindow Menu = new MenuWindow();
             Menu.ShowDialog();
+        }        
+
+        private void LancerClick(object sender, RoutedEventArgs e)
+        {
+            LancerPartie.Visibility = Visibility.Collapsed;
+            // partie.JouerPartie();            
         }
-    }
+        
+
+}
 }

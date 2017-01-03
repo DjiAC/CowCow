@@ -34,9 +34,7 @@ namespace Mow.Core
             LimiteDeMouche = NbMouche;
             NomJoueur = nomJoueur;
             NbJoueursPartie = NbJoueurs;
-            TypeDePartie = TypePartie;
-
-            // Console.WriteLine("===== La partie commence =====");
+            TypeDePartie = TypePartie;  
 
         }
         /// <summary>
@@ -94,7 +92,7 @@ namespace Mow.Core
         }
 
         public void JouerPartie()
-        {
+        {           
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
 
             NbManche = 0;
@@ -185,6 +183,7 @@ namespace Mow.Core
                 }
                 else if (Joueurs.ElementAt(IndexJoueur).Type == "Ordinateur") // Pour le cas de l'IA
                 {
+                    System.Threading.Thread.Sleep(3000); // Temps d'attente simulation Humaine
                     do
                     {
                         choix = JouerOrdinateurFaible(Joueurs.ElementAt(IndexJoueur)); // L'IA choisit une carte ou de ne pas jouer

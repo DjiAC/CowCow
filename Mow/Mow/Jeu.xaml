@@ -9,14 +9,10 @@
         <ImageBrush ImageSource="Images/Game.jpg"/>
     </Window.Background>
     <Grid Margin="0" Height="740" VerticalAlignment="Bottom">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="88" Margin="10,614,0,0" Stroke="Black" VerticalAlignment="Top" Width="140"/>
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </Grid.Resources>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Margin="10,596,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
         <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" Text="{Binding Joueurs.NumeroDeCarte}" VerticalAlignment="Top" Height="150" Width="138" FontSize="26" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"></TextBlock>
 
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="350" Margin="180,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Opacity="0.5" Grid.ColumnSpan="2"/>
@@ -28,7 +24,7 @@
         <Image HorizontalAlignment="Left" Height="110" Margin="423,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="483,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="548,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150                    " Margin="180,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="180,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="356,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="528,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="680,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
@@ -41,9 +37,9 @@
             <TextBox HorizontalAlignment="Left" Height="148" Margin="248,558,0,0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center" Grid.ColumnSpan="2"/>
         </WrapPanel>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="824,198,0,0" TextWrapping="Wrap" Text="Manche" VerticalAlignment="Top" Width="102" FontSize="24" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Height="26" Margin="934,198,0,0" TextWrapping="Wrap" Text="{Binding Manche}" VerticalAlignment="Top" Width="30" FontSize="24" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="934,198,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="30" FontSize="24" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="42" Margin="32,641,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="92" FontSize="36" Grid.ColumnSpan="2" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="48" Margin="18,612,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <Image HorizontalAlignment="Left" Height="214" Margin="10,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8" Grid.ColumnSpan="2"/>
         <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Grid.ColumnSpan="2" Click="MenuClick">
             <Button.Background>
@@ -51,5 +47,6 @@
             </Button.Background>
             <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
+        <Button x:Name="LancerPartie" Grid.ColumnSpan="2" Click="LancerClick" Content="Lancer Mow Jow !" HorizontalAlignment="Left" Margin="258,274,0,0" VerticalAlignment="Top" Width="464" FontFamily="KBTheFlowerFarm" Height="160" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF"/>
     </Grid>
 </Window>
