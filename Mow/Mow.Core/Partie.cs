@@ -9,7 +9,9 @@ namespace Mow.Core
 {
     public class Partie // Tout fait par C
     {
-        public bool Sens { get; set; } // Sens du déroulement - True = horaire / False = anti-horaire
+        public bool Sens { get; set; } // Sens du déroulement du jeu - True = horaire / False = anti-horaire
+        public string SensImage { get; set; } // Sens du déroulement du jeu - Image
+        public string ChoixSens { get; set; } // Choix changement sens ou non
 
         Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
         List<Carte> TroupeauDeVache { get; set; } // C'est l'endroit où les joueurs posent leurs cartes
@@ -19,24 +21,23 @@ namespace Mow.Core
         public int IndexJoueur = 0; // Le premier joueur dans la liste commence la partie
         public int LimiteDeMouche { get; set; } // Détermine la condition d'arrêt d'une partie
 
-        public string TypeDePartie { get; set; }
-        public string NomJoueur { get; set; }
-        public int NbJoueursPartie { get; set; }
+        public string TypeDePartie { get; set; } // Type de partie
+        public string NomJoueur { get; set; } // Pseudo du joueur
+        public int NbJoueursPartie { get; set; } // Nb de joueurs de la partie
 
-        public int NbManche { get; set; }
-        public bool AJoueeCarte { get; set; }
+        public int NbManche { get; set; } // Numéro de la manche en cours
+        public bool AJoueeCarte { get; set; } // Test à jouer ou non carte
 
-        public string Choix { get; set; }  // Variable qui contient le Choix d'un joueur
-        public string ChoixSens { get; set; }
+        public string Choix { get; set; }  // Variable qui contient le Choix d'un joueur        
         public int IndexCarte { get; set; } // Variable qui désigne l'index de la carte à jouer
 
-        public string MessageBox { get; set; }
+        public string MessageBox { get; set; } // Message box
 
-        public int ScoreJoueur { get; set; }
-        public int ScoreDaenerys { get; set; }
-        public int ScoreNegan { get; set; }
-        public int ScoreSavitar { get; set; }
-        public int ScoreRobert { get; set; }
+        public int ScoreJoueur { get; set; } // Score joueur
+        public int ScoreDaenerys { get; set; } // Score Daenerys
+        public int ScoreNegan { get; set; } // Score Negan
+        public int ScoreSavitar { get; set; } // Score Savitar
+        public int ScoreRobert { get; set; } // Score Robert
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
@@ -52,15 +53,14 @@ namespace Mow.Core
             NbManche = 1;
             AJoueeCarte = false;
 
+            // Initialisation Score Joueurs
             ScoreJoueur = ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
-
         }
         /// <summary>
         /// Création de la pioche à l'aide d'un fichier Json
         /// </summary>
         public void CreerPioche()   // Fait par C
         {
-
             var Json = System.IO.File.ReadAllText(@"..\..\..\cartes.json"); // On cherche les cartes 
 
             var Objets = JArray.Parse(Json);                            // On parse le Json en Array
@@ -68,7 +68,6 @@ namespace Mow.Core
             {
                 foreach (KeyValuePair<String, JToken> app in root)      // On parcourt les différentes propriétés d'une carte dans l'array
                 {
-
                     var Type = (String)app.Value["Type"];               // On récupère le type de la carte dans l'array
                     var Numero = (String)app.Value["Nombre"];           // On récupère le nuémro de la carte dans l'array
                     var Mouche = (String)app.Value["Mouches"];          // On récupère le nombre de mouches de la carte dans l'array
@@ -85,7 +84,6 @@ namespace Mow.Core
                         NouvelleCarte.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
                         Pioche.Push(NouvelleCarte);                         // On ajoute la carte dans la pioche
                     }
-
                     else
                     {
                         Carte NouvelleCarteSpeciale = new Carte();                  // On crée une nouvelle carte spéciale
@@ -98,31 +96,26 @@ namespace Mow.Core
                         NouvelleCarteSpeciale.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
                         Pioche.Push(NouvelleCarteSpeciale);                         // On ajoute la carte dans la pioche
                     }
-
                 }
             }
             var cartemelanger = Pioche.OrderBy(a => Guid.NewGuid()); // On mélange les cartes dans une variable cartemelanger
 
             var maPile = new Stack<Carte>(cartemelanger.ToList()); // On transforme la variable IOrderedEnumerable en List puis on met ce résultat dans une variable Stack
-            Pioche = maPile; // On récupère le résultat de la variable locale dans la varible globale Pioche
-
-
+            Pioche = maPile; // On récupère le résultat de la variable locale dans la varible globale Pioche            
         }
 
         public void Test()
         {
-            CreerPioche();
+            CreerPioche(); // Création de la pioche
 
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
 
-            NbManche = 1;
+            NbManche = 1; // initialisation numero manche
         }
 
         public void JouerPartie()
         {
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
-
-            NbManche = 0;
 
             if (VerifierMouche() != true) // Une partie s'arrête quand la limite de mouche est atteinte par un joueur
             {
@@ -144,10 +137,6 @@ namespace Mow.Core
         /// </summary>
         public void JouerManche()
         {
-
-
-
-
             if (Pioche.Count != 0 || Choix != "A") // Une manche s'arrête lorsque la pioche est vide et qu'un joueur ne peux plus jouer de vache
             {
                 if (TroupeauDeVache.Count != 0 && AJoueeCarte == true)
@@ -156,17 +145,12 @@ namespace Mow.Core
                 MessageBox = "Troupeau";
                 foreach (Carte carte in TroupeauDeVache)
                 {
-
                     MessageBox = (carte.TypeDeCarte + " " + carte.NumeroDeCarte + " " + carte.NombreDeMouche); // On affiche le troupeau
-
                 }
-
-
+                
                 if (Joueurs.ElementAt(IndexJoueur).Type == "Humain") // Pour le cas d'un joueur humain
                 {
-
                     AJoueeCarte = (Choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(Choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
-
                 }
                 else if (Joueurs.ElementAt(IndexJoueur).Type == "Ordinateur") // Pour le cas de l'IA
                 {
@@ -188,49 +172,38 @@ namespace Mow.Core
                     AjouterDansEtable(); // Il récupère les cartes du troupeau dans son étable
                     TroupeauDeVache.Clear(); // On vide le troupeau
                 }
-
-
             }
-
-
-
-
         }
 
         public void FinManche(int IndexJoueur)
         {
-
+            // Récupération score des joueurs
             ScoreJoueur = Joueurs.ElementAt(0).NombreDeMouche;
             ScoreDaenerys = Joueurs.ElementAt(1).NombreDeMouche;
             ScoreNegan = Joueurs.ElementAt(2).NombreDeMouche;
             ScoreSavitar = Joueurs.ElementAt(3).NombreDeMouche;
             ScoreRobert = Joueurs.ElementAt(4).NombreDeMouche;
-
         }
 
         /// <summary>
         /// Méthode qui permet de jouer une vache
         /// </summary>
-        /// <param name="JoueurActuelle">Joueur qui joue</param>
+        /// <param name="JoueurActuel">Joueur qui joue</param>
         /// <param name="CarteJouee">Carte choisie par le joueur</param>
         /// <returns></returns>
-        public bool JouerCarte(Joueur JoueurActuelle, Carte CarteJouee)
+        public bool JouerCarte(Joueur JoueurActuel, Carte CarteJouee)
         {
-
-
             if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte != "VacheAcrobate" && CarteJouee.TypeDeCarte != "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer n'est pas une vache acrobate ou retardataire
             {
                 TroupeauDeVache.Add(CarteJouee); // On pose la carte 
-                JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
                 if (CarteJouee.TypeDeCarte == "VacheSerreFile")
                 {
-                    if (JoueurActuelle.Type == "Humain")
+                    if (JoueurActuel.Type == "Humain")
                         ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
-
                     else Sens = !Sens;
                 }
-
                 return true;
             }
             else if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte == "VacheAcrobate" || CarteJouee.TypeDeCarte == "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer est une vache acrobate ou retardataire
@@ -247,7 +220,7 @@ namespace Mow.Core
                 if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
-                    JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
                     return true;
                 }
@@ -255,7 +228,7 @@ namespace Mow.Core
                 else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
-                    JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
                     return true;
                 }
                 else
@@ -263,8 +236,6 @@ namespace Mow.Core
                     Console.WriteLine("Erreur votre carte doit être placé en dehors de l'intervalle !");
                     return false;
                 }
-
-
             }
 
             else if (CarteJouee.TypeDeCarte == "VacheSerreFile") // Pour le cas de la vache serre file
@@ -275,9 +246,9 @@ namespace Mow.Core
                 if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
-                    JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    if (JoueurActuelle.Type == "Humain")
+                    if (JoueurActuel.Type == "Humain")
                         ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
 
                     else Sens = !Sens;
@@ -287,9 +258,9 @@ namespace Mow.Core
                 else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
-                    JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    if (JoueurActuelle.Type == "Humain")
+                    if (JoueurActuel.Type == "Humain")
                         ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
 
                     else Sens = !Sens;
@@ -306,155 +277,135 @@ namespace Mow.Core
 
             else if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
             {
-                if (JoueurActuelle.Type == "Humain")
+                if (JoueurActuel.Type == "Humain")
                 {
 
                 }
                 else
                 {
-                    IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuelle, CarteJouee);
+                    IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuel, CarteJouee);
                 }
 
                 if (CarteJouee.NumeroDeCarte == TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte) // Si les numéros sont les même
                 {
                     TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On la pose par dessus
-                    JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                    if (JoueurActuelle.Type == "Humain")
+                    if (JoueurActuel.Type == "Humain")
                         ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
 
                     else Sens = !Sens;
                     return true;
-
                 }
                 else
                 {
                     Console.WriteLine("Il faut que les vaches aient le même numéro");
                     return false;
                 }
-
             }
-
-
             return true;
         }
 
-        public bool JouerCarteUnpeuSpéciale(Joueur JoueurActuelle, Carte CarteJouee)
+        public bool JouerCarteUnpeuSpéciale(Joueur JoueurActuel, Carte CarteJouee)
         {
             if (CarteJouee.TypeDeCarte == "VacheRetardataire") // Pour le cas de la vache retardataire
             {
                 if (TroupeauDeVache.Count >= 2) // Il faut qu'il y a ait 2 vaches au minimum
                 {
-                    if (JoueurActuelle.Type == "Humain")
+                    if (JoueurActuel.Type == "Humain")
                     {
 
                     }
                     else
                     {
-                        IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuelle, CarteJouee);
+                        IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuel, CarteJouee);
                     }
 
                     if (TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
                     {
                         TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On insère la carte entre les deux autres concernées
-                        JoueurActuelle.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+                        JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                        if (JoueurActuelle.Type == "Humain")
+                        if (JoueurActuel.Type == "Humain")
                             ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
 
                         else Sens = !Sens;
 
                         return true;
                     }
-
                     else
                     {
                         Console.WriteLine("L'écart entre deux vaches doit être de deux minimum.");
                         return false;
                     }
-
-
-
                 }
                 else
                 {
                     Console.WriteLine("Il faut minimum 2 vaches dans le troupeau pour jouer la retardataire");
                 }
                 return false;
-
             }
             return true;
         }
 
-
         /// <summary>
         /// Méthode qui permet à l'ordinateur de jouer une carte de façon autonome
         /// </summary>
-        /// <param name="JoueurActuelle">Le joueur artificielle en cours</param>
+        /// <param name="JoueurActuel">Le joueur artificielle en cours</param>
         /// <returns>Retourne son Choix de jeu</returns>
-        public string JouerOrdinateurFaible(Joueur JoueurActuelle)
+        public string JouerOrdinateurFaible(Joueur JoueurActuel)
         {
-
             if (TroupeauDeVache.Count == 0)
             {
-                foreach (Carte carte in JoueurActuelle.Main)
+                foreach (Carte carte in JoueurActuel.Main)
                 {
                     if (carte.TypeDeCarte == "VacheNormale")
                     {
-                        return JoueurActuelle.Main.IndexOf(carte).ToString(); // Lorsque que le troupeau est vide, il posera une vache normale quelconque
+                        return JoueurActuel.Main.IndexOf(carte).ToString(); // Lorsque que le troupeau est vide, il posera une vache normale quelconque
                     }
-
                 }
 
-                foreach (Carte carte in JoueurActuelle.Main)
+                foreach (Carte carte in JoueurActuel.Main)
                 {
                     if (carte.TypeDeCarte == "VacheSerreFile")
                     {
-                        return JoueurActuelle.Main.IndexOf(carte).ToString(); // Pose une vache serre file s'il n'a pas d'autre Choix (très rare)
+                        return JoueurActuel.Main.IndexOf(carte).ToString(); // Pose une vache serre file s'il n'a pas d'autre Choix (très rare)
                     }
-
                 }
-
             }
-
             else
             {
-                foreach (Carte carte in JoueurActuelle.Main)
+                foreach (Carte carte in JoueurActuel.Main)
                 {
                     if (carte.TypeDeCarte == "VacheNormale") // L'ordinateur jouera en priorité un vache normale
                     {
                         int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
                         int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
 
-                        if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                        if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                         {
-
-
-
-                            return JoueurActuelle.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition inférieure au troupeau 
+                            return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition inférieure au troupeau 
                         }
-
-                        else if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                        else if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                         {
-
-                            return JoueurActuelle.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition supérieure au troupeau
+                            return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition supérieure au troupeau
                         }
                     }
                 }
 
-                foreach (Carte carte in JoueurActuelle.Main)
+                foreach (Carte carte in JoueurActuel.Main)
                 {
                     if (carte.TypeDeCarte == "VacheSerrefile") // Sinon il joue une serre file
                     {
-                        return JoueurActuelle.Main.IndexOf(carte).ToString();
+                        return JoueurActuel.Main.IndexOf(carte).ToString();
                     }
                     else if (carte.TypeDeCarte == "VacheAcrobate") // Sinon une acrobate
                     {
                         foreach (Carte cartevache in TroupeauDeVache)
                         {
-                            if (JoueurActuelle.Main.ElementAt(JoueurActuelle.Main.IndexOf(carte)).NumeroDeCarte == cartevache.NumeroDeCarte)
+                            if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte == cartevache.NumeroDeCarte)
                             {
-                                return JoueurActuelle.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache acrobate si la condition qu'il y a ait une carte du même numéro dans le troupeau
+                                return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache acrobate si la condition qu'il y a ait une carte du même numéro dans le troupeau
                             }
                         }
                     }
@@ -467,7 +418,7 @@ namespace Mow.Core
                             {
                                 if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(cartevache) + 1).NumeroDeCarte - cartevache.NumeroDeCarte >= 2)
                                 {
-                                    return JoueurActuelle.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache retardataire si la condition qu'il y a ait 2 cartes dans le troupeau et que l'écarte entre 2 cartes et >2 
+                                    return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache retardataire si la condition qu'il y a ait 2 cartes dans le troupeau et que l'écarte entre 2 cartes et >2 
                                 }
                             }
                         }
@@ -475,7 +426,6 @@ namespace Mow.Core
 
                 }
             }
-
             return "A";
         }
 
@@ -510,10 +460,8 @@ namespace Mow.Core
                     }
                 }
             }
-
             return 0;
         }
-
 
         /// <summary>
         /// Distribue les cartes à tous les joueurs présents dans la partie
@@ -529,8 +477,6 @@ namespace Mow.Core
             }
         }
 
-
-
         /// <summary>
         /// Créer la liste de joueur qui vont jouer la partie
         /// </summary>
@@ -541,14 +487,11 @@ namespace Mow.Core
         {
             if (typePartie == "solo") // Il y a un seul utilisateur
             {
-
                 CreerProfil(NomJoueur); // On crée son profil puis on l'ajoute à la liste des joueurs
-
-
+                
                 for (int i = 0; i < nombreOrdinateur - 1; i++)
                     CreerProfilOrdinateur(i);  // On crée autant de joueurs artificielles que le nombre demandé
-
-
+                
             }
             else if (typePartie == "multi") // Il y a plusieurs utilisateurs
             {
@@ -557,19 +500,15 @@ namespace Mow.Core
 
                 for (int i = 0; i < nombreOrdinateur - 1; i++)
                     CreerProfilOrdinateur(i); // On crée autant de joueurs artificielles que le nombre demandé
-
-
+                
             }
-
         }
-
 
         /// <summary>
         /// Permet à un utilisateur de créer son profile
         /// </summary>
         public void CreerProfil(string NomJoueur)
         {
-
             Joueur joueur = new Joueur(); // On initialise l'objet joueur
             joueur.Etable = new List<Carte>(); // On initialise l'objet Etable du joueur
             joueur.Main = new List<Carte>(); // On initialise l'objet Main du joueur
@@ -579,15 +518,12 @@ namespace Mow.Core
             Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
         }
 
-
         /// <summary>
         /// Crée un joueur arficielle
         /// </summary>
         /// <param name="i">Index pour la liste de nom</param>
         public void CreerProfilOrdinateur(int i)
         {
-
-
             Joueur joueur = new Joueur(); // On initialise l'objet joueur
             joueur.Etable = new List<Carte>(); // On initialise l'objet Etable du joueur
             joueur.Main = new List<Carte>(); // On initialise l'objet Main du joueur
@@ -597,9 +533,7 @@ namespace Mow.Core
 
             joueur.Type = "Ordinateur"; // On définit le type
             Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
-
         }
-
 
         /// <summary>
         /// Détermine le joueur qui doit jouer selon le sens
@@ -612,7 +546,6 @@ namespace Mow.Core
                 if (IndexJoueur == Joueurs.Count)
                     IndexJoueur = 0;
             }
-
             else
             {
                 IndexJoueur--;
@@ -632,7 +565,6 @@ namespace Mow.Core
             }
         }
 
-
         /// <summary>
         /// Compte les mouches accumulées par chaque joueur
         /// </summary>
@@ -650,9 +582,7 @@ namespace Mow.Core
                 }
                 Console.WriteLine(joueur.NombreDeMouche);
             }
-
         }
-
 
         /// <summary>
         /// Vide les cartes qui sont dans le jeu
@@ -665,7 +595,6 @@ namespace Mow.Core
             {
                 joueur.Main.Clear(); // On enlève les cartes dans la main des joueurs
                 joueur.Etable.Clear(); // On enlève les cartes dans l'étable des joueurs
-
             }
         }
 
@@ -674,12 +603,9 @@ namespace Mow.Core
         /// </summary>
         public void ChangerSens()
         {
-
             bool erreur = true;
             while (erreur == true)
             {
-
-
                 Console.WriteLine("Voulez-vous changer de sens? Taper Oui ou Non");
 
                 if (ChoixSens == "Oui" || ChoixSens == "Non")
@@ -691,15 +617,10 @@ namespace Mow.Core
                     Console.WriteLine("Veuillez Répondre par Oui ou par Non !");
                 }
             }
-
             if (ChoixSens == "Oui")
                 Sens = !Sens;
-
             Console.WriteLine(Sens);
         }
-
-
-
 
         /// <summary>
         /// Vérifie si la limite de mouche a été atteinte par un joueur
@@ -725,8 +646,6 @@ namespace Mow.Core
             int nombreDeMoucheMin = 100;
             foreach (Joueur joueur in Joueurs)
             {
-
-
                 if (joueur.NombreDeMouche < nombreDeMoucheMin)
                 {
                     nombreDeMoucheMin = joueur.NombreDeMouche;
@@ -743,9 +662,7 @@ namespace Mow.Core
             {
                 foreach (Joueur joueur in Joueurs)
                 {
-
                     file.Write(joueur.Pseudo + " " + joueur.NombreDeMouche);
-
                 }
             }
         }
