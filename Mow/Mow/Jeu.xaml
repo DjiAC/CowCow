@@ -14,7 +14,7 @@
         </Grid.Resources>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="10,600,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
         <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="103" FontSize="18" FontFamily="KBTheFlowerFarm"><Run Text="Daenerys"/><LineBreak/><Run/><LineBreak/><Run Text="Negan"/><LineBreak/><Run/><LineBreak/><Run Text="Savitar"/><LineBreak/><Run/><LineBreak/><Run Text="Robert"/></TextBlock>
-        
+
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="370" Margin="180,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Opacity="0.5"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="862,656,0,0" TextWrapping="Wrap" Text="ETABLE" VerticalAlignment="Top" Height="46" Width="82" FontSize="20" Grid.ColumnSpan="2"/>
@@ -45,8 +45,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="{Binding Joueurs.Pseudo}" Margin="909,10,10,705"/>
-        
+
 
         <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
             <TextBox HorizontalAlignment="Left" Height="131" Margin="0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
@@ -65,8 +64,9 @@
         </Button>
         <TextBlock HorizontalAlignment="Left" Height="85" Margin="17,622,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="262,558,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="478" Height="37"/>
-        <TextBlock x:Name="textBlock1_Copy" TextWrapping="Wrap" Margin="909,49,10,666"><Run Text="Score "/><Run Text="Negan"/></TextBlock>
-        <TextBlock x:Name="textBlock1_Copy1" TextWrapping="Wrap" Margin="909,90,10,625"><Run Text="Score "/><Run Text="Savitar"/></TextBlock>
-        <TextBlock x:Name="textBlock1_Copy2" TextWrapping="Wrap" Margin="909,135,10,580"><Run Text="Score "/><Run Text="Robert"/></TextBlock>
+        <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="909,10,37,705" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
+        <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="909,49,37,666" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="909,90,37,625" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreRobert" Text="{Binding ScoreRobert}" Margin="909,135,37,580" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
     </Grid>
 </Window>

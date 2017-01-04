@@ -23,9 +23,14 @@ namespace Mow.Core
         public string NomJoueur { get; set; }
         public int NbJoueursPartie { get; set; }
 
-        public int NbManche { get; set; }
+        public int NbManche { get; set; }        
 
         public string MessageBox { get; set; }
+
+        public int ScoreDaenerys { get; set; }
+        public int ScoreNegan { get; set; }
+        public int ScoreSavitar { get; set; }
+        public int ScoreRobert { get; set; }
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
@@ -38,6 +43,9 @@ namespace Mow.Core
             NbJoueursPartie = NbJoueurs;
             TypeDePartie = TypePartie;
             MessageBox = "Welcome in Mow Jow !";
+            NbManche = 1;
+
+            ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
 
         }
         /// <summary>
@@ -97,6 +105,10 @@ namespace Mow.Core
         public void Test()
         {
             CreerPioche();
+
+            CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
+
+            NbManche = 1;
         }
 
         public void JouerPartie()
@@ -208,8 +220,11 @@ namespace Mow.Core
                 }
 
             }
-            
 
+            ScoreDaenerys = Joueurs.ElementAt(1).NombreDeMouche;
+            ScoreNegan = Joueurs.ElementAt(2).NombreDeMouche;
+            ScoreSavitar = Joueurs.ElementAt(3).NombreDeMouche;
+            ScoreRobert = Joueurs.ElementAt(4).NombreDeMouche;
         }
 
 
@@ -656,6 +671,7 @@ namespace Mow.Core
                                                               // TODO rendre ça aléatoire et éviter les doublons lors de l'aléatoire
 
             joueur.Type = "Ordinateur"; // On définit le type
+            joueur.NombreDeMouche = 10;
             Joueurs.Add(joueur); // On ajoute ensuite le joueur dans la liste
 
         }
