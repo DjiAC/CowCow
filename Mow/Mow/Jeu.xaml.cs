@@ -40,27 +40,7 @@ namespace Mow
         /// <summary>
         /// Récupération de l'instance Partie partie
         /// </summary>
-        Partie partie;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }  
+        Partie partie;         
 
         /// <summary>
         /// Action de retour au menu
