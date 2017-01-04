@@ -84,7 +84,66 @@ namespace Mow
             LancerPartie.Visibility = Visibility.Collapsed; // Disparition du bouton - Ne fonctionne pas
             partie.Test(); // Lancement de la partie
         }
-        
 
-}
+        private void Carte0Click(object sender, RoutedEventArgs e)
+        {
+            if (partie.Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte == "VacheNormale")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Carte1Click(object sender, RoutedEventArgs e)
+        {
+            if (partie.Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte == "VacheNormale")
+            {
+
+            }else 
+            {
+
+            }
+        }
+
+        private void Carte2Click(object sender, RoutedEventArgs e)
+        {
+            if (partie.Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte == "VacheNormale")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Carte3Click(object sender, RoutedEventArgs e)
+        {
+            if (partie.Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte == "VacheNormale")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Carte4Click(object sender, RoutedEventArgs e)
+        {
+            if (partie.Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte == "VacheNormale")
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+
+    }
 }

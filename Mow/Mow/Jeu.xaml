@@ -45,9 +45,9 @@
         </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="851,217,0,0" VerticalAlignment="Top" Width="149" Source="{Binding SensImage}" Opacity="0.8"/>
         <WrapPanel Margin="178,558,190,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="161" Width="650" >
-            <Button x:Name="CarteMain1" Click="Carte1Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="CarteMain0" Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
-                    <TransformGroup>                        
+                    <TransformGroup>
                         <TranslateTransform X="20"/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -55,9 +55,9 @@
                     <ImageBrush ImageSource="{Binding CarteMain1}"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="CarteMain2" Click="Carte2Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+            <Button x:Name="CarteMain1" Click="Carte1Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
                 <Button.RenderTransform>
-                    <TransformGroup>                        
+                    <TransformGroup>
                         <TranslateTransform X="45"/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -65,9 +65,9 @@
                     <ImageBrush ImageSource="{Binding CarteMain2}"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="CarteMain3" Click="Carte3Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+            <Button x:Name="CarteMain2" Click="Carte2Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
                 <Button.RenderTransform>
-                    <TransformGroup>                        
+                    <TransformGroup>
                         <TranslateTransform X="70"/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -75,9 +75,9 @@
                     <ImageBrush ImageSource="{Binding CarteMain3}"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="CarteMain4" Click="Carte4Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+            <Button x:Name="CarteMain3" Click="Carte3Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
                 <Button.RenderTransform>
-                    <TransformGroup>                        
+                    <TransformGroup>
                         <TranslateTransform X="95"/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -85,9 +85,9 @@
                     <ImageBrush ImageSource="{Binding CarteMain4}"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="CarteMain5" Click="Carte5Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+            <Button x:Name="CarteMain4" Click="Carte4Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
                 <Button.RenderTransform>
-                    <TransformGroup>                        
+                    <TransformGroup>
                         <TranslateTransform X="120"/>
                     </TransformGroup>
                 </Button.RenderTransform>
@@ -104,7 +104,7 @@
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="260,274,0,0" VerticalAlignment="Top" Width="441" Height="168" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
+        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="178,548,0,0" VerticalAlignment="Top" Width="650" Height="171" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
             <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         </Button>
         <TextBlock HorizontalAlignment="Left" Height="69" Margin="15,609,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="125" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
