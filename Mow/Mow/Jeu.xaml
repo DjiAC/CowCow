@@ -43,7 +43,7 @@
                 <ImageBrush ImageSource="Images/Robert.jpg" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8"/>
+        <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="{Binding SensImage}" Opacity="0.8"/>
 
 
         <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
@@ -63,10 +63,10 @@
         </Button>
         <TextBlock HorizontalAlignment="Left" Height="69" Margin="17,637,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="262,558,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="478" Height="37"/>
-        <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="909,10,37,705" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
-        <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="909,49,37,666" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
-        <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="909,90,37,625" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
-        <TextBlock x:Name="ScoreRobert" Text="{Binding ScoreRobert}" Margin="909,135,37,580" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="909,10,37,693" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
+        <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="909,49,37,650" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="909,90,37,609" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreRobert" Text="{Binding ScoreRobert}" Margin="909,135,37,569" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
         <Image x:Name="MoucheDaenerys" HorizontalAlignment="Left" Height="30" Margin="975,6,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
         <Image x:Name="MoucheNegan" HorizontalAlignment="Left" Height="30" Margin="975,49,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
         <Image x:Name="MoucheSavitar" HorizontalAlignment="Left" Height="30" Margin="975,90,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
@@ -75,6 +75,6 @@
         <Image x:Name="MoucheJoueur2" HorizontalAlignment="Left" Height="30" Margin="926,558,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
         <Image x:Name="MoucheJoueur3" HorizontalAlignment="Left" Height="28" Margin="824,691,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="-0.816,9.4"/>
         <Image x:Name="MoucheJoueur4" HorizontalAlignment="Left" Height="30" Margin="926,700,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
-        <TextBlock x:Name="ScoreDaenerys_Copy" Text="{Binding ScoreJoueur}" Margin="824,626,54,10" FontFamily="KBTheFlowerFarm" FontSize="24" TextAlignment="Center" />
+        <TextBlock x:Name="ScoreDaenerys_Copy" Text="{Binding ScoreJoueur}" Margin="824,618,54,18" FontFamily="KBTheFlowerFarm" FontSize="24" TextAlignment="Center" />
     </Grid>
 </Window>

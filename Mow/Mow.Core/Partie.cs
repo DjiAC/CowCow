@@ -52,6 +52,7 @@ namespace Mow.Core
             MessageBox = "Welcome in Mow Jow !";
             NbManche = 1;
             AJoueeCarte = false;
+            SensImage = "Images/SensHoraire.png";
 
             // Initialisation Score Joueurs
             ScoreJoueur = ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
@@ -542,15 +543,17 @@ namespace Mow.Core
         {
             if (Sens == true)
             {
-                IndexJoueur++;
+                IndexJoueur++; // On passe au joueur suivant 
                 if (IndexJoueur == Joueurs.Count)
                     IndexJoueur = 0;
+                SensImage = "Images/SensHoraire.png"; // Changement sens --> Indication carte
             }
             else
             {
-                IndexJoueur--;
-                if (IndexJoueur == -1)
+                IndexJoueur--; // On passe au joueur suivant 
+                if (IndexJoueur == -1) 
                     IndexJoueur = Joueurs.Count - 1;
+                SensImage = "Images/SensAntiHoraire.png"; // Changement sens --> Indication carte
             }
         }
 
