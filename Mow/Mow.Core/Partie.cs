@@ -78,6 +78,7 @@ namespace Mow.Core
                     var Type = (String)app.Value["Type"];               // On récupère le type de la carte dans l'array
                     var Numero = (String)app.Value["Nombre"];           // On récupère le nuémro de la carte dans l'array
                     var Mouche = (String)app.Value["Mouches"];          // On récupère le nombre de mouches de la carte dans l'array
+                    var Adresse = (String)app.Value["Adresse"];
 
                     if (Type == "VacheNormale")                             // on vérifie le type de carte
                     {
@@ -89,6 +90,7 @@ namespace Mow.Core
                             NouvelleCarte.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
 
                         NouvelleCarte.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
+                        NouvelleCarte.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarte);                         // On ajoute la carte dans la pioche
                     }
                     else
@@ -101,6 +103,7 @@ namespace Mow.Core
                             NouvelleCarteSpeciale.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
 
                         NouvelleCarteSpeciale.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
+                        NouvelleCarteSpeciale.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarteSpeciale);                         // On ajoute la carte dans la pioche
                     }
                 }

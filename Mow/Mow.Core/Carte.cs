@@ -18,7 +18,7 @@ namespace Mow.Core
 
         public int NombreDeMouche { get; set; }      // nombre de mouche par C
 
-       
+        public string Adresse; // adresse de la carte
 
      
 
