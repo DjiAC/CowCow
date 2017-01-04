@@ -147,8 +147,6 @@ namespace Mow.Core
                         {
                             do
                             {
-
-
                                 Console.WriteLine("Le joueur " + Joueurs.ElementAt(IndexJoueur).Pseudo);
                                 Console.WriteLine("Choississez la carte à jouer, (taper entre un chiffre entre 0 et 4 ou passer votre tour en tapent A)");
                                 foreach (Carte carte in Joueurs.ElementAt(IndexJoueur).Main)
@@ -157,10 +155,7 @@ namespace Mow.Core
                                 }
                                 choix = Console.ReadLine(); // Il choisit la carte à jouer ou de ne pas jouer
                                 System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
-
-
-
-
+                                
                             } while (choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
                             erreur = false;
                         }
