@@ -12,69 +12,139 @@
         <Grid.Resources>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </Grid.Resources>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="119" Margin="10,600,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
-        <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="103" FontSize="18" FontFamily="KBTheFlowerFarm"><Run Text="Daenerys"/><LineBreak/><Run/><LineBreak/><Run Text="Negan"/><LineBreak/><Run/><LineBreak/><Run Text="Savitar"/><LineBreak/><Run/><LineBreak/><Run Text="Robert"/></TextBlock>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="8,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="804,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="103" FontSize="18" FontFamily="KBTheFlowerFarm"><Run Text="Daenerys"/><LineBreak/><Run/><LineBreak/><Run Text="Negan"/><LineBreak/><Run/><LineBreak/><Run Text="Savitar"/><LineBreak/><Run/><LineBreak/><Run Text="Robert"/></TextBlock>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="370" Margin="180,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Opacity="0.5"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="370" Margin="178,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="650" Opacity="0.5"/>
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="824,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="140" Opacity="0.5"/>
-        <Image HorizontalAlignment="Left" Height="110" Margin="299,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="110" Margin="359,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="110" Margin="423,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="110" Margin="483,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="110" Margin="548,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Rectangle HorizontalAlignment="Left" Height="150" Margin="180,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="851,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="155" Opacity="0.5"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="297,626,0,-7" VerticalAlignment="Top" Width="60"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="357,626,0,-7" VerticalAlignment="Top" Width="60"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="421,626,0,-7" VerticalAlignment="Top" Width="60"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="481,626,0,-7" VerticalAlignment="Top" Width="60"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="546,626,0,-7" VerticalAlignment="Top" Width="60"/>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="178,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Images/Daenerys.jpg" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="150" Margin="337,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="335,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill" ImageSource="Images/Negan.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="150" Margin="503,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="501,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Images/Savitar.jpg" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="150" Margin="660,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="658,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Images/Robert.jpg" Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="{Binding SensImage}" Opacity="0.8"/>
-
-
-        <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
-            <TextBox HorizontalAlignment="Left" Height="131" Margin="0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
+        <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="851,217,0,0" VerticalAlignment="Top" Width="149" Source="{Binding SensImage}" Opacity="0.8"/>
+        <WrapPanel Margin="178,558,190,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="161" Width="650" >
+            <Button x:Name="CarteMain1" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="20"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding CarteMain1}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="CarteMain2" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="45"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding CarteMain2}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="CarteMain3" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="70"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding CarteMain3}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="CarteMain4" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="95"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding CarteMain4}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="CarteMain5" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="120"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Background>
+                    <ImageBrush ImageSource="{Binding CarteMain5}"/>
+                </Button.Background>
+            </Button>
         </WrapPanel>
-        <TextBlock HorizontalAlignment="Left" Height="26" Margin="814,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"><Run Text="Manche"/><Run Text=" #"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="26" Margin="933,200,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="30" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
-        <Image HorizontalAlignment="Left" Height="214" Margin="10,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8" Grid.ColumnSpan="2"/>
-        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Grid.ColumnSpan="2" Click="MenuClick">
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="851,522,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7F4FF52A"><Run Text="Manche"/><Run Text=" #"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="971,522,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="35" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7F4FF52A"/>
+        <Image HorizontalAlignment="Left" Height="214" Margin="8,217,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8"/>
+        <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="8,10,0,0" Click="MenuClick">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Home_Button.png"/>
             </Button.Background>
-            <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
-        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="262,274,0,0" VerticalAlignment="Top" Width="441" Height="168" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
+        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="260,274,0,0" VerticalAlignment="Top" Width="441" Height="168" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
             <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Height="69" Margin="17,637,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="262,558,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="478" Height="37"/>
-        <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="909,10,37,693" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
-        <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="909,49,37,650" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
-        <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="909,90,37,609" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
-        <TextBlock x:Name="ScoreRobert" Text="{Binding ScoreRobert}" Margin="909,135,37,569" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
-        <Image x:Name="MoucheDaenerys" HorizontalAlignment="Left" Height="30" Margin="975,6,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
-        <Image x:Name="MoucheNegan" HorizontalAlignment="Left" Height="30" Margin="975,49,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
-        <Image x:Name="MoucheSavitar" HorizontalAlignment="Left" Height="30" Margin="975,90,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
-        <Image x:Name="MoucheRobert" HorizontalAlignment="Left" Height="30" Margin="975,135,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
-        <Image x:Name="MoucheJoueur1" HorizontalAlignment="Left" Height="30" Margin="824,558,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="-0.816,9.4"/>
-        <Image x:Name="MoucheJoueur2" HorizontalAlignment="Left" Height="30" Margin="926,558,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
-        <Image x:Name="MoucheJoueur3" HorizontalAlignment="Left" Height="28" Margin="824,691,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="-0.816,9.4"/>
-        <Image x:Name="MoucheJoueur4" HorizontalAlignment="Left" Height="30" Margin="926,700,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
-        <TextBlock x:Name="ScoreDaenerys_Copy" Text="{Binding ScoreJoueur}" Margin="824,618,54,18" FontFamily="KBTheFlowerFarm" FontSize="24" TextAlignment="Center" />
+        <TextBlock HorizontalAlignment="Left" Height="69" Margin="15,609,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="125" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="8,522,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="140" Height="26"/>
+        <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="907,10,39,693" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
+        <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="907,49,39,650" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="907,90,39,609" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <TextBlock x:Name="ScoreRobert" Text="{Binding ScoreRobert}" Margin="907,135,39,569" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
+        <Image x:Name="MoucheDaenerys" HorizontalAlignment="Left" Height="30" Margin="973,6,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
+        <Image x:Name="MoucheNegan" HorizontalAlignment="Left" Height="30" Margin="973,49,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
+        <Image x:Name="MoucheSavitar" HorizontalAlignment="Left" Height="30" Margin="973,90,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
+        <Image x:Name="MoucheRobert" HorizontalAlignment="Left" Height="30" Margin="973,135,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill"/>
+        <Image x:Name="MoucheJoueur1" HorizontalAlignment="Left" Height="30" Margin="851,558,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="-0.816,9.4"/>
+        <Image x:Name="MoucheJoueur2" HorizontalAlignment="Left" Height="30" Margin="968,558,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
+        <Image x:Name="MoucheJoueur3" HorizontalAlignment="Left" Height="28" Margin="851,689,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="-0.816,9.4"/>
+        <Image x:Name="MoucheJoueur4" HorizontalAlignment="Left" Height="30" Margin="968,689,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
+        <TextBlock x:Name="ScoreDaenerys_Copy" Text="{Binding ScoreJoueur}" Margin="853,607,15,48" FontFamily="KBTheFlowerFarm" FontSize="24" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.603"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.489"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
     </Grid>
 </Window>
