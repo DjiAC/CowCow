@@ -149,6 +149,8 @@ namespace Mow.Core
                 if (TroupeauDeVache.Count != 0 && AJoueeCarte == true)
                     DeterminerJoueurActuel(); // On détermine le joueur qui va jouer à chaque tour selon le sens 
 
+                AJoueeCarte = false;
+
                 MessageBox = "Troupeau";
                 foreach (Carte carte in TroupeauDeVache)
                 {
@@ -157,7 +159,11 @@ namespace Mow.Core
                 
                 if (Joueurs.ElementAt(IndexJoueur).Type == "Humain") // Pour le cas d'un joueur humain
                 {
-                    AJoueeCarte = (Choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(Choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
+                    if (Choix != "A")
+                    {
+                        AJoueeCarte = JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(Choix))); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
+                    }
+                    else AJoueeCarte = (Choix == "A");  
                 }
                 else if (Joueurs.ElementAt(IndexJoueur).Type == "Ordinateur") // Pour le cas de l'IA
                 {
@@ -165,7 +171,11 @@ namespace Mow.Core
 
                     Choix = JouerOrdinateurFaible(Joueurs.ElementAt(IndexJoueur)); // L'IA choisit une carte ou de ne pas jouer
 
-                    AJoueeCarte = (Choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(Choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
+                    if (Choix != "A")
+                    {
+                        AJoueeCarte = JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(Choix))); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
+                    }
+                    else AJoueeCarte = (Choix == "A");
                 }
 
                 if (Choix != "A") // Si le joueur a joué une carte
@@ -180,16 +190,17 @@ namespace Mow.Core
                     CarteMain5 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
                 }
 
-                if (Choix == "A") // Si le joueur ne joue pas de vache
-                {
-                    AjouterDansEtable(); // Il récupère les cartes du troupeau dans son étable
-                    TroupeauDeVache.Clear(); // On vide le troupeau
-                }
+              
             }
         }
 
-        public void FinManche(int IndexJoueur)
+        public void FinManche()
         {
+            AjouterDansEtable(); // Il récupère les cartes du troupeau dans son étable
+            TroupeauDeVache.Clear(); // On vide le troupeau
+            CompterMouches();
+
+
             // Récupération score des joueurs
             ScoreJoueur = Joueurs.ElementAt(0).NombreDeMouche;
             ScoreDaenerys = Joueurs.ElementAt(1).NombreDeMouche;
@@ -296,7 +307,7 @@ namespace Mow.Core
                 }
                 else
                 {
-                    IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuel, CarteJouee);
+                    IndexCarte = JouerCarteSpecialeOrdinateurFaible(CarteJouee);
                 }
 
                 if (CarteJouee.NumeroDeCarte == TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte) // Si les numéros sont les même
@@ -319,7 +330,7 @@ namespace Mow.Core
             return true;
         }
 
-        public bool JouerCarteUnpeuSpéciale(Joueur JoueurActuel, Carte CarteJouee)
+        public bool JouerCarteUnpeuSpeciale(Joueur JoueurActuel, Carte CarteJouee)
         {
             if (CarteJouee.TypeDeCarte == "VacheRetardataire") // Pour le cas de la vache retardataire
             {
@@ -331,7 +342,7 @@ namespace Mow.Core
                     }
                     else
                     {
-                        IndexCarte = JouerCarteSpecialeOrdinateurFaible(JoueurActuel, CarteJouee);
+                        IndexCarte = JouerCarteSpecialeOrdinateurFaible(CarteJouee);
                     }
 
                     if (TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
@@ -445,10 +456,9 @@ namespace Mow.Core
         /// <summary>
         /// Permet à l'ordinateur de placer sa carte spéciale
         /// </summary>
-        /// <param name="JoueuActuelle">Le joueur ordinateur qui joue</param>
         /// <param name="CarteJouee">La carte précemment choisi à l'aide de JouerOrdinateurFaible</param>
         /// <returns></returns>
-        public int JouerCarteSpecialeOrdinateurFaible(Joueur JoueuActuelle, Carte CarteJouee)
+        public int JouerCarteSpecialeOrdinateurFaible(Carte CarteJouee)
         {
             if (CarteJouee.TypeDeCarte == "VacheAcrobate")
             {
@@ -623,23 +633,10 @@ namespace Mow.Core
         /// </summary>
         public void ChangerSens()
         {
-            bool erreur = true;
-            while (erreur == true)
-            {
-                Console.WriteLine("Voulez-vous changer de sens? Taper Oui ou Non");
-
-                if (ChoixSens == "Oui" || ChoixSens == "Non")
-                {
-                    erreur = false;
-                }
-                else
-                {
-                    Console.WriteLine("Veuillez Répondre par Oui ou par Non !");
-                }
-            }
+         
             if (ChoixSens == "Oui")
                 Sens = !Sens;
-            Console.WriteLine(Sens);
+
         }
 
         /// <summary>
