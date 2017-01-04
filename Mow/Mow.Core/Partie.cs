@@ -788,9 +788,10 @@ namespace Mow.Core
         public int DesignerGagnant()
         {
             int IndexJoueurGagnant = 0;
+            int nombreDeMoucheMin = 100;
             foreach (Joueur joueur in Joueurs)
             {
-                int nombreDeMoucheMin = 100;
+                
 
                 if (joueur.NombreDeMouche < nombreDeMoucheMin)
                 {
@@ -799,6 +800,20 @@ namespace Mow.Core
                 }
             }
             return IndexJoueurGagnant;
+        }
+
+        public void EcrireStat()
+        {
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"..\..\..\Statistique.txt"))
+            {
+                foreach (Joueur joueur in Joueurs)
+                {
+                   
+                        file.Write(joueur.Pseudo + " " + joueur.NombreDeMouche*);
+                    
+                }
+            }
         }
     }
 }
