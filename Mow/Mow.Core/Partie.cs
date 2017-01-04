@@ -27,6 +27,7 @@ namespace Mow.Core
 
         public string MessageBox { get; set; }
 
+        public int ScoreJoueur { get; set; }
         public int ScoreDaenerys { get; set; }
         public int ScoreNegan { get; set; }
         public int ScoreSavitar { get; set; }
@@ -45,7 +46,7 @@ namespace Mow.Core
             MessageBox = "Welcome in Mow Jow !";
             NbManche = 1;
 
-            ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
+            ScoreJoueur = ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
 
         }
         /// <summary>
@@ -221,6 +222,7 @@ namespace Mow.Core
 
             }
 
+            ScoreJoueur = Joueurs.ElementAt(0).NombreDeMouche;
             ScoreDaenerys = Joueurs.ElementAt(1).NombreDeMouche;
             ScoreNegan = Joueurs.ElementAt(2).NombreDeMouche;
             ScoreSavitar = Joueurs.ElementAt(3).NombreDeMouche;
