@@ -805,7 +805,7 @@ namespace Mow.Core
                 foreach (Joueur joueur in Joueurs)
                 {
                    
-                        file.Write(joueur.Pseudo + " " + joueur.NombreDeMouche*);
+                        file.Write(joueur.Pseudo + " " + joueur.NombreDeMouche);
                     
                 }
             }

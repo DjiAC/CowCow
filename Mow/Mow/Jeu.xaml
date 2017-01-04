@@ -29,11 +29,8 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="528,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="680,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8" Grid.ColumnSpan="2"/>
-        <WrapPanel>
-            <TextBlock Text="Votre main" />
-            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
-        </WrapPanel>
-        
+        <WrapPanel/>
+
         <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
             <TextBox HorizontalAlignment="Left" Height="131" Margin="0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
         </WrapPanel>
@@ -48,7 +45,7 @@
             </Button.Background>
             <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
-        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" Width="198" FontFamily="KBTheFlowerFarm" Height="92" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
+        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" Width="198" Height="92" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
             <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         </Button>
         <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,572,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
