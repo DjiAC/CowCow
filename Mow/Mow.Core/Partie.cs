@@ -94,6 +94,11 @@ namespace Mow.Core
 
         }
 
+        public void Test()
+        {
+            CreerPioche();
+        }
+
         public void JouerPartie()
         {           
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
