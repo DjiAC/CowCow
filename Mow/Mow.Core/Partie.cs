@@ -25,6 +25,8 @@ namespace Mow.Core
 
         public int NbManche { get; set; }
 
+        public string MessageBox { get; set; }
+
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
             Pioche = new Stack<Carte>();
@@ -34,7 +36,8 @@ namespace Mow.Core
             LimiteDeMouche = NbMouche;
             NomJoueur = nomJoueur;
             NbJoueursPartie = NbJoueurs;
-            TypeDePartie = TypePartie;  
+            TypeDePartie = TypePartie;
+            MessageBox = "Welcome in Mow Jow !";
 
         }
         /// <summary>
@@ -124,11 +127,11 @@ namespace Mow.Core
                 if (TroupeauDeVache.Count != 0) 
                     DeterminerJoueurActuel(); // On détermine le joueur qui va jouer à chaque tour selon le sens 
 
-                Console.WriteLine("Troupeau");
+                MessageBox = "Troupeau";
                 foreach (Carte carte in TroupeauDeVache)
                 {
 
-                    Console.WriteLine(carte.TypeDeCarte + " " + carte.NumeroDeCarte + " " + carte.NombreDeMouche); // On affiche le troupeau
+                    MessageBox = (carte.TypeDeCarte + " " + carte.NumeroDeCarte + " " + carte.NombreDeMouche); // On affiche le troupeau
 
                 }
 
@@ -153,6 +156,8 @@ namespace Mow.Core
                                     Console.WriteLine(carte.TypeDeCarte + " " + carte.NumeroDeCarte + " " + carte.NombreDeMouche); // On affiche ses cartes
                                 }
                                 choix = Console.ReadLine(); // Il choisit la carte à jouer ou de ne pas jouer
+                                System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
+
 
 
 
@@ -319,6 +324,7 @@ namespace Mow.Core
 
                             Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 1) + ")");
                             IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache acrobate doit être posée
+                            System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
 
                             erreur = false;
                         }
@@ -384,7 +390,7 @@ namespace Mow.Core
 
                                     Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 2) + ")");
                                     IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache retardataire doit être posée
-
+                                    System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
                                     erreur = false;
                                 }
                                 catch (ArgumentNullException exception)
@@ -741,6 +747,7 @@ namespace Mow.Core
 
                 Console.WriteLine("Voulez-vous changer de sens? Taper Oui ou Non");
                 choix = Console.ReadLine();
+                System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
                 if (choix == "Oui" || choix == "Non")
                 {
                     erreur = false;

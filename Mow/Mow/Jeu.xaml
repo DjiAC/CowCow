@@ -31,10 +31,11 @@
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8" Grid.ColumnSpan="2"/>
         <WrapPanel>
             <TextBlock Text="Votre main" />
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
         </WrapPanel>
-        <WrapPanel>
-            <TextBox HorizontalAlignment="Left" Height="171" Margin="248,558,0,0" TextWrapping="Wrap" Text="Nos cartes" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center" Grid.ColumnSpan="2"/>
-            <TextBox HorizontalAlignment="Left" Height="148" Margin="248,558,0,0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center" Grid.ColumnSpan="2"/>
+        
+        <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
+            <TextBox HorizontalAlignment="Left" Height="131" Margin="0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
         </WrapPanel>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="824,178,0,0" TextWrapping="Wrap" Text="Manche" VerticalAlignment="Top" Width="102" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="934,178,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="30" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
@@ -47,8 +48,11 @@
             </Button.Background>
             <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
-        <Button x:Name="LancerPartie" Click="LancerClick" Content="Lancer &#xD;&#xA;Mow Jow!" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" Width="198" FontFamily="KBTheFlowerFarm" Height="92" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF"/>
+        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" Width="198" FontFamily="KBTheFlowerFarm" Height="92" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
+            <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
+        </Button>
         <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,572,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,571,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="262,558,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="478" Height="37"/>
     </Grid>
 </Window>
