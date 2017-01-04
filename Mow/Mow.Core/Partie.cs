@@ -120,6 +120,8 @@ namespace Mow.Core
 
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
 
+            DistribuerCarte();
+
             NbManche = 1; // initialisation numero manche
         }
 
@@ -233,11 +235,6 @@ namespace Mow.Core
                 }
                 return true;
             }
-            else if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte == "VacheAcrobate" || CarteJouee.TypeDeCarte == "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer est une vache acrobate ou retardataire
-            {
-                Console.WriteLine("Vous ne pouvez pas jouer cette vache spéciale en début de partie");
-                return false;
-            }
 
             else if (CarteJouee.TypeDeCarte == "VacheNormale") // Pour le cas d'une vache normale
             {
@@ -302,7 +299,19 @@ namespace Mow.Core
 
             }
 
-            else if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
+           
+            return true;
+        }
+
+        public bool JouerCarteUnpeuSpeciale(Joueur JoueurActuel, Carte CarteJouee)
+        {
+            if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte == "VacheAcrobate" || CarteJouee.TypeDeCarte == "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer est une vache acrobate ou retardataire
+            {
+                Console.WriteLine("Vous ne pouvez pas jouer cette vache spéciale en début de partie");
+                return false;
+            }
+
+          else  if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
             {
                 if (JoueurActuel.Type == "Humain")
                 {
@@ -330,12 +339,8 @@ namespace Mow.Core
                     return false;
                 }
             }
-            return true;
-        }
 
-        public bool JouerCarteUnpeuSpeciale(Joueur JoueurActuel, Carte CarteJouee)
-        {
-            if (CarteJouee.TypeDeCarte == "VacheRetardataire") // Pour le cas de la vache retardataire
+            else if (CarteJouee.TypeDeCarte == "VacheRetardataire") // Pour le cas de la vache retardataire
             {
                 if (TroupeauDeVache.Count >= 2) // Il faut qu'il y a ait 2 vaches au minimum
                 {
