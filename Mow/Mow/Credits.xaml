@@ -19,7 +19,7 @@
                 <ImageBrush ImageSource="Images/Adrien.jpg"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Charles" ToolTip="Charles DOUANGDARA - Algo Farmer" ToolTipService.ShowDuration="5000" HorizontalAlignment="Left" Height="150" Margin="319,156,0,0" VerticalAlignment="Top" Width="150">
+        <Button x:Name="Charles" ToolTip="Charles DOUANGDARA - Algo/Code Farmer" ToolTipService.ShowDuration="5000" HorizontalAlignment="Left" Height="150" Margin="319,156,0,0" VerticalAlignment="Top" Width="150">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Charles.jpg"/>
             </Button.Background>
