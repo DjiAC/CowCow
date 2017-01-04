@@ -22,38 +22,67 @@ namespace Mow
     /// </summary>
     public partial class JeuWindow : Window
     {
-        Partie partie;        
-
+         
+               
+        /// <summary>
+        /// Initiation de la page Jeu
+        /// </summary>
+        /// <param name="partie">Envoi de l'objet Partie</param>
         public JeuWindow(Partie partie)
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialisation
 
-            this.partie = partie;
+            this.partie = partie; // Déclaration contexte issu de partie
 
-            this.DataContext = partie;
+            this.DataContext = partie; // Déclaration DataContext pour binding
         }
 
+        /// <summary>
+        /// Récupération de l'instance Partie partie
+        /// </summary>
+        Partie partie;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }  
 
+        /// <summary>
+        /// Action de retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MenuWindow Menu = new MenuWindow();
-            Menu.ShowDialog();
-        }        
-
+            this.Hide(); // Disparition de la page actuelle
+            MenuWindow Menu = new MenuWindow(); // Création de la page Menu
+            Menu.ShowDialog(); // Apparition de la page Menu
+        }    
+            
+        /// <summary>
+        /// Action de lancement du jeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LancerClick(object sender, RoutedEventArgs e)
         {
-            LancerPartie.Visibility = Visibility.Collapsed;
-            // partie.JouerPartie();            
+            LancerPartie.Visibility = Visibility.Collapsed; // Disparition du bouton - Ne fonctionne pas
+            partie.JouerPartie(); // Lancement de la partie
         }
         
 

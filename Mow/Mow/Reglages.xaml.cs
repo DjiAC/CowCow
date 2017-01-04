@@ -22,48 +22,83 @@ namespace Mow
     /// </summary>
     public partial class ReglagesWindow : Window
     {
-        public int NbJoueursPartie { get; set; }
-
-        public string TypePartie { get; set; }
-
+        /// <summary>
+        /// Initiation de la page Réglages
+        /// </summary>
         public ReglagesWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialisation
         }
 
+        /// <summary>
+        /// Paramètre du nombre de joueurs pour la partie (entre 2 et 5)
+        /// </summary>
+        public int NbJoueursPartie { get; set; }
+
+        /// <summary>
+        /// Paramètre du type de partie (solo ou multijoueur)
+        /// </summary>
+        public string TypePartie { get; set; }
+
+        /// <summary>
+        /// Action de retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MenuWindow Menu = new MenuWindow();
-            Menu.ShowDialog();
+            this.Hide(); // Disparition de la page actuelle
+            MenuWindow Menu = new MenuWindow(); // Création de la page Menu
+            Menu.ShowDialog(); // Apparition de la page Menu
         }
 
+        /// <summary>
+        /// Action de lancement de la partie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayClick(object sender, RoutedEventArgs e)
         {
-            Partie partie = new Partie(TypePartie, NbJoueursPartie, (Joueur1.Text), (int.Parse(ChoixNbMouches.Text)));
-            this.Hide();
-            JeuWindow Jeu = new JeuWindow(partie);
-            Jeu.ShowDialog();
+            // Constructeur de partie avec paramètres Type de partie, Nombre de joueurs, Pseudo joueur Humain et limite de mouches
+            Partie partie = new Partie(TypePartie, NbJoueursPartie, (Joueur1.Text), (int.Parse(ChoixNbMouches.Text))); 
+            this.Hide(); // Disparition de la page actuelle
+            JeuWindow Jeu = new JeuWindow(partie); // Création de la page Jeu
+            Jeu.ShowDialog(); // Apparition de la page Jeu
         }        
 
+        /// <summary>
+        /// Detection du type de partie via RadioButtons pressé
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioButtonTypeChecked(object sender, RoutedEventArgs e)
         {
-            var RadioButtonType = sender as RadioButton;
-            TypePartie = RadioButtonType.Content.ToString();
+            var RadioButtonType = sender as RadioButton; // Récupération de l'objet RadioButtonType
+            TypePartie = RadioButtonType.Content.ToString(); // Conversion du content du RadioButton pressé en string Type de partie
 
         }
 
+        /// <summary>
+        /// Detection du nombre de joueurs via RadioButtons pressé
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RadioButtonNbChecked(object sender, RoutedEventArgs e)
         {
-            var RadioButtonNb = sender as RadioButton;
-            NbJoueursPartie = int.Parse(RadioButtonNb.Content.ToString());
-                        
+            var RadioButtonNb = sender as RadioButton; // Récupération de l'objet RadioButtonNb
+            NbJoueursPartie = int.Parse(RadioButtonNb.Content.ToString()); // Conversion du content du RadioButton pressé en int Nombre de joueurs
+
         }      
 
+        /// <summary>
+        /// Permettre uniquement des nombres dans la limite de mouches
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnlyNumber(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            Regex regex = new Regex("[^0-9]+"); // Création de la limite d'expressions 
+            e.Handled = regex.IsMatch(e.Text); // Application de cette limite à la propriété Text
         }
     }
 }

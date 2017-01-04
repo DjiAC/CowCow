@@ -19,35 +19,55 @@ namespace Mow
     /// Logique d'interaction pour Regles.xaml
     /// </summary>
     public partial class ReglesWindow : Window
-    {      
-
+    {
+        /// <summary>
+        /// Initiation de la page Règles
+        /// </summary>
         public ReglesWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialisation
         }
 
-        public object NavigationService { get; private set; }
-
+        /// <summary>
+        /// Popup Carte Règles 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Regles1Popup_Click(object sender, RoutedEventArgs e)
         {
-            Regles1Popup.IsOpen = true;
-        }       
+            Regles1Popup.IsOpen = true; // Apparition du popup détaillant
+        }
 
+        /// <summary>
+        /// Popup Carte Règles 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Regles2Popup_Click(object sender, RoutedEventArgs e)
         {
-            Regles2Popup.IsOpen = true;
-        }        
+            Regles2Popup.IsOpen = true; // Apparition du popup détaillant
+        }
 
+        /// <summary>
+        /// Popup Carte Règles 3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Regles3Popup_Click(object sender, RoutedEventArgs e)
         {
-            Regles3Popup.IsOpen = true;
-        }               
+            Regles3Popup.IsOpen = true; // Apparition du popup détaillant
+        }
 
+        /// <summary>
+        /// Action de retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MenuWindow Menu = new MenuWindow();
-            Menu.ShowDialog();
+            this.Hide(); // Disparition de la page actuelle
+            MenuWindow Menu = new MenuWindow(); // Création de la page Menu
+            Menu.ShowDialog(); // Apparition de la page Menu
         }
     }
 }

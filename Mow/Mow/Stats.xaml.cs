@@ -19,18 +19,25 @@ namespace Mow
     /// Logique d'interaction pour Regles.xaml
     /// </summary>
     public partial class StatsWindow : Window
-    {      
-
+    {
+        /// <summary>
+        /// Initiation de la page Statistiques
+        /// </summary>
         public StatsWindow()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialisation
         }
 
+        /// <summary>
+        /// Action de retour au menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuClick(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            MenuWindow Menu = new MenuWindow();
-            Menu.ShowDialog();
+            this.Hide(); // Disparition de la page actuelle
+            MenuWindow Menu = new MenuWindow(); // Création de la page Menu
+            Menu.ShowDialog(); // Apparition de la page Menu
         }
     }
 }
