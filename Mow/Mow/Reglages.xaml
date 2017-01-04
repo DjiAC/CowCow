@@ -32,7 +32,7 @@
         <TextBlock x:Name="NbJoueurs" Margin="493,208,271,0" TextWrapping="Wrap" Height="30" Width="254" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"><Run Text="Nombre de "/><Run Text="joueurs"/></TextBlock>
 
         <TextBlock x:Name="NbMouches" Margin="284,355,482,0" TextWrapping="Wrap" Text="Nombre de mouches" Height="30" Width="252" HorizontalAlignment="Center" FontSize="24" TextAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" TextDecorations="{x:Null}"/>
-        <TextBox x:Name="ChoixNbMouches" Text="100" PreviewTextInput="OnlyNumber" Margin="583,354,338,337" FontSize="24" TextAlignment="Center"/>
+        <TextBox x:Name="ChoixNbMouches" MaxLength="3" Text="100" PreviewTextInput="OnlyNumber" Margin="583,354,338,337" FontSize="24" TextAlignment="Center"/>
         <Button x:Name="PlayButton" Click="PlayClick" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Height="56" BorderThickness="0" Margin="795,673,0,0" Background="#7FFFFFFF" Foreground="Black" BorderBrush="{x:Null}">
             <TextBlock FontFamily="KBTheFlowerFarm" FontSize="48" Width="153" Height="51" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"><Run Text="PLAY"/></TextBlock>
         </Button>
