@@ -12,9 +12,9 @@
         <Grid.Resources>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </Grid.Resources>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="75" Margin="10,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
-        <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" Text="{Binding Joueurs.NumeroDeCarte}" VerticalAlignment="Top" Height="150" Width="138" FontSize="26" Grid.ColumnSpan="2" FontFamily="KBTheFlowerFarm"></TextBlock>
-
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="10,600,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
+        <TextBlock HorizontalAlignment="Left" Margin="806,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="103" FontSize="18" FontFamily="KBTheFlowerFarm"><Run Text="Daenerys"/><LineBreak/><Run/><LineBreak/><Run Text="Negan"/><LineBreak/><Run/><LineBreak/><Run Text="Savitar"/><LineBreak/><Run/><LineBreak/><Run Text="Robert"/></TextBlock>
+        
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="370" Margin="180,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Opacity="0.5"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="862,656,0,0" TextWrapping="Wrap" Text="ETABLE" VerticalAlignment="Top" Height="46" Width="82" FontSize="20" Grid.ColumnSpan="2"/>
@@ -24,20 +24,35 @@
         <Image HorizontalAlignment="Left" Height="110" Margin="423,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="483,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="548,626,0,0" VerticalAlignment="Top" Width="60" Grid.ColumnSpan="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="180,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="356,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="528,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" Margin="680,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2"/>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="180,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Images/Daenerys.jpg" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="337,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" ImageSource="Images/Negan.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="503,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Images/Savitar.jpg" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="660,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="120">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Images/Robert.jpg" Stretch="UniformToFill"/>
+            </Rectangle.Fill>
+        </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="824,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/SensHoraire.png" Opacity="0.8" Grid.ColumnSpan="2"/>
-        <WrapPanel/>
+        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="{Binding Joueurs.Pseudo}" Margin="909,10,10,705"/>
+        
 
         <WrapPanel Margin="262,600,278,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="130" Width="478">
             <TextBox HorizontalAlignment="Left" Height="131" Margin="0" TextWrapping="Wrap" Text="{Binding carte.NumeroDeCarte}" VerticalAlignment="Top" Width="480" TextChanged="TextBox_TextChanged" FontSize="16" TextAlignment="Center"/>
         </WrapPanel>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="824,178,0,0" TextWrapping="Wrap" Text="Manche" VerticalAlignment="Top" Width="102" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="934,178,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="30" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center"/>
-
-        <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,571,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <Image HorizontalAlignment="Left" Height="214" Margin="10,274,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8" Grid.ColumnSpan="2"/>
         <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="10,10,0,0" Grid.ColumnSpan="2" Click="MenuClick">
             <Button.Background>
@@ -45,11 +60,13 @@
             </Button.Background>
             <Hyperlink NavigateUri="Menu.xaml"/>
         </Button>
-        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="10,638,0,0" VerticalAlignment="Top" Width="198" Height="92" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
+        <Button x:Name="LancerPartie" Click="LancerClick" HorizontalAlignment="Left" Margin="262,274,0,0" VerticalAlignment="Top" Width="441" Height="168" FontSize="36" Background="#FF6B8DFF" BorderBrush="#FF2644FF">
             <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,572,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Left" Height="48" Margin="17,571,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Height="85" Margin="17,622,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="184" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="262,558,0,0" TextWrapping="Wrap" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="478" Height="37"/>
+        <TextBlock x:Name="textBlock1_Copy" TextWrapping="Wrap" Margin="909,49,10,666"><Run Text="Score "/><Run Text="Negan"/></TextBlock>
+        <TextBlock x:Name="textBlock1_Copy1" TextWrapping="Wrap" Margin="909,90,10,625"><Run Text="Score "/><Run Text="Savitar"/></TextBlock>
+        <TextBlock x:Name="textBlock1_Copy2" TextWrapping="Wrap" Margin="909,135,10,580"><Run Text="Score "/><Run Text="Robert"/></TextBlock>
     </Grid>
 </Window>

@@ -234,6 +234,12 @@
   <ItemGroup>
     <Resource Include="Images\Reglages.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Daenerys.jpg" />
+    <Resource Include="Images\Negan.jpg" />
+    <Resource Include="Images\Robert.jpg" />
+    <Resource Include="Images\Savitar.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

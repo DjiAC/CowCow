@@ -154,7 +154,6 @@ namespace Mow.Core
                                     Console.WriteLine(carte.TypeDeCarte + " " + carte.NumeroDeCarte + " " + carte.NombreDeMouche); // On affiche ses cartes
                                 }
                                 choix = Console.ReadLine(); // Il choisit la carte à jouer ou de ne pas jouer
-                                System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
                                 
                             } while (choix != "A" && JouerCarte(Joueurs.ElementAt(IndexJoueur), Joueurs.ElementAt(IndexJoueur).Main.ElementAt(int.Parse(choix))) == false); // S'il tape autre chose que demander ou qu'il ne peut pas jouer la carte qu'il a choisi, il doit recommencer
                             erreur = false;
@@ -315,11 +314,8 @@ namespace Mow.Core
                         try
                         {
 
-
-
                             Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 1) + ")");
                             IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache acrobate doit être posée
-                            System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
 
                             erreur = false;
                         }
@@ -385,7 +381,6 @@ namespace Mow.Core
 
                                     Console.WriteLine("Choississez où vous voulez poser votre carte : (Taper entre 0 et" + (TroupeauDeVache.Count - 2) + ")");
                                     IndexCarte = int.Parse(Console.ReadLine()); // On récupère l'index de la carte où la vache retardataire doit être posée
-                                    System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
                                     erreur = false;
                                 }
                                 catch (ArgumentNullException exception)
@@ -742,7 +737,6 @@ namespace Mow.Core
 
                 Console.WriteLine("Voulez-vous changer de sens? Taper Oui ou Non");
                 choix = Console.ReadLine();
-                System.Threading.Thread.Sleep(10000); // Temps d'attente simulation Humaine
                 if (choix == "Oui" || choix == "Non")
                 {
                     erreur = false;
