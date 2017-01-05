@@ -42,13 +42,14 @@ namespace Mow.Core
         public int ScoreRobert { get; set; } // Score Robert
 
         public ObservableCollection<Carte> CarteObservable = new ObservableCollection<Carte>();
-        
-        
-        public string CarteMain0 { get; set; } // Lien image Carte 1 de la main
-        public string CarteMain1 { get; set; } // Lien image Carte 2 de la main
-        public string CarteMain2 { get; set; } // Lien image Carte 3 de la main
-        public string CarteMain3 { get; set; } // Lien image Carte 4 de la main
-        public string CarteMain4 { get; set; } // Lien image Carte 5 de la main
+
+        public ObservableCollection<Carte> Troupeau = new ObservableCollection<Carte>();
+
+        public string CarteMain0 { get; set; } // Lien image Carte 0 de la main
+        public string CarteMain1 { get; set; } // Lien image Carte 1 de la main
+        public string CarteMain2 { get; set; } // Lien image Carte 2 de la main
+        public string CarteMain3 { get; set; } // Lien image Carte 3 de la main
+        public string CarteMain4 { get; set; } // Lien image Carte 4 de la main
         
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
@@ -121,20 +122,19 @@ namespace Mow.Core
             Pioche = maPile; // On récupère le résultat de la variable locale dans la varible globale Pioche            
         }
 
-        public void Test()
+        public void Lancement()
         {
             CreerPioche(); // Création de la pioche
 
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant - en dur : 4 ordinateurs + 1 humain
 
-            DistribuerCarte(); 
+            DistribuerCarte();
 
             Console.WriteLine(CarteMain0);
             Console.WriteLine(CarteMain1);
             Console.WriteLine(CarteMain2);
             Console.WriteLine(CarteMain3);
-            Console.WriteLine(CarteMain4);
-
+            Console.WriteLine(CarteMain4);           
         }
 
         public void JouerPartie()

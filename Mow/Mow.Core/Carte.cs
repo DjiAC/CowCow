@@ -16,42 +16,33 @@ namespace Mow.Core
         private string typedecarte;
         public string TypeDeCarte
         {
-            get { return this.typedecarte; }
+            get { return typedecarte; }
             set
-            {
-                if (this.typedecarte != value)
-                {
-                    this.typedecarte = value;
-                    this.NotifyPropertyChanged("TypeDeCarte");
-                }
+            {                
+                typedecarte = value;
+                NotifyPropertyChanged("TypeDeCarte");                
             }
         }
 
         private int numerodecarte;
         public int NumeroDeCarte
         {
-            get { return this.numerodecarte; }
+            get { return numerodecarte; }
             set
             {
-                if (this.numerodecarte != value)
-                {
-                    this.numerodecarte = value;
-                    this.NotifyPropertyChanged("NumeroDeCarte");
-                }
+                numerodecarte = value;
+                NotifyPropertyChanged("NumeroDeCarte");
             }
         }
 
         private int nombredemouche;
         public int NombreDeMouche
         {
-            get { return this.nombredemouche; }
+            get { return nombredemouche; }
             set
             {
-                if (this.nombredemouche != value)
-                {
-                    this.nombredemouche = value;
-                    this.NotifyPropertyChanged("NombreDeMouche");
-                }
+                nombredemouche = value;
+                NotifyPropertyChanged("NombreDeMouche");
             }
         }
 
@@ -61,8 +52,7 @@ namespace Mow.Core
 
         public void NotifyPropertyChanged(string propName)
         {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }
