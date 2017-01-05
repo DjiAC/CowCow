@@ -94,9 +94,9 @@ namespace Mow.Core
                         NouvelleCarte.TypeDeCarte = Type;                 //  On instancie son type
 
                         if (Numero != "")
-                            NouvelleCarte.NumeroDeCarte = Numero;  //  On instancie son numéro
+                            NouvelleCarte.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
 
-                        NouvelleCarte.NombreDeMouche = Mouche;   // On instancie son nombre de mouche
+                        NouvelleCarte.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
                         NouvelleCarte.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarte);                         // On ajoute la carte dans la pioche
                     }
@@ -107,9 +107,9 @@ namespace Mow.Core
                         NouvelleCarteSpeciale.TypeDeCarte = Type;                 //  On instancie son type
 
                         if (Numero != "")                                   // Certaines cartes n'ont pas de numéro
-                            NouvelleCarteSpeciale.NumeroDeCarte = Numero;  //  On instancie son numéro
+                            NouvelleCarteSpeciale.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
 
-                        NouvelleCarteSpeciale.NombreDeMouche = Mouche;   // On instancie son nombre de mouche
+                        NouvelleCarteSpeciale.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
                         NouvelleCarteSpeciale.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarteSpeciale);                         // On ajoute la carte dans la pioche
                     }
@@ -127,7 +127,7 @@ namespace Mow.Core
 
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant - en dur : 4 ordinateurs + 1 humain
 
-            DistribuerCarte();
+            DistribuerCarte(); 
 
             Console.WriteLine(CarteMain0);
             Console.WriteLine(CarteMain1);
@@ -244,10 +244,10 @@ namespace Mow.Core
 
             else
             {
-                int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
-                int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
+                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
+                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
 
-                if (int.Parse(CarteJouee.NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -255,7 +255,7 @@ namespace Mow.Core
                     return true;
                 }
 
-                else if (int.Parse(CarteJouee.NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -297,10 +297,10 @@ namespace Mow.Core
 
             if (CarteJouee.TypeDeCarte == "VacheSerreFile") // Pour le cas de la vache serre file
             {
-                int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
-                int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
+                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
+                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
 
-                if (int.Parse(CarteJouee.NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -312,7 +312,7 @@ namespace Mow.Core
                     return true;
                 }
 
-                else if (int.Parse(CarteJouee.NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -375,7 +375,7 @@ namespace Mow.Core
                         IndexCarte = JouerCarteSpecialeOrdinateurFaible(CarteJouee);
                     }
 
-                    if (int.Parse(TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte) - int.Parse(TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte) >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
+                    if (TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
                     {
                         TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On insère la carte entre les deux autres concernées
                         JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -433,14 +433,14 @@ namespace Mow.Core
                 {
                     if (carte.TypeDeCarte == "VacheNormale") // L'ordinateur jouera en priorité un vache normale
                     {
-                        int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
-                        int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
+                        int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
+                        int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
 
-                        if (int.Parse(JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                        if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                         {
                             return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition inférieure au troupeau 
                         }
-                        else if (int.Parse(JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                        else if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                         {
                             return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition supérieure au troupeau
                         }
@@ -470,7 +470,7 @@ namespace Mow.Core
                             int limite = (TroupeauDeVache.Count - 2);
                             if (TroupeauDeVache.IndexOf(cartevache) < limite && TroupeauDeVache.Count >= 2)
                             {
-                                if (int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(cartevache) + 1).NumeroDeCarte) - int.Parse(cartevache.NumeroDeCarte) >= 2)
+                                if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(cartevache) + 1).NumeroDeCarte - cartevache.NumeroDeCarte >= 2)
                                 {
                                     return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache retardataire si la condition qu'il y a ait 2 cartes dans le troupeau et que l'écarte entre 2 cartes et >2 
                                 }
@@ -506,7 +506,7 @@ namespace Mow.Core
                 {
                     if (TroupeauDeVache.IndexOf(carte) < (TroupeauDeVache.Count - 1))
                     {
-                        if (int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte) - int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte) >= 2)
+                        if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte >= 2)
                         {
                             return TroupeauDeVache.IndexOf(carte);  // Retourne l'index de la carte du troupeau qui lui permettra de poser sa carte vache retardataire
                         }
@@ -649,11 +649,11 @@ namespace Mow.Core
             {
                 foreach (Carte carte in joueur.Main)
                 {
-                    joueur.NombreDeMouche += int.Parse(carte.NombreDeMouche); // On compte les mouches dans la main d'un joueur
+                    joueur.NombreDeMouche += carte.NombreDeMouche; // On compte les mouches dans la main d'un joueur
                 }
                 foreach (Carte carte in joueur.Etable)
                 {
-                    joueur.NombreDeMouche += int.Parse(carte.NombreDeMouche); // On compte les mouches dans les étables
+                    joueur.NombreDeMouche += carte.NombreDeMouche; // On compte les mouches dans les étables
                 }
                 Console.WriteLine(joueur.NombreDeMouche);
             }

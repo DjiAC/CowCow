@@ -27,8 +27,8 @@ namespace Mow.Core
             }
         }
 
-        private string numerodecarte;
-        public string NumeroDeCarte
+        private int numerodecarte;
+        public int NumeroDeCarte
         {
             get { return this.numerodecarte; }
             set
@@ -41,8 +41,8 @@ namespace Mow.Core
             }
         }
 
-        private string nombredemouche;
-        public string NombreDeMouche
+        private int nombredemouche;
+        public int NombreDeMouche
         {
             get { return this.nombredemouche; }
             set
