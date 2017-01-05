@@ -108,7 +108,7 @@
             <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" Text="Lancer Mow Jow!" VerticalAlignment="Top" Width="184" FontSize="32" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
         </Button>
         <TextBlock HorizontalAlignment="Left" Height="69" Margin="15,608,0,0" Text="{Binding NomJoueur}" VerticalAlignment="Top" Width="125" FontSize="36" Background="White" FontWeight="Bold" Foreground="Black" FontFamily="KBTheFlowerFarm" TextAlignment="Center"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="8,486,0,0" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="140" Height="62"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="8,486,0,0" Text="{Binding MessageBox}" VerticalAlignment="Top" Background="#FF67BDF9" Width="140" Height="62" TextAlignment="Center"/>
         <TextBlock x:Name="ScoreDaenerys" Text="{Binding ScoreDaenerys}" Margin="907,10,39,693" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center" />
         <TextBlock x:Name="ScoreNegan" Text="{Binding ScoreNegan}" Margin="907,49,39,650" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
         <TextBlock x:Name="ScoreSavitar" Text="{Binding ScoreSavitar}" Margin="907,90,39,609" FontFamily="KBTheFlowerFarm" FontSize="18" TextAlignment="Center"/>
@@ -134,62 +134,62 @@
         <TextBlock x:Name="LimiteMouche" HorizontalAlignment="Left" Height="26" Margin="851,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm" Background="#7FE68F47" Text="Limite "/>
         <TextBlock x:Name="LimiteMoucheNb" HorizontalAlignment="Left" Height="26" Margin="955,486,0,0" TextWrapping="Wrap" Text="{Binding LimiteDeMouche}" VerticalAlignment="Top" Width="51" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7FE68F47"/>
         <Image x:Name="MoucheJoueur2_Copy" HorizontalAlignment="Left" Height="30" Margin="925,484,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,355,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
+        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
             <Rectangle.Fill>
                 <ImageBrush Stretch="UniformToFill"/>
             </Rectangle.Fill>
