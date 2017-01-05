@@ -221,21 +221,15 @@ namespace Mow.Core
         /// <returns></returns>
         public bool JouerCarte(Joueur JoueurActuel, Carte CarteJouee)
         {
-            if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte != "VacheAcrobate" && CarteJouee.TypeDeCarte != "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer n'est pas une vache acrobate ou retardataire
+            if (TroupeauDeVache.Count == 0) // Si le troupeau est vide et que la carte à jouer n'est pas une vache acrobate ou retardataire
             {
                 TroupeauDeVache.Add(CarteJouee); // On pose la carte 
                 JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
 
-                if (CarteJouee.TypeDeCarte == "VacheSerreFile")
-                {
-                    if (JoueurActuel.Type == "Humain")
-                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
-                    else Sens = !Sens;
-                }
-                return true;
+
             }
 
-            else if (CarteJouee.TypeDeCarte == "VacheNormale") // Pour le cas d'une vache normale
+            else
             {
                 int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
                 int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
@@ -261,56 +255,72 @@ namespace Mow.Core
                 }
             }
 
-            else if (CarteJouee.TypeDeCarte == "VacheSerreFile") // Pour le cas de la vache serre file
-            {
-                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
-                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
-
-                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
-                {
-                    TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
-                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
-
-                    if (JoueurActuel.Type == "Humain")
-                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
-
-                    else Sens = !Sens;
-                    return true;
-                }
-
-                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
-                {
-                    TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
-                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
-
-                    if (JoueurActuel.Type == "Humain")
-                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
-
-                    else Sens = !Sens;
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Erreur votre carte doit être placé en dehors de l'intervalle !");
-                    return false;
-                }
 
 
-            }
-
-           
             return true;
         }
 
         public bool JouerCarteUnpeuSpeciale(Joueur JoueurActuel, Carte CarteJouee)
         {
-            if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte == "VacheAcrobate" || CarteJouee.TypeDeCarte == "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer est une vache acrobate ou retardataire
+            if (TroupeauDeVache.Count == 0 && CarteJouee.TypeDeCarte == "VacheSerreFile")
+            {
+                TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
+                JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+
+                if (JoueurActuel.Type == "Humain")
+                    ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+                else Sens = !Sens;
+
+                return true;
+            }
+
+
+            else if (TroupeauDeVache.Count == 0 && (CarteJouee.TypeDeCarte == "VacheAcrobate" || CarteJouee.TypeDeCarte == "VacheRetardataire")) // Si le troupeau est vide et que la carte à jouer est une vache acrobate ou retardataire
             {
                 Console.WriteLine("Vous ne pouvez pas jouer cette vache spéciale en début de partie");
                 return false;
             }
 
-          else  if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
+
+            if (CarteJouee.TypeDeCarte == "VacheSerreFile") // Pour le cas de la vache serre file
+            {
+                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
+                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
+
+                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                {
+                    TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+
+                    if (JoueurActuel.Type == "Humain")
+                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                    else Sens = !Sens;
+                    return true;
+                }
+
+                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                {
+                    TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
+                    JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
+
+                    if (JoueurActuel.Type == "Humain")
+                        ChangerSens(); // On demande à changer le sens car c'est une carte spéciale
+
+                    else Sens = !Sens;
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Erreur votre carte doit être placé en dehors de l'intervalle !");
+                    return false;
+                }
+
+
+            }
+
+
+            else if (CarteJouee.TypeDeCarte == "VacheAcrobate") // Pour le cas de la vache acrobate
             {
                 if (JoueurActuel.Type == "Humain")
                 {
