@@ -14,9 +14,6 @@
         </Grid.Resources>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="8,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="140"/>
         <TextBlock HorizontalAlignment="Left" Margin="804,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="150" Width="103" FontSize="18" FontFamily="KBTheFlowerFarm"><Run Text="Daenerys"/><LineBreak/><Run/><LineBreak/><Run Text="Negan"/><LineBreak/><Run/><LineBreak/><Run Text="Savitar"/><LineBreak/><Run/><LineBreak/><Run Text="Robert"/></TextBlock>
-
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="370" Margin="178,178,0,0" Stroke="Black" VerticalAlignment="Top" Width="650" Opacity="0.5"/>
-
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="161" Margin="851,558,0,0" Stroke="Black" VerticalAlignment="Top" Width="155" Opacity="0.5"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="297,626,0,-7" VerticalAlignment="Top" Width="60"/>
         <Image HorizontalAlignment="Left" Height="110" Margin="357,626,0,-7" VerticalAlignment="Top" Width="60"/>
@@ -45,14 +42,14 @@
         </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="851,217,0,0" VerticalAlignment="Top" Width="149" Source="{Binding SensImage}" Opacity="0.8"/>
         <WrapPanel Margin="178,558,190,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="161" Width="650" >
-            <Button x:Name="CarteMain0" Click="Carte0Click" Content="{Binding CarteMain0}" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="CarteMain0" Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <TranslateTransform X="20"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/VacheNormale-9-2.png"/>
+                    <ImageBrush ImageSource="{Binding CarteMain0}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain1" Click="Carte1Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -62,7 +59,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/VacheNormale-7-3.png"/>
+                    <ImageBrush ImageSource="{Binding CarteMain1}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain2" Click="Carte2Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -72,7 +69,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/VacheAcrobate-7-5.png"/>
+                    <ImageBrush ImageSource="{Binding CarteMain2}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain3" Click="Carte3Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -82,7 +79,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/VacheNormale-7-0.png"/>
+                    <ImageBrush ImageSource="{Binding CarteMain3}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain4" Click="Carte4Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -92,7 +89,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="Images/VacheSerreFile-16-5.png"/>
+                    <ImageBrush ImageSource="{Binding CarteMain4}"/>
                 </Button.Background>
             </Button>
         </WrapPanel>
@@ -134,65 +131,17 @@
         <TextBlock x:Name="LimiteMouche" HorizontalAlignment="Left" Height="26" Margin="851,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm" Background="#7FE68F47" Text="Limite "/>
         <TextBlock x:Name="LimiteMoucheNb" HorizontalAlignment="Left" Height="26" Margin="955,486,0,0" TextWrapping="Wrap" Text="{Binding LimiteDeMouche}" VerticalAlignment="Top" Width="51" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7FE68F47"/>
         <Image x:Name="MoucheJoueur2_Copy" HorizontalAlignment="Left" Height="30" Margin="925,484,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,198,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="183,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="292,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="399,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="506,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="613,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="159" Margin="721,366,0,0" Stroke="Black" VerticalAlignment="Top" Width="102">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill"/>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid Margin="178,181,190,181">
+            <ListBox>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <DataTemplate>
+                    <Image Height="159" Width="102" Source="{Binding Adresse}"/>
+                </DataTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </Window>

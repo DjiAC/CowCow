@@ -9,14 +9,14 @@ using System.ComponentModel;
 
 namespace Mow.Core
 {
-    public class Partie // Tout fait par C
+    public class Partie : INotifyPropertyChanged // Tout fait par C
     {
         public bool Sens { get; set; } // Sens du déroulement du jeu - True = horaire / False = anti-horaire
         public string SensImage { get; set; } // Sens du déroulement du jeu - Image
         public string ChoixSens { get; set; } // Choix changement sens ou non
 
         Stack<Carte> Pioche { get; set; } // Notre objet pioche est une stack
-        List<Carte> TroupeauDeVache { get; set; } // C'est l'endroit où les joueurs posent leurs cartes
+        public ObservableCollection<Carte> TroupeauDeVache { get; set; } // C'est l'endroit où les joueurs posent leurs cartes
 
         public List<Joueur> Joueurs = new List<Joueur>();
 
@@ -41,21 +41,90 @@ namespace Mow.Core
         public int ScoreSavitar { get; set; } // Score Savitar
         public int ScoreRobert { get; set; } // Score Robert
 
-        public ObservableCollection<Carte> CarteObservable = new ObservableCollection<Carte>();
+        public ObservableCollection<Carte> CarteObservable = new ObservableCollection<Carte>();       
 
-        public ObservableCollection<Carte> Troupeau = new ObservableCollection<Carte>();
+        private string cartemain0;
+        public string CarteMain0 // Lien image Carte 0 de la main
+        {
+            get { return cartemain0; }
+            set
+            {
+                if (this.cartemain0 != value)
+                {
+                    this.cartemain0 = value;
+                    this.NotifyPropertyChanged("CarteMain0");
+                }                
+            }
+        }
 
-        public string CarteMain0 { get; set; } // Lien image Carte 0 de la main
-        public string CarteMain1 { get; set; } // Lien image Carte 1 de la main
-        public string CarteMain2 { get; set; } // Lien image Carte 2 de la main
-        public string CarteMain3 { get; set; } // Lien image Carte 3 de la main
-        public string CarteMain4 { get; set; } // Lien image Carte 4 de la main
-        
+        private string cartemain1;
+        public string CarteMain1 // Lien image Carte 1 de la main
+        {
+            get { return cartemain1; }
+            set
+            {
+                if (this.cartemain1 != value)
+                {
+                    this.cartemain1 = value;
+                    this.NotifyPropertyChanged("CarteMain1");
+                }
+            }
+        }
+
+        private string cartemain2;
+        public string CarteMain2 // Lien image Carte 2 de la main
+        {
+            get { return cartemain2; }
+            set
+            {
+                if (this.cartemain2 != value)
+                {
+                    this.cartemain2 = value;
+                    this.NotifyPropertyChanged("CarteMain2");
+                }
+            }
+        }
+
+        private string cartemain3;
+        public string CarteMain3 // Lien image Carte 3 de la main
+        {
+            get { return cartemain3; }
+            set
+            {
+                if (this.cartemain3 != value)
+                {
+                    this.cartemain3 = value;
+                    this.NotifyPropertyChanged("CarteMain3");
+                }
+            }
+        }
+
+        private string cartemain4;
+        public string CarteMain4 // Lien image Carte 4 de la main
+        {
+            get { return cartemain4; }
+            set
+            {
+                if (this.cartemain4 != value)
+                {
+                    this.cartemain4 = value;
+                    this.NotifyPropertyChanged("CarteMain4");
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propName)
+        {
+            if (this.PropertyChanged != null)
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
             Pioche = new Stack<Carte>();
-            TroupeauDeVache = new List<Carte>();
+            TroupeauDeVache = new ObservableCollection<Carte>();
 
             Sens = true; // On inialise le sens
             LimiteDeMouche = NbMouche;
