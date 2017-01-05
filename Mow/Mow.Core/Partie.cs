@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Mow.Core
 {
@@ -39,11 +41,15 @@ namespace Mow.Core
         public int ScoreSavitar { get; set; } // Score Savitar
         public int ScoreRobert { get; set; } // Score Robert
 
+        public ObservableCollection<Carte> CarteObservable = new ObservableCollection<Carte>();
+        
+        
         public string CarteMain0 { get; set; } // Lien image Carte 1 de la main
         public string CarteMain1 { get; set; } // Lien image Carte 2 de la main
         public string CarteMain2 { get; set; } // Lien image Carte 3 de la main
         public string CarteMain3 { get; set; } // Lien image Carte 4 de la main
         public string CarteMain4 { get; set; } // Lien image Carte 5 de la main
+        
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
@@ -62,7 +68,8 @@ namespace Mow.Core
 
             // Initialisation Score Joueurs
             ScoreJoueur = ScoreDaenerys = ScoreNegan = ScoreSavitar = ScoreRobert = 0;
-        }
+        }        
+
         /// <summary>
         /// Création de la pioche à l'aide d'un fichier Json
         /// </summary>
@@ -87,9 +94,9 @@ namespace Mow.Core
                         NouvelleCarte.TypeDeCarte = Type;                 //  On instancie son type
 
                         if (Numero != "")
-                            NouvelleCarte.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
+                            NouvelleCarte.NumeroDeCarte = Numero;  //  On instancie son numéro
 
-                        NouvelleCarte.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
+                        NouvelleCarte.NombreDeMouche = Mouche;   // On instancie son nombre de mouche
                         NouvelleCarte.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarte);                         // On ajoute la carte dans la pioche
                     }
@@ -100,9 +107,9 @@ namespace Mow.Core
                         NouvelleCarteSpeciale.TypeDeCarte = Type;                 //  On instancie son type
 
                         if (Numero != "")                                   // Certaines cartes n'ont pas de numéro
-                            NouvelleCarteSpeciale.NumeroDeCarte = int.Parse(Numero);  //  On instancie son numéro
+                            NouvelleCarteSpeciale.NumeroDeCarte = Numero;  //  On instancie son numéro
 
-                        NouvelleCarteSpeciale.NombreDeMouche = int.Parse(Mouche);   // On instancie son nombre de mouche
+                        NouvelleCarteSpeciale.NombreDeMouche = Mouche;   // On instancie son nombre de mouche
                         NouvelleCarteSpeciale.Adresse = Adresse;                    // On instancie son adresse
                         Pioche.Push(NouvelleCarteSpeciale);                         // On ajoute la carte dans la pioche
                     }
@@ -121,6 +128,12 @@ namespace Mow.Core
             CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant - en dur : 4 ordinateurs + 1 humain
 
             DistribuerCarte();
+
+            Console.WriteLine(CarteMain0);
+            Console.WriteLine(CarteMain1);
+            Console.WriteLine(CarteMain2);
+            Console.WriteLine(CarteMain3);
+            Console.WriteLine(CarteMain4);
 
         }
 
@@ -186,15 +199,15 @@ namespace Mow.Core
                 {
                     if (Pioche.Count != 0)
                         Joueurs.ElementAt(IndexJoueur).Main.Add(Pioche.Pop()); // Le joueur pioche une carte à la fin de son tour
-                    // Actualisation de la main du joueur
-                    CarteMain0 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
-                    CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
-                    CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
-                    CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
-                    CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
+                                                                               // Actualisation de la main du joueur
+                    CarteMain0 = "Images/" + CarteObservable.ElementAt(0).TypeDeCarte + "-" + CarteObservable.ElementAt(0).NumeroDeCarte + "-" + CarteObservable.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+                    CarteMain1 = "Images/" + CarteObservable.ElementAt(1).TypeDeCarte + "-" + CarteObservable.ElementAt(1).NumeroDeCarte + "-" + CarteObservable.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+                    CarteMain2 = "Images/" + CarteObservable.ElementAt(2).TypeDeCarte + "-" + CarteObservable.ElementAt(2).NumeroDeCarte + "-" + CarteObservable.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+                    CarteMain3 = "Images/" + CarteObservable.ElementAt(3).TypeDeCarte + "-" + CarteObservable.ElementAt(3).NumeroDeCarte + "-" + CarteObservable.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+                    CarteMain4 = "Images/" + CarteObservable.ElementAt(4).TypeDeCarte + "-" + CarteObservable.ElementAt(4).NumeroDeCarte + "-" + CarteObservable.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 1
                 }
 
-              
+
             }
         }
 
@@ -231,10 +244,10 @@ namespace Mow.Core
 
             else
             {
-                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
-                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
+                int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
+                int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
 
-                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                if (int.Parse(CarteJouee.NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -242,7 +255,7 @@ namespace Mow.Core
                     return true;
                 }
 
-                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                else if (int.Parse(CarteJouee.NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -284,10 +297,10 @@ namespace Mow.Core
 
             if (CarteJouee.TypeDeCarte == "VacheSerreFile") // Pour le cas de la vache serre file
             {
-                int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
-                int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
+                int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
+                int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
 
-                if (CarteJouee.NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                if (int.Parse(CarteJouee.NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                 {
                     TroupeauDeVache.Insert(0, CarteJouee); // On met la carte au début du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -299,7 +312,7 @@ namespace Mow.Core
                     return true;
                 }
 
-                else if (CarteJouee.NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                else if (int.Parse(CarteJouee.NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                 {
                     TroupeauDeVache.Add(CarteJouee); // On met la carte à la fin du troupeau
                     JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -362,7 +375,7 @@ namespace Mow.Core
                         IndexCarte = JouerCarteSpecialeOrdinateurFaible(CarteJouee);
                     }
 
-                    if (TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
+                    if (int.Parse(TroupeauDeVache.ElementAt(IndexCarte + 1).NumeroDeCarte) - int.Parse(TroupeauDeVache.ElementAt(IndexCarte).NumeroDeCarte) >= 2) // Si l'écart entre les 2 cartes est supérieur à 2
                     {
                         TroupeauDeVache.Insert(IndexCarte, CarteJouee); // On insère la carte entre les deux autres concernées
                         JoueurActuel.Main.Remove(CarteJouee); // On l'enlève de la main du joueur
@@ -420,14 +433,14 @@ namespace Mow.Core
                 {
                     if (carte.TypeDeCarte == "VacheNormale") // L'ordinateur jouera en priorité un vache normale
                     {
-                        int MinimumDuTroupeau = TroupeauDeVache.ElementAt(0).NumeroDeCarte; // On crée la variable qui correspond au minimum du troupeau
-                        int MaximumDuTroupeau = TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte; // On crée la variable qui correspond au maximum du troupeau
+                        int MinimumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(0).NumeroDeCarte); // On crée la variable qui correspond au minimum du troupeau
+                        int MaximumDuTroupeau = int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.Count - 1).NumeroDeCarte); // On crée la variable qui correspond au maximum du troupeau
 
-                        if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
+                        if (int.Parse(JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte) < MinimumDuTroupeau) // Si le numéro de la carte jouée est inférieur au minimum
                         {
                             return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition inférieure au troupeau 
                         }
-                        else if (JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
+                        else if (int.Parse(JoueurActuel.Main.ElementAt(JoueurActuel.Main.IndexOf(carte)).NumeroDeCarte) > MaximumDuTroupeau) // Si le numéro de la carte jouée est supérieur au maximum
                         {
                             return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index d'une carte vache normale qui respecte la condition supérieure au troupeau
                         }
@@ -457,7 +470,7 @@ namespace Mow.Core
                             int limite = (TroupeauDeVache.Count - 2);
                             if (TroupeauDeVache.IndexOf(cartevache) < limite && TroupeauDeVache.Count >= 2)
                             {
-                                if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(cartevache) + 1).NumeroDeCarte - cartevache.NumeroDeCarte >= 2)
+                                if (int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(cartevache) + 1).NumeroDeCarte) - int.Parse(cartevache.NumeroDeCarte) >= 2)
                                 {
                                     return JoueurActuel.Main.IndexOf(carte).ToString(); // Retourne l'index de la vache retardataire si la condition qu'il y a ait 2 cartes dans le troupeau et que l'écarte entre 2 cartes et >2 
                                 }
@@ -493,7 +506,7 @@ namespace Mow.Core
                 {
                     if (TroupeauDeVache.IndexOf(carte) < (TroupeauDeVache.Count - 1))
                     {
-                        if (TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte - TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte >= 2)
+                        if (int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte) + 1).NumeroDeCarte) - int.Parse(TroupeauDeVache.ElementAt(TroupeauDeVache.IndexOf(carte)).NumeroDeCarte) >= 2)
                         {
                             return TroupeauDeVache.IndexOf(carte);  // Retourne l'index de la carte du troupeau qui lui permettra de poser sa carte vache retardataire
                         }
@@ -516,11 +529,25 @@ namespace Mow.Core
                 }
             }
 
-            CarteMain0 = "Images/VacheNormale-8-0.png"; //"Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteObservable.Add(new Carte() { TypeDeCarte = Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte, NumeroDeCarte = Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte, NombreDeMouche = Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche });
+            CarteObservable.Add(new Carte() { TypeDeCarte = Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte, NumeroDeCarte = Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte, NombreDeMouche = Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche });
+            CarteObservable.Add(new Carte() { TypeDeCarte = Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte, NumeroDeCarte = Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte, NombreDeMouche = Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche });
+            CarteObservable.Add(new Carte() { TypeDeCarte = Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte, NumeroDeCarte = Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte, NombreDeMouche = Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche });
+            CarteObservable.Add(new Carte() { TypeDeCarte = Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte, NumeroDeCarte = Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte, NombreDeMouche = Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche });
+
+            CarteMain0 = "Images/" + CarteObservable.ElementAt(0).TypeDeCarte + "-" + CarteObservable.ElementAt(0).NumeroDeCarte + "-" + CarteObservable.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteMain1 = "Images/" + CarteObservable.ElementAt(1).TypeDeCarte + "-" + CarteObservable.ElementAt(1).NumeroDeCarte + "-" + CarteObservable.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteMain2 = "Images/" + CarteObservable.ElementAt(2).TypeDeCarte + "-" + CarteObservable.ElementAt(2).NumeroDeCarte + "-" + CarteObservable.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteMain3 = "Images/" + CarteObservable.ElementAt(3).TypeDeCarte + "-" + CarteObservable.ElementAt(3).NumeroDeCarte + "-" + CarteObservable.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteMain4 = "Images/" + CarteObservable.ElementAt(4).TypeDeCarte + "-" + CarteObservable.ElementAt(4).NumeroDeCarte + "-" + CarteObservable.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+
+            /*
+            CarteMain0 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
             CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
             CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
             CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
             CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
+            */
         }
 
         /// <summary>
@@ -622,11 +649,11 @@ namespace Mow.Core
             {
                 foreach (Carte carte in joueur.Main)
                 {
-                    joueur.NombreDeMouche += carte.NombreDeMouche; // On compte les mouches dans la main d'un joueur
+                    joueur.NombreDeMouche += int.Parse(carte.NombreDeMouche); // On compte les mouches dans la main d'un joueur
                 }
                 foreach (Carte carte in joueur.Etable)
                 {
-                    joueur.NombreDeMouche += carte.NombreDeMouche; // On compte les mouches dans les étables
+                    joueur.NombreDeMouche += int.Parse(carte.NombreDeMouche); // On compte les mouches dans les étables
                 }
                 Console.WriteLine(joueur.NombreDeMouche);
             }

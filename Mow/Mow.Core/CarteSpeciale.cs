@@ -24,7 +24,7 @@ namespace Mow.Core
         /// <param name="Type"></param>
         public void Acrobate(String Type, ref List<Carte> TroupeauDeVache, int Index,int Numero, Carte CarteActuelle) // un peu trop de paramètre je pense
         {
-            if (Type == "VacheAcrobate" && Numero == CarteActuelle.NumeroDeCarte)
+            if (Type == "VacheAcrobate" && Numero == int.Parse(CarteActuelle.NumeroDeCarte))
             {
                 TroupeauDeVache.Insert(Index, CarteActuelle);
             }

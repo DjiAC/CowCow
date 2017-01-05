@@ -45,14 +45,14 @@
         </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="851,217,0,0" VerticalAlignment="Top" Width="149" Source="{Binding SensImage}" Opacity="0.8"/>
         <WrapPanel Margin="178,558,190,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="161" Width="650" >
-            <Button x:Name="CarteMain0" Content="{Binding CarteMain0}"  Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="CarteMain0" Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <TranslateTransform X="20"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="{Binding CarteMain1}"/>
+                    <ImageBrush ImageSource="{Binding CarteMain0}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain1" Click="Carte1Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -62,7 +62,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="{Binding CarteMain2}"/>
+                    <ImageBrush ImageSource="{Binding CarteMain1}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain2" Click="Carte2Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -72,7 +72,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="{Binding CarteMain3}"/>
+                    <ImageBrush ImageSource="{Binding CarteMain2}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain3" Click="Carte3Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -82,7 +82,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="{Binding CarteMain4}"/>
+                    <ImageBrush ImageSource="{Binding CarteMain3}"/>
                 </Button.Background>
             </Button>
             <Button x:Name="CarteMain4" Click="Carte4Click" Width="102" Height="159" RenderTransformOrigin="0.5,0.5" BorderBrush="Black">
@@ -92,7 +92,7 @@
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
-                    <ImageBrush ImageSource="{Binding CarteMain5}"/>
+                    <ImageBrush ImageSource="{Binding CarteMain4}"/>
                 </Button.Background>
             </Button>
         </WrapPanel>

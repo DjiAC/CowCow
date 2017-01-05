@@ -63,6 +63,8 @@ namespace Mow
         {
             LancerPartie.Visibility = Visibility.Collapsed; // Disparition du bouton - Ne fonctionne pas
             partie.Test(); // Lancement de la partie
+
+            
         }
 
         /// <summary>
