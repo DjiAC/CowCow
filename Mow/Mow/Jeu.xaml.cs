@@ -62,9 +62,9 @@ namespace Mow
         private void LancerClick(object sender, RoutedEventArgs e)
         {
             LancerPartie.Visibility = Visibility.Collapsed; // Disparition du bouton - Ne fonctionne pas
-            partie.Lancement(); // Lancement de la partie        
+            partie.Lancement(); // Lancement de la partie            
         }
-        
+
         /// <summary>
         /// Choix de la carte 0 de la main
         /// </summary>
