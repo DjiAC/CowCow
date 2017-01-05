@@ -45,7 +45,7 @@
         </Rectangle>
         <Image x:Name="Sens" HorizontalAlignment="Left" Height="214" Margin="851,217,0,0" VerticalAlignment="Top" Width="149" Source="{Binding SensImage}" Opacity="0.8"/>
         <WrapPanel Margin="178,558,190,10" HorizontalAlignment="Center" VerticalAlignment="Center" Height="161" Width="650" >
-            <Button x:Name="CarteMain0" Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
+            <Button x:Name="CarteMain0" Content="{Binding CarteMain1}"  Click="Carte0Click" Width="102" Height="159" BorderBrush="Black" RenderTransformOrigin="0.5,0.5">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <TranslateTransform X="20"/>
@@ -96,8 +96,8 @@
                 </Button.Background>
             </Button>
         </WrapPanel>
+        <TextBlock x:Name="MancheNb" HorizontalAlignment="Left" Height="26" Margin="955,522,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="51" FontSize="24" FontFamily="KBTheFlowerFarm" Background="#7F4FF52A" TextAlignment="Center"/>
         <TextBlock x:Name="Manche" HorizontalAlignment="Left" Height="26" Margin="851,522,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7F4FF52A"><Run Text="Manche"/><Run Text=" #"/></TextBlock>
-        <TextBlock x:Name="MancheNb" HorizontalAlignment="Left" Height="26" Margin="971,522,0,0" TextWrapping="Wrap" Text="{Binding NbManche}" VerticalAlignment="Top" Width="35" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7F4FF52A"/>
         <Image HorizontalAlignment="Left" Height="214" Margin="8,217,0,0" VerticalAlignment="Top" Width="140" Source="Images/Verso.png" Opacity="0.8"/>
         <Button x:Name="button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Height="123" BorderThickness="0" Margin="8,10,0,0" Click="MenuClick">
             <Button.Background>
@@ -131,8 +131,8 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <TextBlock x:Name="LimiteMouche" HorizontalAlignment="Left" Height="26" Margin="851,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm" Background="#7FE68F47" Text="Limite "/>
         <TextBlock x:Name="LimiteMoucheNb" HorizontalAlignment="Left" Height="26" Margin="955,486,0,0" TextWrapping="Wrap" Text="{Binding LimiteDeMouche}" VerticalAlignment="Top" Width="51" FontSize="24" FontFamily="KBTheFlowerFarm"  TextAlignment="Center" Background="#7FE68F47"/>
-        <Image x:Name="MoucheJoueur2_Copy" HorizontalAlignment="Left" Height="30" Margin="927,484,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
+        <TextBlock x:Name="LimiteMouche" HorizontalAlignment="Left" Height="26" Margin="851,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="24" FontFamily="KBTheFlowerFarm" Background="#7FE68F47" Text="Limite "/>
+        <Image x:Name="MoucheJoueur2_Copy" HorizontalAlignment="Left" Height="30" Margin="925,484,0,0" VerticalAlignment="Top" Width="38" Source="Images/mouche.png" Stretch="Fill" RenderTransformOrigin="0.5,9.167"/>
     </Grid>
 </Window>

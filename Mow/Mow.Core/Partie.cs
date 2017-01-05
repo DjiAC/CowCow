@@ -118,11 +118,10 @@ namespace Mow.Core
         {
             CreerPioche(); // Création de la pioche
 
-            CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant
+            CreerListeDeJoueur(TypeDePartie, 4, 1); // On créé la liste de joueur participant - en dur : 4 ordinateurs + 1 humain
 
             DistribuerCarte();
 
-            NbManche = 1; // initialisation numero manche
         }
 
         public void JouerPartie()
@@ -506,7 +505,8 @@ namespace Mow.Core
                     joueur.Main.Add(Pioche.Pop()); // Pour chaque joueur, on lui donne une carte dans samain
                 }
             }
-            CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+
+            CarteMain1 = "Images/VacheNormale-8-0.png"; //"Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
             CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
             CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
             CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
