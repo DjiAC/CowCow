@@ -39,11 +39,11 @@ namespace Mow.Core
         public int ScoreSavitar { get; set; } // Score Savitar
         public int ScoreRobert { get; set; } // Score Robert
 
-        public string CarteMain1 { get; set; } // Lien image Carte 1 de la main
-        public string CarteMain2 { get; set; } // Lien image Carte 2 de la main
-        public string CarteMain3 { get; set; } // Lien image Carte 3 de la main
-        public string CarteMain4 { get; set; } // Lien image Carte 4 de la main
-        public string CarteMain5 { get; set; } // Lien image Carte 5 de la main
+        public string CarteMain0 { get; set; } // Lien image Carte 1 de la main
+        public string CarteMain1 { get; set; } // Lien image Carte 2 de la main
+        public string CarteMain2 { get; set; } // Lien image Carte 3 de la main
+        public string CarteMain3 { get; set; } // Lien image Carte 4 de la main
+        public string CarteMain4 { get; set; } // Lien image Carte 5 de la main
 
         public Partie(string TypePartie, int NbJoueurs, string nomJoueur, int NbMouche)
         {
@@ -187,11 +187,11 @@ namespace Mow.Core
                     if (Pioche.Count != 0)
                         Joueurs.ElementAt(IndexJoueur).Main.Add(Pioche.Pop()); // Le joueur pioche une carte à la fin de son tour
                     // Actualisation de la main du joueur
-                    CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
-                    CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
-                    CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
-                    CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
-                    CarteMain5 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
+                    CarteMain0 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+                    CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
+                    CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
+                    CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
+                    CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
                 }
 
               
@@ -516,11 +516,11 @@ namespace Mow.Core
                 }
             }
 
-            CarteMain1 = "Images/VacheNormale-8-0.png"; //"Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
-            CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
-            CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
-            CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
-            CarteMain5 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
+            CarteMain0 = "Images/VacheNormale-8-0.png"; //"Images/" + Joueurs.ElementAt(0).Main.ElementAt(0).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(0).NombreDeMouche + ".png"; // Récupération lien image Carte 1
+            CarteMain1 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(1).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(1).NombreDeMouche + ".png"; // Récupération lien image Carte 2
+            CarteMain2 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(2).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(2).NombreDeMouche + ".png"; // Récupération lien image Carte 3
+            CarteMain3 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(3).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(3).NombreDeMouche + ".png"; // Récupération lien image Carte 4
+            CarteMain4 = "Images/" + Joueurs.ElementAt(0).Main.ElementAt(4).TypeDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NumeroDeCarte + "-" + Joueurs.ElementAt(0).Main.ElementAt(4).NombreDeMouche + ".png"; // Récupération lien image Carte 5
         }
 
         /// <summary>
